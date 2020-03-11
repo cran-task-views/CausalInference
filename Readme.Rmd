@@ -1,0 +1,35 @@
+---
+title: "Causal Inference Task View"
+author: "Imke Mayer, Julie Josse and Stefan Wager"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The Causal Inference task view source is in the file `CausalInference.ctv` that
+can be transformed into an HTML file using the **R** package [ctv](https://CRAN.R-project.org/package=ctv)
+
+
+```{r ctvread, eval=TRUE}
+library(ctv)
+setwd(paste(getwd(), "source", sep = "/"))
+source_ctv <- read.ctv("CausalInference.ctv")
+```
+
+```{r ctv2html, eval=TRUE}
+ctv2html(source_ctv)
+```
+
+In addition, CTV can be checked before submission to CRAN with:
+```{r ctvcheck, eval=FALSE}
+check_ctv_packages("source/CausalInference.ctv")
+```
+

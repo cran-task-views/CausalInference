@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>CRAN Task View: Causal Inference</title>
+  <link rel="stylesheet" type="text/css" href="../CRAN_web.css" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="citation_title" content="CRAN Task View: Causal Inference" />
+  <meta name="citation_author" content="Imke Mayer, Julie Josse and Stefan Wager" />
+  <meta name="citation_publication_date" content="2020-03-11" />
+  <meta name="citation_public_url" content="https://CRAN.R-project.org/view=MissingData" />
+  <meta name="DC.title" content="CRAN Task View: Causal Inference" />
+  <meta name="DC.creator" content="Imke Mayer, Julie Josse and Stefan Wager" />
+  <meta name="DC.issued" content="2020-03-11" />
+  <meta name="DC.identifier" content="https://CRAN.R-project.org/view=MissingData" />
+</head>
+
+<body>
+  <h2>CRAN Task View: Causal Inference</h2>
+  <table summary="CausalInference task view information">
+    <tr><td valign="top"><b>Maintainer:</b></td><td>Imke Mayer, Julie Josse and Stefan Wager</td></tr>
+    <tr><td valign="top"><b>Contact:</b></td><td>&#x6d;&#x61;&#x79;&#x65;&#x72;&#x2e;&#x69;&#x6d;&#x6b;&#x65;&#x20;&#x61;&#x74;&#x20;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</td></tr>
+    <tr><td valign="top"><b>Version:</b></td><td>2020-03-11</td></tr>
+    <tr><td valign="top"><b>URL:</b></td><td><a href="https://CRAN.R-project.org/view=MissingData">https://CRAN.R-project.org/view=MissingData</a></td></tr>
+  </table>
+
+    <div>
+      <p>
+        Causal inference is a specific field of statistical analysis that looks into questions about effects of a treatment, intervention or policy on some target variable. Under certain model assumptions, causal inferences can be carried out by fitting simple regression models or combining several regression models in a specific way as will be sketched out later.
+      </p>
+      <p>
+        There do not exist basic R functions to do causal analyses straight away, but many methods - more or less complex - are implemented in different packages on CRAN, which we structure into main topics:
+      </p>
+      <ul>
+        <li>
+          <a href="#rct">
+            Methods for experimental data
+          </a>
+        </li>
+        <li>
+          <a href="#ate">
+            Average treatment effect estimation
+          </a>
+        </li>
+        <li>
+          <a href="#hte">
+            Heterogeneous treatment effect estimation
+          </a>
+        </li>
+        <li>
+          <a href="#policy">
+            Policy learning
+          </a>
+        </li>
+        <li>
+          <a href="#dag">
+            Causal discovery
+          </a>
+        </li>
+        <li>
+          <a href="#data">
+            Specific types of data
+          </a>
+        </li>
+        <li>
+          <a href="#applications">
+            Specific application fields
+          </a>
+        </li>
+      </ul>
+      <p>
+        If you think that we missed some important packages in this list, please contact the maintainer.
+      </p>
+      <p>
+        <a name="rct">
+          <strong>
+            Methods for experimental data
+          </strong>
+        </a>
+      </p>
+      <ul>
+        <li>
+          <i>..
+          </i>
+          is implemented in the packages
+<a href="../packages/grf/index.html">grf</a>
+          and
+<a href="../packages/grf/index.html">grf</a>.
+<a href="../packages/grf/index.html">grf</a>
+          also provides defineable missing values, along with infrastruture for the management of survey data and variable labels.
+        </li>
+        <li>
+          <i>..
+          </i>
+          can be identified and explored using the packages
+<a href="../packages/grf/index.html">grf</a>,
+<a href="../packages/grf/index.html">grf</a>,
+<a href="../packages/grf/index.html">grf</a>,
+<a href="../packages/grf/index.html">grf</a>, and
+<a href="../packages/grf/index.html">grf</a>.
+        </li>
+        <li>
+          <i>
+            Graphics that describe ..
+          </i>
+          are implemented in
+<a href="../packages/grf/index.html">grf</a>
+          and
+<a href="../packages/grf/index.html">grf</a>
+          (which abides by
+          <a href="https://tidyverse.org">
+            tidyverse
+          </a>
+          principles).
+        </li>
+        <li>
+          <i>
+            Tests of the .. assumption
+          </i>
+          are implemented in the function
+<tt>..</tt>
+          from
+<a href="../packages/grf/index.html">grf</a>
+          (..'s test) and from
+<a href="../packages/grf/index.html">grf</a>
+          (a non parametric test).
+        </li>
+        <li>
+          <i>
+            Evaluation with simulations
+          </i>
+          can be performed using the function
+<tt>..</tt>
+          of
+<a href="../packages/grf/index.html">grf</a>.
+        </li>
+      </ul>
+      <p>
+        <a name="ate">
+          <strong>
+            Average treatment effect estimation
+          </strong>
+        </a>
+      </p>
+      <ul>
+        <li>
+          <i>
+            Methods based on matching
+          </i>
+          are implemented in
+<a href="../packages/grf/index.html">grf</a>
+          (using the function
+<tt>..</tt>
+          for multivariate Gaussian data), in
+<a href="../packages/grf/index.html">grf</a>
+          (function
+<tt>..</tt>
+          for multivariate categorical data), in
+<a href="../packages/grf/index.html">grf</a>
+          (function
+<tt>..</tt>
+          for multivariate mixed categorical and continuous data). These packages also implement
+          <i>..
+          </i>
+          for the same models (functions
+<tt>..</tt>
+          XXX for
+<tt>..</tt>,
+<tt>..</tt>
+          and
+<tt>..</tt>) and can be used to obtain imputed complete datasets or multiple imputations (functions
+<tt>imp.</tt>
+          XXX for
+<tt>norm</tt>,
+<tt>cat</tt>
+          and
+<tt>mix</tt>), once the model parameters have been estimated. In addition,
+<a href="../packages/grf/index.html">grf</a>
+          implements .. estimation (and other simpler .. methods) that are well suited for for dichotomous and polytomous test with item responses.
+        </li>
+        <li>
+          <i>
+            Inverse propensity weighting
+          </i>
+          (also known as inverse probability of treatment weighting, IPTW) is available in
+<a href="../packages/grf/index.html">grf</a>,
+<a href="../packages/grf/index.html">grf</a>
+          and
+<a href="../packages/grf/index.html">grf</a>.
+        </li>
+        <li>
+          <i>
+            Other balancing score weighting methods
+          </i>
+          for balancing covariate distributions via constrained optimization is available in
+<a href="../packages/grf/index.html">grf</a>. The package also provides ...
+        </li>
+        <li>
+          <i>
+            Conditional outcome regression based methods
+          </i>
+          are supported in the packages
+<a href="../packages/grf/index.html">grf</a>,
+<a href="../packages/grf/index.html">grf</a>
+          and
+<a href="../packages/grf/index.html">grf</a>, the last one being based on a Bayesian approach.
+        </li>
+        <li>
+          <i>
+            Doubly robust methods
+          </i>
+          are implemented in
+<a href="../packages/grf/index.html">grf</a>,
+<a href="../packages/grf/index.html">grf</a>
+          and
+<a href="../packages/grf/index.html">grf</a>.
+        </li>
+        <li>
+          <i>
+            Other methods based on latent confounding
+          </i>
+          are implemented in
+<a href="../packages/grf/index.html">grf</a>.
+        </li>
+        <li>
+          <i>
+            Instrumental variable methods
+          </i>
+          are implemented in
+<a href="../packages/grf/index.html">grf</a>.
+        </li>
+      </ul>
+      <p>
+        <a name="hte">
+          <strong>
+            Heterogeneous treatment effect estimation
+          </strong>
+        </a>
+      </p>
+      <p>
+        Some of the above mentioned packages can also be used for heterogeneous treatment effect (HTE) estimation.
+      </p>
+      <ul>
+        <li>
+          <i>
+            S-learner
+          </i>
+          is a popular method for missing data imputation that is available in many packages including
+<a href="../packages/DMwR/index.html">DMwR</a>,
+<a href="https://www.Bioconductor.org/packages/release/bioc/html/impute.html"><span class="BioC">impute</span></a>,
+<a href="../packages/VIM/index.html">VIM</a>,
+<a href="../packages/GenForImp/index.html">GenForImp</a>
+          and
+<a href="../packages/yaImpute/index.html">yaImpute</a>
+          (with many different methods for kNN imputation, including a CCA based imputation).
+<a href="../packages/wNNSel/index.html">wNNSel</a>
+          implements a kNN based method for imputation in large dimensional datasets.
+        </li>
+        <li>
+          <i>
+            T-learner
+          </i>
+          imputation is implemented in
+<a href="../packages/hot.deck/index.html">hot.deck</a>,
+<a href="../packages/HotDeckImputation/index.html">HotDeckImputation</a>,
+<a href="../packages/FHDI/index.html">FHDI</a>
+          and
+<a href="../packages/VIM/index.html">VIM</a>
+          (function
+<tt>hotdeck</tt>).
+<a href="../packages/StatMatch/index.html">StatMatch</a>
+          uses hot deck imputation to impute surveys from an external dataset.
+        </li>
+        <li>
+          <i>
+            R-learner
+          </i>
+          are implemented in
+<a href="../packages/VIM/index.html">VIM</a>
+          (linear regression based imputation in the function
+<tt>regressionImp</tt>). In addition,
+<a href="../packages/simputation/index.html">simputation</a>
+          that is a general package for imputation by any prediction method that can be combined with various regression methods, and works well with the tidyverse.
+<a href="../packages/WaverR/index.html">WaverR</a>
+          imputes data using a weighted average of several regressions.
+        </li>
+        <li>
+          <i>
+            Causal forest
+          </i>
+          in
+<a href="../packages/grf/index.html">grf</a>. This package support missing covariate values.
+        </li>
+        <li>
+          <i>..
+          </i>
+          in
+<a href="../packages/grf/index.html">grf</a>
+          and in
+<a href="../packages/grf/index.html">grf</a>.
+        </li>
+        <li>
+          <i>..
+          </i>
+          is implemented in the package
+<a href="../packages/grf/index.html">grf</a>
+          for numerical, categorical and mixed data.
+        </li>
+        <li>
+<a href="../packages/grf/index.html">grf</a>
+          and
+<a href="../packages/grf/index.html">grf</a>
+          also provide diagnostic plots to
+          <i>
+            evaluate the quality of HTE estimation
+          </i>.
+        </li>
+      </ul>
+      <p>
+        <a name="policy">
+          <strong>
+            Policy learning
+          </strong>
+        </a>
+      </p>
+      <ul>
+        <li>
+<a href="../packages/grf/index.html">grf</a>
+          implements efficient policy learning using .. to estimate the parameters, for quantitative data it .. assuming a Multivariate Gaussian distribution. In addition, .. is a GUI for
+<a href="../packages/grf/index.html">grf</a>, available from the
+          <a href="">.. web page
+          </a>.
+        </li>
+        <li>
+<a href="../packages/grf/index.html">grf</a>,
+<a href="../packages/grf/index.html">grf</a>
+          and
+<a href="../packages/grf/index.html">grf</a>
+          implement ...
+<a href="../packages/grf/index.html">grf</a>
+          extends the models covered by the two previous packages.
+<a href="../packages/grf/index.html">grf</a>
+          provides an alternative implementation of .. methods using object oriented style programming and c++.
+<a href="../packages/grf/index.html">grf</a>.. under .. model for use with
+<a href="../packages/grf/index.html">grf</a>.
+        </li>
+        <li>
+<a href="../packages/grf/index.html">grf</a>
+          (for mixed datasets) suggests .. based on Bayesian nonparametrics methods.
+        </li>
+      </ul>
+      <p>
+        In addition,
+<a href="../packages/grf/index.html">grf</a>
+        provide a generic approach to handle .. in combination with any .. method.
+      </p>
+      <p>
+        <a name="dag">
+          <strong>
+            Causal discovery
+          </strong>
+        </a>
+      </p>
+      <ul>
+        <li>
+<a href="../packages/grf/index.html">grf</a>
+          implements .. using .. to estimate the parameters, for quantitative data it .. assuming a Multivariate Gaussian distribution. In addition, .. is a GUI for
+<a href="../packages/grf/index.html">grf</a>, available from the
+          <a href="">.. web page
+          </a>.
+        </li>
+        <li>
+<a href="../packages/grf/index.html">grf</a>,
+<a href="../packages/grf/index.html">grf</a>
+          and
+<a href="../packages/grf/index.html">grf</a>
+          implement ...
+<a href="../packages/grf/index.html">grf</a>
+          extends the models covered by the two previous packages.
+<a href="../packages/grf/index.html">grf</a>
+          provides an alternative implementation of .. methods using object oriented style programming and c++.
+<a href="../packages/grf/index.html">grf</a>.. under .. model for use with
+<a href="../packages/grf/index.html">grf</a>.
+        </li>
+        <li>
+<a href="../packages/grf/index.html">grf</a>
+          (for mixed datasets) suggests .. based on Bayesian nonparametrics methods.
+        </li>
+      </ul>
+      <p>
+        In addition,
+<a href="../packages/dagitty/index.html">dagitty</a>
+        provides a graphical tool to represent and analyze structural causal models (a web-based environment is also available:
+        <a href="http://dagitty.net">
+          DAGitty
+        </a>)
+      </p>
+      <p>
+        <a name="data">
+          <strong>
+            Specific types of data
+          </strong>
+        </a>
+      </p>
+      <ul>
+        <li>
+          <i>
+            Longitudinal data / time series and censored data
+          </i>: Imputation for time series is implemented in
+<a href="../packages/grf/index.html">grf</a>
+          and
+<a href="../packages/grf/index.html">grf</a>. Other packages, such as
+<a href="../packages/grf/index.html">grf</a>,
+<a href="../packages/grf/index.html">grf</a>,
+<a href="../packages/grf/index.html">grf</a>,
+<a href="../packages/grf/index.html">grf</a>,
+<a href="../packages/grf/index.html">grf</a>,
+<a href="../packages/grf/index.html">grf</a>
+          or
+<a href="../packages/grf/index.html">grf</a>, are dedicated to time series but also contain some (often basic) methods to handle missing data (see also
+<a href="MissingData.html">MissingData</a>). To help fill down missing values for time series, the
+<a href="../packages/grf/index.html">grf</a>
+          and
+<a href="../packages/grf/index.html">grf</a>
+          packages provides methods for imputing implicit missing values. Imputation of time series based on Dynamic Time Warping is implemented in
+<a href="../packages/grf/index.html">grf</a>
+          for univariate time series and in
+<a href="../packages/grf/index.html">grf</a>
+          for multivariate ones.
+<a href="../packages/grf/index.html">grf</a>
+          also imputed data below the range for exploratory graphical analysis with the function
+<tt>impute_below</tt>.
+<a href="../packages/grf/index.html">grf</a>
+          implements an estimation of the autoregressive threshold models with Gaussian noise and of positive-valued time series with a Bayesian approach in the presence of missing data.
+<a href="../packages/grf/index.html">grf</a>
+          implements a probability weighted generalized estimating equations method for longitudinal data with missing observations and measurement error in covariates based on SIMEX.
+<a href="../packages/grf/index.html">grf</a>
+          performs imputation for censored responses for interval data.
+<a href="../packages/grf/index.html">grf</a>
+          proposes tools to benchmark missing data imputation in univariate time series.
+        </li>
+        <li>
+          <i>
+            Spatial data
+          </i>: Imputation for spatial data is implemented in
+<a href="../packages/grf/index.html">grf</a>
+          using interpolation with spatial distance weights or kriging.
+<a href="../packages/grf/index.html">grf</a>
+          is dedicated to satellite data and geostatistical interpolation of data with irregular spatial support is implemented in
+<a href="../packages/grf/index.html">grf</a>
+        </li>
+        <li>
+          <i>
+            Spatio-temporal data
+          </i>: Imputation for spatio-temporal data is implemented in the package
+<a href="../packages/grf/index.html">grf</a>
+          using different methods as knn and SVD. Similarly,
+<a href="../packages/grf/index.html">grf</a>
+          imputes missing values in daily precipitation time series accross different locations and
+<a href="../packages/grf/index.html">grf</a>
+          imputes missing data air polluant concentrations.
+        </li>
+        <li>
+          <i>
+            Graphs/networks
+          </i>: Imputation for graphs/networks is implemented in the package
+<a href="../packages/dils/index.html">dils</a>
+          to impute missing edges.
+<a href="../packages/grf/index.html">grf</a>
+          provides a framework for analyzing Probabilistic Suffix Trees, including functions for learning and optimizing VLMC (variable length Markov chains) models from sets of individual sequences possibly containing missing values.
+        </li>
+        <li>
+          <i>.. for contingency table
+          </i>
+          is implemented in
+<a href="../packages/grf/index.html">grf</a>
+          that can also be used for the analysis of contingency tables with missing data.
+        </li>
+        <li>
+          <i>.. for compositional data (CODA)
+          </i>
+          is implemented in
+<a href="../packages/grf/index.html">grf</a>
+          (based on kNN or EM approaches) and in
+<a href="../packages/grf/index.html">grf</a>
+          (various imputation methods for zeros, left-censored and missing data).
+        </li>
+        <li>
+<a href="../packages/experiment/index.html">experiment</a>
+          handles missing values in experimental design such as randomized experiments with missing covariate and outcome data, matched-pairs design with missing outcome.
+        </li>
+      </ul>
+      <p>
+        <a name="applications">
+          <strong>
+            Specific application fields
+          </strong>
+        </a>
+      </p>
+      <ul>
+        <li>..
+        </li>
+      </ul>
+    </div>
+
+  <h3>CRAN packages:</h3>
+  <ul>
+    <li><a href="../packages/experiment/index.html">experiment</a></li>
+    <li><a href="../packages/grf/index.html">grf</a></li>
+  </ul>
+
+  <h3>Related links:</h3>
+  <ul>
+    <li>CRAN Task View: <a href="MissingData.html">MissingData</a></li>
+    <li>Bioconductor Package: <a href="https://www.Bioconductor.org/packages/release/bioc/html/impute.html"><span class="BioC">impute</span></a></li>
+    <li>Bioconductor Package: <a href="https://www.Bioconductor.org/packages/release/bioc/html/pcaMethods.html"><span class="BioC">pcaMethods</span></a></li>
+    <li><a href="http://dagitty.net">
+  DAGitty: draw and analyze causal diagrams
+</a></li>
+  </ul>
+
+</body>
+</html>
