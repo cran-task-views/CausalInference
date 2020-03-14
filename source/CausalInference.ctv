@@ -22,28 +22,30 @@
 
     <p><a name="rct"><strong>Methods for experimental data</strong></a></p>
     <ul>
-      <li><i>Construction of experimental designs</i> is implemented in </li>
+      <li><i>Construction of experimental designs</i> is implemented in <pkg>blocksdesign</pkg> (blocks for general factorial treatment designs),<pkg>blockRAR</pkg> (response-adaptive randomization), <pkg>Boptbd</pkg> (Bayesian optimal block designs under linear mixed effects model). Additionally <pkg>BayesCTDesign</pkg> provides tools for power and sample size calculations for two-arm Bayesian RCTs.</li>
+      <li><i>Tests based on pairwise comparisons</i> are provided in <pkg>BuyseTest</pkg> and <pkg>grf</pkg>. <pkg>grf</pkg> also provides defineable missing values, along with infrastruture for the management of survey data and variable labels.</li>
       <li><i>Regression models</i> where the causal estimand is defined as a coefficient of a regression model are implemented in the packages <pkg>allestimates</pkg> and <pkg>grf</pkg>. <pkg>grf</pkg> also provides defineable missing values, along with infrastruture for the management of survey data and variable labels.</li>
       <li><i>Survival data</i> can be analyzed using the packages <pkg>grf</pkg>, <pkg>grf</pkg>, <pkg>grf</pkg>, <pkg>grf</pkg>, and <pkg>grf</pkg>.</li>
       <li><i>..</i> can be identified and explored using the packages <pkg>grf</pkg>, <pkg>grf</pkg>, <pkg>grf</pkg>, <pkg>grf</pkg>, and <pkg>grf</pkg>.</li>
       <li><i>Graphics that describe ..</i> are implemented in <pkg>grf</pkg> and <pkg>grf</pkg> (which abides by <a href="https://tidyverse.org">tidyverse</a> principles).</li>
       <li><i>Tests of the .. assumption </i> are implemented in the function <code>..</code> from <pkg>grf</pkg> (..'s test) and from <pkg>grf</pkg> (a non parametric test).</li>
       <li><i>Evaluation with simulations</i> can be performed using the function <code>..</code> of <pkg>grf</pkg>.</li>
+      <li><i>Posterior analysis tools</i> are implemented in <pkg>beanz</pkg> (Bayesian HTE models), .</li>
     </ul>
 
     <p><a name="ate"><strong>Average treatment effect estimation</strong></a></p>
     <ul>
-      <li><i>Regression models</i> where the causal estimand is a regression parameter are implemented in .
+      <li><i>Regression models</i> where the causal estimand is a regression parameter are implemented in <pkg>borrowr</pkg> (Bayesian PATE estimation for multiple exchangeable data sources).
       <li><i>Methods based on matching</i> are implemented in <pkg>grf</pkg> (using the function <code>..</code> for multivariate Gaussian data), in <pkg>grf</pkg> (function <code>..</code> for multivariate categorical data), in <pkg>grf</pkg> (function <code>..</code> for multivariate mixed categorical and continuous data). These packages also implement <i>..</i> for the same models (functions <code>..</code>XXX for <code>..</code>, <code>..</code> and <code>..</code>) and can be used to obtain imputed complete datasets or multiple imputations (functions <code>imp.</code>XXX for <code>norm</code>, <code>cat</code> and <code>mix</code>), once the model parameters have been estimated. In addition, <pkg>grf</pkg> implements .. estimation (and other simpler .. methods) that are well suited for for dichotomous and polytomous test with item responses.</li>
       <li><i>Inverse propensity weighting</i> (also known as inverse probability of treatment weighting, IPTW) is available in <pkg>grf</pkg>, <pkg>grf</pkg> and <pkg>grf</pkg>.</li>
       <li><i>Other balancing score weighting methods</i> for balancing covariate distributions via constrained optimization is available in <pkg>grf</pkg>. The package also provides ...</li>
       <li><i>Conditional outcome regression based methods</i> are supported in the packages <pkg>grf</pkg>, <pkg>grf</pkg> and <pkg>grf</pkg>, the last one being based on a Bayesian approach.</li>
       <li><i>Doubly robust methods</i> are implemented in <pkg>grf</pkg>, <pkg>grf</pkg> and <pkg>grf</pkg>.</li>
       <li><i>Difference in differences methods</i> are implemented in <pkg>grf</pkg>.</li>
-      <li><i>Instrumental variable methods</i> are implemented in <pkg>grf</pkg>.</li>
+      <li><i>Instrumental variable methods</i> are implemented in <pkg>bpbounds</pkg> (nonparametric bounds on ATE).</li>
       <li><i>Other methods based on latent confounding</i> are implemented in <pkg>grf</pkg>.</li>
     </ul>
-    <p>In addition, <pkg>grf</pkg> provide tests to assess balancing of the treatment groups after matching.</p>
+    <p>In addition, <pkg>BalanceCheck</pkg> provide tests to assess balancing of the treatment groups after matching.</p>
 
 
     <p><a name="hte"><strong>Heterogeneous treatment effect estimation</strong></a></p>
@@ -88,7 +90,8 @@
 
     <p><a name="applications"><strong>Specific application fields</strong></a></p>
     <ul>
-      <li>..</li>
+      <li>Behavior change science use specialized analyses and visualization tools implemented in <pkg>behaviorchange</pkg>.</li>
+      <li>Evaluation of biomarkers and estimation of treatment-biomarker effects can be done using tools from <pkg>bhm</pkg> (for biomarker-treatment effects) and .</li>
     </ul>
   </info>
 
