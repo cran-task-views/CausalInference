@@ -2,7 +2,7 @@
   <name>CausalInference</name>
   <topic>Causal Inference</topic>
   <maintainer email="mayer.imke@gmail.com">Imke Mayer, Julie Josse and Stefan Wager</maintainer>
-  <version>2020-03-11</version>
+  <version>2020-03-20</version>
   <url>https://CRAN.R-project.org/view=MissingData</url>
   <info>
     <p>
@@ -14,7 +14,7 @@
       <li><a href="#ate">Average treatment effect estimation</a></li>
       <li><a href="#hte">Heterogeneous treatment effect estimation</a></li>
       <li><a href="#policy">Policy learning</a></li>
-      <li><a href="#dag">Causal discovery</a></li>
+      <li><a href="#dag">Do-calculus and causal discovery</a></li>
       <li><a href="#data">Specific types of data</a></li>
       <li><a href="#applications">Specific application fields</a></li>
     </ul>
@@ -25,27 +25,28 @@
       <li><i>Construction of experimental designs</i> is implemented in <pkg>blocksdesign</pkg> (blocks for general factorial treatment designs),<pkg>blockRAR</pkg> (response-adaptive randomization), <pkg>Boptbd</pkg> (Bayesian optimal block designs under linear mixed effects model). Additionally <pkg>BayesCTDesign</pkg> provides tools for power and sample size calculations for two-arm Bayesian RCTs.</li>
       <li><i>Tests based on pairwise comparisons</i> are provided in <pkg>BuyseTest</pkg> and <pkg>grf</pkg>. <pkg>grf</pkg> also provides defineable missing values, along with infrastruture for the management of survey data and variable labels.</li>
       <li><i>Regression models</i> where the causal estimand is defined as a coefficient of a regression model are implemented in the packages <pkg>allestimates</pkg> and <pkg>grf</pkg>. <pkg>grf</pkg> also provides defineable missing values, along with infrastruture for the management of survey data and variable labels.</li>
-      <li><i>Survival data</i> can be analyzed using the packages <pkg>grf</pkg>, <pkg>grf</pkg>, <pkg>grf</pkg>, <pkg>grf</pkg>, and <pkg>grf</pkg>.</li>
-      <li><i>..</i> can be identified and explored using the packages <pkg>grf</pkg>, <pkg>grf</pkg>, <pkg>grf</pkg>, <pkg>grf</pkg>, and <pkg>grf</pkg>.</li>
+      <li><i>Survival data</i> can be analyzed using the packages <pkg></pkg>, <pkg>grf</pkg>, <pkg>grf</pkg>, <pkg>grf</pkg>, and <pkg>grf</pkg>.</li>
+      <li><i>Biomarker responses</i> in clinical trials can be assessed using the packages <pkg>CoRpower</pkg> (power calculation for correlates of risk), <pkg>grf</pkg>, <pkg>grf</pkg>, <pkg>grf</pkg>, and <pkg>grf</pkg>.</li>
       <li><i>Graphics that describe ..</i> are implemented in <pkg>grf</pkg> and <pkg>grf</pkg> (which abides by <a href="https://tidyverse.org">tidyverse</a> principles).</li>
       <li><i>Tests of the .. assumption </i> are implemented in the function <code>..</code> from <pkg>grf</pkg> (..'s test) and from <pkg>grf</pkg> (a non parametric test).</li>
-      <li><i>Evaluation with simulations</i> can be performed using the function <code>..</code> of <pkg>grf</pkg>.</li>
-      <li><i>Posterior analysis tools</i> are implemented in <pkg>beanz</pkg> (Bayesian HTE models), .</li>
+      <li><i>Evaluation with simulations</i> can be identified and explored using the function <code>..</code> of <pkg>grf</pkg>.</li>
+      <li><i>Posterior analysis tools</i> are implemented in <pkg>beanz</pkg> (Bayesian HTE models), <pkg>cjoint</pkg> (conjoint analysis for survey experiments).</li>
     </ul>
 
     <p><a name="ate"><strong>Average treatment effect estimation</strong></a></p>
     <ul>
-      <li><i>Regression models</i> where the causal estimand is a regression parameter are implemented in <pkg>borrowr</pkg> (Bayesian PATE estimation for multiple exchangeable data sources).
-      <li><i>Methods based on matching</i> are implemented in <pkg>grf</pkg> (using the function <code>..</code> for multivariate Gaussian data), in <pkg>grf</pkg> (function <code>..</code> for multivariate categorical data), in <pkg>grf</pkg> (function <code>..</code> for multivariate mixed categorical and continuous data). These packages also implement <i>..</i> for the same models (functions <code>..</code>XXX for <code>..</code>, <code>..</code> and <code>..</code>) and can be used to obtain imputed complete datasets or multiple imputations (functions <code>imp.</code>XXX for <code>norm</code>, <code>cat</code> and <code>mix</code>), once the model parameters have been estimated. In addition, <pkg>grf</pkg> implements .. estimation (and other simpler .. methods) that are well suited for for dichotomous and polytomous test with item responses.</li>
-      <li><i>Inverse propensity weighting</i> (also known as inverse probability of treatment weighting, IPTW) is available in <pkg>grf</pkg>, <pkg>grf</pkg> and <pkg>grf</pkg>.</li>
-      <li><i>Other balancing score weighting methods</i> for balancing covariate distributions via constrained optimization is available in <pkg>grf</pkg>. The package also provides ...</li>
+      <li><i>Regression models</i> where the causal estimand is a regression parameter are implemented in <pkg>borrowr</pkg> (Bayesian PATE estimation for multiple exchangeable data sources), <pkg>causaldrf</pkg> (average causal dose response functions).
+      <li><i>Methods based on matching</i> are implemented in <pkg>CMatching</pkg> (for cluster data), (using the function <code>..</code> for multivariate Gaussian data), in <pkg>grf</pkg> (function <code>..</code> for multivariate categorical data), in <pkg>grf</pkg> (function <code>..</code> for multivariate mixed categorical and continuous data). These packages also implement <i>..</i> for the same models (functions <code>..</code>XXX for <code>..</code>, <code>..</code> and <code>..</code>) and can be used to obtain imputed complete datasets or multiple imputations (functions <code>imp.</code>XXX for <code>norm</code>, <code>cat</code> and <code>mix</code>), once the model parameters have been estimated. In addition, <pkg>grf</pkg> implements .. estimation (and other simpler .. methods) that are well suited for for dichotomous and polytomous test with item responses.</li>
+      <li><i>Inverse propensity weighting</i> (also known as inverse probability of treatment weighting, IPTW) is available in <pkg>causalweight</pkg>, <pkg>clusteredinterference</pkg> (under interference assumptions) and <pkg>grf</pkg>.</li>
+      <li><i>Other balancing score weighting methods</i> for balancing covariate distributions are available in <pkg>CBPS</pkg>, <pkg></pkg>(via constrained optimization). The package also provides ...</li>
       <li><i>Conditional outcome regression based methods</i> are supported in the packages <pkg>grf</pkg>, <pkg>grf</pkg> and <pkg>grf</pkg>, the last one being based on a Bayesian approach.</li>
       <li><i>Doubly robust methods</i> are implemented in <pkg>grf</pkg>, <pkg>grf</pkg> and <pkg>grf</pkg>.</li>
       <li><i>Difference in differences methods</i> are implemented in <pkg>grf</pkg>.</li>
       <li><i>Instrumental variable methods</i> are implemented in <pkg>bpbounds</pkg> (nonparametric bounds on ATE).</li>
+      <li><i>Mediation analysis</i> can be performed with <pkg>cfma</pkg> (functional mediation analysis), <pkg>cit</pkg> (likelihood-based tests)</li>
       <li><i>Other methods based on latent confounding</i> are implemented in <pkg>grf</pkg>.</li>
     </ul>
-    <p>In addition, <pkg>BalanceCheck</pkg> provide tests to assess balancing of the treatment groups after matching.</p>
+    <p>In addition, <pkg>causalsens</pkg> provides functions for sensitivity analyses, <pkg>BalanceCheck</pkg> provides tests to assess balancing of the treatment groups after matching and <pkg>cobalt</pkg> generates balance tables and plots before and after covariate balancing.</p>
 
 
     <p><a name="hte"><strong>Heterogeneous treatment effect estimation</strong></a></p>
@@ -68,9 +69,11 @@
     </ul>
     <p>In addition, <pkg>grf</pkg> provide a generic approach to handle .. in combination with any .. method.</p>
 
-    <p><a name="dag"><strong>Causal discovery</strong></a></p>
+    <p><a name="dag"><strong>Do-calculus and causal discovery</strong></a></p>
     <ul>
-      <li><pkg>grf</pkg> implements .. using .. to estimate the parameters, for quantitative data it .. assuming a Multivariate Gaussian distribution. In addition, .. is a GUI for <pkg>grf</pkg>, available from the <a href="">.. web page</a>.</li>
+      <li><i>Identifiability</i> is addressed by <pkg>causaleffect</pkg> providing an algorithm to decide whether a causal effect is identifiable or not.</li>
+      <li><pkg>CIEE</pkg> allows estimation of causal effects using estimating equations derived from a DAG.</li>
+      <li><i>Causal networks estimation</i> is implemented in <pkg>CompareCausalNetworks</pkg>, </li>
       <li><pkg>grf</pkg>, <pkg>grf</pkg> and <pkg>grf</pkg> implement ... <pkg>grf</pkg> extends the models covered by the two previous packages. <pkg>grf</pkg> provides an alternative implementation of .. methods using object oriented style programming and c++. <pkg>grf</pkg> .. under .. model for use with <pkg>grf</pkg>.</li>
       <li><pkg>grf</pkg> (for mixed datasets) suggests .. based on Bayesian nonparametrics methods.</li>
     </ul>
@@ -79,7 +82,8 @@
 
     <p><a name="data"><strong>Specific types of data</strong></a></p>
     <ul>
-      <li><i>Longitudinal data / time series and censored data</i>: Imputation for time series is implemented in <pkg>grf</pkg> and <pkg>grf</pkg>. Other packages, such as <pkg>grf</pkg>, <pkg>grf</pkg>, <pkg>grf</pkg>, <pkg>grf</pkg>, <pkg>grf</pkg>, <pkg>grf</pkg> or <pkg>grf</pkg>, are dedicated to time series but also contain some (often basic) methods to handle missing data (see also <view>MissingData</view>). To help fill down missing values for time series, the <pkg>grf</pkg> and <pkg>grf</pkg> packages provides methods for imputing implicit missing values. Imputation of time series based on Dynamic Time Warping is implemented in <pkg>grf</pkg> for univariate time series and in <pkg>grf</pkg> for multivariate ones. <pkg>grf</pkg> also imputed data below the range for exploratory graphical analysis with the function <code>impute_below</code>. <pkg>grf</pkg> implements an estimation of the autoregressive threshold models with Gaussian noise and of positive-valued time series with a Bayesian approach in the presence of missing data. <pkg>grf</pkg> implements a probability weighted generalized estimating equations method for longitudinal data with missing observations and measurement error in covariates based on SIMEX. <pkg>grf</pkg> performs imputation for censored responses for interval data. <pkg>grf</pkg> proposes tools to benchmark missing data imputation in univariate time series.</li>
+      <li><i>Longitudinal data / time series and censored data</i>: Causal effect estimation for time series is implemented in <pkg>CausalImpact</pkg> (using a Bayesian approach) and <pkg>confoundr</pkg> (covariate-balance diagnostics).</li>
+      <li>Other packages, such as <pkg></pkg> are dedicated to time series but also contain some (often basic) methods to handle missing data (see also <view>MissingData</view>). To help fill down missing values for time series, the <pkg>grf</pkg> and <pkg>grf</pkg> packages provides methods for imputing implicit missing values. Imputation of time series based on Dynamic Time Warping is implemented in <pkg>grf</pkg> for univariate time series and in <pkg>grf</pkg> for multivariate ones. <pkg>grf</pkg> also imputed data below the range for exploratory graphical analysis with the function <code>impute_below</code>. <pkg>grf</pkg> implements an estimation of the autoregressive threshold models with Gaussian noise and of positive-valued time series with a Bayesian approach in the presence of missing data. <pkg>grf</pkg> implements a probability weighted generalized estimating equations method for longitudinal data with missing observations and measurement error in covariates based on SIMEX. <pkg>grf</pkg> performs imputation for censored responses for interval data. <pkg>grf</pkg> proposes tools to benchmark missing data imputation in univariate time series.</li>
       <li><i>Spatial data</i>: Imputation for spatial data is implemented in <pkg>grf</pkg> using interpolation with spatial distance weights or kriging. <pkg>grf</pkg> is dedicated to satellite data and geostatistical interpolation of data with irregular spatial support is implemented in <pkg>grf</pkg></li>
       <li><i>Spatio-temporal data</i>: Imputation for spatio-temporal data is implemented in the package <pkg>grf</pkg> using different methods as knn and SVD. Similarly, <pkg>grf</pkg> imputes missing values in daily precipitation time series accross different locations and <pkg>grf</pkg> imputes missing data air polluant concentrations.</li>
       <li><i>Graphs/networks</i>: Imputation for graphs/networks is implemented in the package <pkg>dils</pkg> to impute missing edges. <pkg>grf</pkg> provides a framework for analyzing Probabilistic Suffix Trees, including functions for learning and optimizing VLMC (variable length Markov chains) models from sets of individual sequences possibly containing missing values.</li>
@@ -92,6 +96,7 @@
     <ul>
       <li>Behavior change science use specialized analyses and visualization tools implemented in <pkg>behaviorchange</pkg>.</li>
       <li>Evaluation of biomarkers and estimation of treatment-biomarker effects can be done using tools from <pkg>bhm</pkg> (for biomarker-treatment effects) and .</li>
+      <li>Qualitative Comparative Analysis type methods are implemented in <pkg>cna</pkg>.</li>
     </ul>
   </info>
 
@@ -101,7 +106,9 @@
   </packagelist>
 
   <links>
+    <view>MetaAnalysis</view>
     <view>MissingData</view>
+    <view>Survival</view>
     <bioc>impute</bioc>
     <bioc priority="core">pcaMethods</bioc>
     <a href="http://dagitty.net">DAGitty: draw and analyze causal diagrams</a>
