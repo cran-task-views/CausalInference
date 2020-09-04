@@ -2,7 +2,7 @@
   <name>CausalInference</name>
   <topic>Causal Inference</topic>
   <maintainer email="mayer.imke@gmail.com">Imke Mayer, Julie Josse and Stefan Wager</maintainer>
-  <version>2020-03-20</version>
+  <version>2020-04-02</version>
   <url>https://CRAN.R-project.org/view=MissingData</url>
   <info>
     <p>
