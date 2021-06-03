@@ -62,7 +62,7 @@ causal_pkgs <- cleaned_desc %>%
 
 
 n_distinct(causal_pkgs$Package)
-#> [1] 396
+#> [1] 482
 
 write.table(unique(causal_pkgs$Package), file = "../data/causal_packages.txt",
             row.names = FALSE, col.names = FALSE, quote = FALSE)
@@ -70,7 +70,7 @@ write.table(unique(causal_pkgs$Package), file = "../data/causal_packages.txt",
 table(causal_pkgs$word)
 
 # causal intervention       policy   propensity    treatment 
-# 177           41           38           59          408
+#    226           49           53           82          491
 
 sessionInfo()
 # R version 3.5.1 (2018-07-02)
