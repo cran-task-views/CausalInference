@@ -3,7 +3,7 @@
   <topic>Causal Inference</topic>
   <maintainer email="mayer.imke@gmail.com">Imke Mayer, Julie Josse and Stefan Wager</maintainer>
   <version>2020-04-02</version>
-  <url>https://CRAN.R-project.org/view=MissingData</url>
+  <url>https://CRAN.R-project.org/view=CausalInference</url>
   <info>
     <p>
       Causal inference is a specific field of statistical analysis that looks into questions about effects of a treatment, intervention or policy on some target variable. Under certain model assumptions, causal inferences can be carried out by fitting simple regression models or combining several regression models in a specific way as will be sketched out later.
@@ -106,6 +106,9 @@
   </packagelist>
 
   <links>
+    <view>ClinicalTrials</view>
+    <view>Econometrics</view>
+    <view>ExperimentalDesign</view>
     <view>MetaAnalysis</view>
     <view>MissingData</view>
     <view>Survival</view>
