@@ -107,6 +107,7 @@
 
   <links>
     <view>ClinicalTrials</view>
+    <view>Econometrics</view>
     <view>ExperimentalDesign</view>
     <view>MetaAnalysis</view>
     <view>MissingData</view>
