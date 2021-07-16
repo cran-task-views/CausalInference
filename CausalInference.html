@@ -2,30 +2,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title>CRAN Task View: Causal Inference</title>
-  <link rel="stylesheet" type="text/css" href="../CRAN_web.css" />
+  <link rel="stylesheet" type="text/css" href="./CRAN_web.css" />
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <meta name="citation_title" content="CRAN Task View: Causal Inference" />
-  <meta name="citation_author" content="Imke Mayer, Julie Josse and Stefan Wager" />
-  <meta name="citation_publication_date" content="2020-03-11" />
+  <meta name="citation_author" content="Imke Mayer, Pan Zhao and Julie Josse" />
+  <meta name="citation_publication_date" content="2021-07-15" />
   <meta name="citation_public_url" content="https://CRAN.R-project.org/view=MissingData" />
   <meta name="DC.title" content="CRAN Task View: Causal Inference" />
-  <meta name="DC.creator" content="Imke Mayer, Julie Josse and Stefan Wager" />
-  <meta name="DC.issued" content="2020-03-11" />
+  <meta name="DC.creator" content="Imke Mayer, Pan Zhao and Julie Josse" />
+  <meta name="DC.issued" content="2021-07-15" />
   <meta name="DC.identifier" content="https://CRAN.R-project.org/view=MissingData" />
 </head>
 
 <body>
   <h2>CRAN Task View: Causal Inference</h2>
   <table summary="CausalInference task view information">
-    <tr><td valign="top"><b>Maintainer:</b></td><td>Imke Mayer, Julie Josse and Stefan Wager</td></tr>
+    <tr><td valign="top"><b>Maintainer:</b></td><td>Imke Mayer, Pan Zhao and Julie Josse</td></tr>
     <tr><td valign="top"><b>Contact:</b></td><td>&#x6d;&#x61;&#x79;&#x65;&#x72;&#x2e;&#x69;&#x6d;&#x6b;&#x65;&#x20;&#x61;&#x74;&#x20;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</td></tr>
-    <tr><td valign="top"><b>Version:</b></td><td>2020-03-11</td></tr>
+    <tr><td valign="top"><b>Version:</b></td><td>2021-07-15</td></tr>
     <tr><td valign="top"><b>URL:</b></td><td><a href="https://CRAN.R-project.org/view=MissingData">https://CRAN.R-project.org/view=MissingData</a></td></tr>
   </table>
 
     <div>
       <p>
-        Causal inference is a specific field of statistical analysis that looks into questions about effects of a treatment, intervention or policy on some target variable. Under certain model assumptions, causal inferences can be carried out by fitting simple regression models or combining several regression models in a specific way as will be sketched out later.
+        Causal inference is a specific field of statistical analysis that addresses questions about effects of a treatment, intervention or policy on some target variable. Under certain model assumptions, causal inferences can be carried out by fitting simple regression models or combining several regression models in a specific way as will be sketched out later. For observational data, additional untestable assumptions have to be made to (nonparametrically) identify causal effects.
       </p>
       <p>
         There do not exist basic R functions to do causal analyses straight away, but many methods - more or less complex - are implemented in different packages on CRAN, which we structure into main topics:
@@ -38,7 +38,7 @@
         </li>
         <li>
           <a href="#ate">
-            Average treatment effect estimation
+            Point estimation of treatment effects
           </a>
         </li>
         <li>
@@ -48,12 +48,12 @@
         </li>
         <li>
           <a href="#policy">
-            Policy learning
+            Policy learning and Dynamic Treatment Regimes
           </a>
         </li>
         <li>
           <a href="#dag">
-            Causal discovery
+            Do-calculus and causal discovery
           </a>
         </li>
         <li>
@@ -79,38 +79,68 @@
       </p>
       <ul>
         <li>
-          <i>..
+          <i>
+            Construction of experimental designs
           </i>
-          is implemented in the packages
-<a href="../packages/grf/index.html">grf</a>
+          is implemented in
+<a href="../packages/blocksdesign/index.html">blocksdesign</a>
+          (blocks for general factorial treatment designs),
+<a href="../packages/blockRAR/index.html">blockRAR</a>
+          (response-adaptive randomization),
+<a href="../packages/Boptbd/index.html">Boptbd</a>
+          (Bayesian optimal block designs under linear mixed effects model). Additionally
+<a href="../packages/BayesCTDesign/index.html">BayesCTDesign</a>
+          provides tools for power and sample size calculations for two-arm Bayesian RCTs. Many other tools and packages exist for designing experiments and clinical trials, we refer to the
+<a href="ExperimentalDesign.html">ExperimentalDesign</a>
           and
-<a href="../packages/grf/index.html">grf</a>.
-<a href="../packages/grf/index.html">grf</a>
-          also provides defineable missing values, along with infrastruture for the management of survey data and variable labels.
+<a href="ClinicalTrials.html">ClinicalTrials</a>
+          Task Views.
         </li>
         <li>
-          <i>..
+          <i>
+            Tests based on pairwise comparisons
           </i>
-          can be identified and explored using the packages
-<a href="../packages/grf/index.html">grf</a>,
-<a href="../packages/grf/index.html">grf</a>,
-<a href="../packages/grf/index.html">grf</a>,
-<a href="../packages/grf/index.html">grf</a>, and
-<a href="../packages/grf/index.html">grf</a>.
+          are provided in
+<a href="../packages/BuyseTest/index.html">BuyseTest</a>.
+        </li>
+        <li>
+          <i>
+            Regression models
+          </i>
+          where the causal estimand is defined as a coefficient of a regression model are implemented in the packages
+<a href="../packages/allestimates/index.html">allestimates</a>.
+        </li>
+        <li>
+          <i>
+            Survival data
+          </i>
+          can be analyzed using the packages
+<a href="../packages//index.html"></a>,
+<a href="../packages//index.html"></a>,
+<a href="../packages//index.html"></a>,
+<a href="../packages//index.html"></a>, and
+<a href="../packages//index.html"></a>.
+        </li>
+        <li>
+          <i>
+            Biomarker responses
+          </i>
+          in clinical trials can be assessed using the packages
+<a href="../packages/CoRpower/index.html">CoRpower</a>
+          (power calculation for correlates of risk),
+<a href="../packages//index.html"></a>,
+<a href="../packages//index.html"></a>,
+<a href="../packages//index.html"></a>, and
+<a href="../packages//index.html"></a>.
         </li>
         <li>
           <i>
             Graphics that describe ..
           </i>
           are implemented in
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           and
-<a href="../packages/grf/index.html">grf</a>
-          (which abides by
-          <a href="https://tidyverse.org">
-            tidyverse
-          </a>
-          principles).
+<a href="../packages//index.html"></a>.
         </li>
         <li>
           <i>
@@ -119,43 +149,63 @@
           are implemented in the function
 <tt>..</tt>
           from
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           (..'s test) and from
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           (a non parametric test).
         </li>
         <li>
           <i>
             Evaluation with simulations
           </i>
-          can be performed using the function
+          can be identified and explored using the function
 <tt>..</tt>
           of
-<a href="../packages/grf/index.html">grf</a>.
+<a href="../packages//index.html"></a>.
+        </li>
+        <li>
+          <i>
+            Posterior analysis tools
+          </i>
+          are implemented in
+<a href="../packages/beanz/index.html">beanz</a>
+          (Bayesian HTE models),
+<a href="../packages/cjoint/index.html">cjoint</a>
+          (conjoint analysis for survey experiments).
         </li>
       </ul>
       <p>
         <a name="ate">
           <strong>
-            Average treatment effect estimation
+            Point estimation of treatment effects
           </strong>
         </a>
       </p>
       <ul>
         <li>
           <i>
+            Regression models
+          </i>
+          where the causal estimand is a regression parameter are implemented in
+<a href="../packages/borrowr/index.html">borrowr</a>
+          (Bayesian PATE estimation for multiple exchangeable data sources),
+<a href="../packages/causaldrf/index.html">causaldrf</a>
+          (average causal dose response functions).
+        </li>
+        <li>
+          <i>
             Methods based on matching
           </i>
           are implemented in
-<a href="../packages/grf/index.html">grf</a>
-          (using the function
+<a href="../packages/CMatching/index.html">CMatching</a>
+          (for cluster data), (using the function
 <tt>..</tt>
           for multivariate Gaussian data), in
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           (function
 <tt>..</tt>
           for multivariate categorical data), in
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           (function
 <tt>..</tt>
           for multivariate mixed categorical and continuous data). These packages also implement
@@ -174,7 +224,7 @@
 <tt>cat</tt>
           and
 <tt>mix</tt>), once the model parameters have been estimated. In addition,
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           implements .. estimation (and other simpler .. methods) that are well suited for for dichotomous and polytomous test with item responses.
         </li>
         <li>
@@ -182,53 +232,101 @@
             Inverse propensity weighting
           </i>
           (also known as inverse probability of treatment weighting, IPTW) is available in
-<a href="../packages/grf/index.html">grf</a>,
-<a href="../packages/grf/index.html">grf</a>
-          and
-<a href="../packages/grf/index.html">grf</a>.
+<a href="../packages/causalweight/index.html">causalweight</a>,
+<a href="../packages/clusteredinterference/index.html">clusteredinterference</a>
+          (under interference assumptions) and
+<a href="../packages//index.html"></a>.
         </li>
         <li>
           <i>
             Other balancing score weighting methods
           </i>
-          for balancing covariate distributions via constrained optimization is available in
-<a href="../packages/grf/index.html">grf</a>. The package also provides ...
+          for balancing covariate distributions are available in
+<a href="../packages/CBPS/index.html">CBPS</a>,
+<a href="../packages//index.html"></a>
+          (via constrained optimization). The package also provides ...
         </li>
         <li>
           <i>
             Conditional outcome regression based methods
           </i>
           are supported in the packages
-<a href="../packages/grf/index.html">grf</a>,
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>,
+<a href="../packages//index.html"></a>
           and
-<a href="../packages/grf/index.html">grf</a>, the last one being based on a Bayesian approach.
+<a href="../packages//index.html"></a>, the last one being based on a Bayesian approach.
         </li>
         <li>
           <i>
             Doubly robust methods
           </i>
           are implemented in
-<a href="../packages/grf/index.html">grf</a>,
 <a href="../packages/grf/index.html">grf</a>
+          (function
+<tt>average_treatment_effect</tt>),
+<a href="../packages//index.html"></a>
           and
-<a href="../packages/grf/index.html">grf</a>.
+<a href="../packages//index.html"></a>.
         </li>
         <li>
           <i>
-            Other methods based on latent confounding
+            Targeted learning method
+          </i>
+          are available in
+<a href="../packages//index.html"></a>,
+<a href="../packages//index.html"></a>, and
+<a href="../packages//index.html"></a>.
+        </li>
+        <li>
+          <i>
+            Difference in differences methods
           </i>
           are implemented in
-<a href="../packages/grf/index.html">grf</a>.
+<a href="../packages//index.html"></a>.
         </li>
         <li>
           <i>
             Instrumental variable methods
           </i>
           are implemented in
-<a href="../packages/grf/index.html">grf</a>.
+<a href="../packages/bpbounds/index.html">bpbounds</a>
+          (nonparametric bounds on ATE).
+        </li>
+        <li>
+          <i>
+            Mediation analysis
+          </i>
+          can be performed with
+<a href="../packages/cfma/index.html">cfma</a>
+          (functional mediation analysis),
+<a href="../packages/cit/index.html">cit</a>
+          (likelihood-based tests)
+        </li>
+        <li>
+          <i>
+            Causal effect estimation with interference
+          </i>
+          can be done using
+<a href="../packages//index.html"></a>,
+<a href="../packages//index.html"></a>.
+        </li>
+        <li>
+          <i>
+            Other methods based on latent confounding
+          </i>
+          are implemented in
+<a href="../packages//index.html"></a>.
         </li>
       </ul>
+      <p>
+        In addition,
+<a href="../packages/causalsens/index.html">causalsens</a>
+        provides functions for sensitivity analyses,
+<a href="../packages/BalanceCheck/index.html">BalanceCheck</a>
+        provides tests to assess balancing of the treatment groups after matching and
+<a href="../packages/cobalt/index.html">cobalt</a>
+        generates balance tables and plots before and after covariate balancing.
+      </p>
       <p>
         <a name="hte">
           <strong>
@@ -244,71 +342,65 @@
           <i>
             S-learner
           </i>
-          is a popular method for missing data imputation that is available in many packages including
-<a href="../packages/DMwR/index.html">DMwR</a>,
-<a href="https://www.Bioconductor.org/packages/release/bioc/html/impute.html"><span class="BioC">impute</span></a>,
-<a href="../packages/VIM/index.html">VIM</a>,
-<a href="../packages/GenForImp/index.html">GenForImp</a>
+          is a popular method for .. that is available in many packages including
+<a href="../packages//index.html"></a>,
+<a href="https://www.Bioconductor.org/packages/release/bioc/html/.html"><span class="BioC"></span></a>,
+<a href="../packages//index.html"></a>,
+<a href="../packages//index.html"></a>
           and
-<a href="../packages/yaImpute/index.html">yaImpute</a>
-          (with many different methods for kNN imputation, including a CCA based imputation).
-<a href="../packages/wNNSel/index.html">wNNSel</a>
-          implements a kNN based method for imputation in large dimensional datasets.
+<a href="../packages//index.html"></a>
+          (with many different methods for ..).
+<a href="../packages//index.html"></a>
+          implements a .. method for .. in large dimensional datasets.
         </li>
         <li>
           <i>
             T-learner
           </i>
-          imputation is implemented in
-<a href="../packages/hot.deck/index.html">hot.deck</a>,
-<a href="../packages/HotDeckImputation/index.html">HotDeckImputation</a>,
-<a href="../packages/FHDI/index.html">FHDI</a>
+          are implemented in
+<a href="../packages//index.html"></a>,
+<a href="../packages//index.html"></a>,
+<a href="../packages//index.html"></a>
           and
-<a href="../packages/VIM/index.html">VIM</a>
+<a href="../packages//index.html"></a>
           (function
-<tt>hotdeck</tt>).
-<a href="../packages/StatMatch/index.html">StatMatch</a>
-          uses hot deck imputation to impute surveys from an external dataset.
+<tt>..</tt>).
         </li>
         <li>
           <i>
             R-learner
           </i>
-          are implemented in
-<a href="../packages/VIM/index.html">VIM</a>
-          (linear regression based imputation in the function
-<tt>regressionImp</tt>). In addition,
-<a href="../packages/simputation/index.html">simputation</a>
-          that is a general package for imputation by any prediction method that can be combined with various regression methods, and works well with the tidyverse.
-<a href="../packages/WaverR/index.html">WaverR</a>
-          imputes data using a weighted average of several regressions.
+          is implemented in
+<a href="../packages//index.html"></a>
+          (with different possible choices for the nuisance parameter estimation such as lasso or ..).
         </li>
         <li>
           <i>
             Causal forest
           </i>
           in
-<a href="../packages/grf/index.html">grf</a>. This package support missing covariate values.
+<a href="../packages/grf/index.html">grf</a>. This package supports missing covariate values using the Missing Incorporated in Attributes approach.
         </li>
         <li>
-          <i>..
+          <i>
+            Bayesian approaches
           </i>
-          in
-<a href="../packages/grf/index.html">grf</a>
-          and in
-<a href="../packages/grf/index.html">grf</a>.
+          for individual causal effect estimation are implemented in
+<a href="../packages/bcf/index.html">bcf</a>
+          (using Bayesian Causal Forests) and in
+<a href="../packages//index.html"></a>.
         </li>
         <li>
           <i>..
           </i>
           is implemented in the package
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           for numerical, categorical and mixed data.
         </li>
         <li>
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           and
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           also provide diagnostic plots to
           <i>
             evaluate the quality of HTE estimation
@@ -324,65 +416,77 @@
       </p>
       <ul>
         <li>
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           implements efficient policy learning using .. to estimate the parameters, for quantitative data it .. assuming a Multivariate Gaussian distribution. In addition, .. is a GUI for
-<a href="../packages/grf/index.html">grf</a>, available from the
+<a href="../packages//index.html"></a>, available from the
           <a href="">.. web page
           </a>.
         </li>
         <li>
-<a href="../packages/grf/index.html">grf</a>,
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>,
+<a href="../packages//index.html"></a>
           and
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           implement ...
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           extends the models covered by the two previous packages.
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           provides an alternative implementation of .. methods using object oriented style programming and c++.
-<a href="../packages/grf/index.html">grf</a>.. under .. model for use with
-<a href="../packages/grf/index.html">grf</a>.
+<a href="../packages//index.html"></a>.. under .. model for use with
+<a href="../packages//index.html"></a>.
         </li>
         <li>
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           (for mixed datasets) suggests .. based on Bayesian nonparametrics methods.
         </li>
       </ul>
       <p>
         In addition,
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
         provide a generic approach to handle .. in combination with any .. method.
       </p>
       <p>
         <a name="dag">
           <strong>
-            Causal discovery
+            Do-calculus and causal discovery
           </strong>
         </a>
       </p>
       <ul>
         <li>
-<a href="../packages/grf/index.html">grf</a>
-          implements .. using .. to estimate the parameters, for quantitative data it .. assuming a Multivariate Gaussian distribution. In addition, .. is a GUI for
-<a href="../packages/grf/index.html">grf</a>, available from the
-          <a href="">.. web page
-          </a>.
+          <i>
+            Identifiability
+          </i>
+          is addressed by
+<a href="../packages/causaleffect/index.html">causaleffect</a>
+          providing an algorithm to decide whether a causal effect is identifiable or not.
         </li>
         <li>
-<a href="../packages/grf/index.html">grf</a>,
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages/CIEE/index.html">CIEE</a>
+          allows estimation of causal effects using estimating equations derived from a DAG.
+        </li>
+        <li>
+          <i>
+            Causal networks estimation
+          </i>
+          is implemented in
+<a href="../packages/CompareCausalNetworks/index.html">CompareCausalNetworks</a>,
+        </li>
+        <li>
+<a href="../packages//index.html"></a>,
+<a href="../packages//index.html"></a>
           and
-<a href="../packages/grf/index.html">grf</a>
-          implement ...
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
+          implement ...;
+<a href="../packages//index.html"></a>
           extends the models covered by the two previous packages.
-<a href="../packages/grf/index.html">grf</a>
-          provides an alternative implementation of .. methods using object oriented style programming and c++.
-<a href="../packages/grf/index.html">grf</a>.. under .. model for use with
-<a href="../packages/grf/index.html">grf</a>.
+<a href="../packages//index.html"></a>
+          provides an alternative implementation of .. methods.
+<a href="../packages//index.html"></a>.. under .. model for use with
+<a href="../packages//index.html"></a>.
         </li>
         <li>
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           (for mixed datasets) suggests .. based on Bayesian nonparametrics methods.
         </li>
       </ul>
@@ -405,88 +509,46 @@
         <li>
           <i>
             Longitudinal data / time series and censored data
-          </i>: Imputation for time series is implemented in
-<a href="../packages/grf/index.html">grf</a>
-          and
-<a href="../packages/grf/index.html">grf</a>. Other packages, such as
-<a href="../packages/grf/index.html">grf</a>,
-<a href="../packages/grf/index.html">grf</a>,
-<a href="../packages/grf/index.html">grf</a>,
-<a href="../packages/grf/index.html">grf</a>,
-<a href="../packages/grf/index.html">grf</a>,
-<a href="../packages/grf/index.html">grf</a>
-          or
-<a href="../packages/grf/index.html">grf</a>, are dedicated to time series but also contain some (often basic) methods to handle missing data (see also
+          </i>: Causal effect estimation for time series is implemented in
+<a href="../packages/CausalImpact/index.html">CausalImpact</a>
+          (using a Bayesian approach) and
+<a href="../packages/confoundr/index.html">confoundr</a>
+          (covariate-balance diagnostics).
+        </li>
+        <li>
+          Other packages, such as
+<a href="../packages//index.html"></a>
+          are dedicated to time series but also contain some (often basic) methods to handle missing data (see also
 <a href="MissingData.html">MissingData</a>). To help fill down missing values for time series, the
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           and
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           packages provides methods for imputing implicit missing values. Imputation of time series based on Dynamic Time Warping is implemented in
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           for univariate time series and in
-<a href="../packages/grf/index.html">grf</a>
+<a href="../packages//index.html"></a>
           for multivariate ones.
-<a href="../packages/grf/index.html">grf</a>
-          also imputed data below the range for exploratory graphical analysis with the function
-<tt>impute_below</tt>.
-<a href="../packages/grf/index.html">grf</a>
-          implements an estimation of the autoregressive threshold models with Gaussian noise and of positive-valued time series with a Bayesian approach in the presence of missing data.
-<a href="../packages/grf/index.html">grf</a>
-          implements a probability weighted generalized estimating equations method for longitudinal data with missing observations and measurement error in covariates based on SIMEX.
-<a href="../packages/grf/index.html">grf</a>
-          performs imputation for censored responses for interval data.
-<a href="../packages/grf/index.html">grf</a>
-          proposes tools to benchmark missing data imputation in univariate time series.
         </li>
         <li>
           <i>
             Spatial data
-          </i>: Imputation for spatial data is implemented in
-<a href="../packages/grf/index.html">grf</a>
-          using interpolation with spatial distance weights or kriging.
-<a href="../packages/grf/index.html">grf</a>
-          is dedicated to satellite data and geostatistical interpolation of data with irregular spatial support is implemented in
-<a href="../packages/grf/index.html">grf</a>
-        </li>
-        <li>
-          <i>
-            Spatio-temporal data
-          </i>: Imputation for spatio-temporal data is implemented in the package
-<a href="../packages/grf/index.html">grf</a>
-          using different methods as knn and SVD. Similarly,
-<a href="../packages/grf/index.html">grf</a>
-          imputes missing values in daily precipitation time series accross different locations and
-<a href="../packages/grf/index.html">grf</a>
-          imputes missing data air polluant concentrations.
+          </i>: .. for spatial data is implemented in
+<a href="../packages//index.html"></a>
+          using ...
         </li>
         <li>
           <i>
             Graphs/networks
-          </i>: Imputation for graphs/networks is implemented in the package
-<a href="../packages/dils/index.html">dils</a>
-          to impute missing edges.
-<a href="../packages/grf/index.html">grf</a>
-          provides a framework for analyzing Probabilistic Suffix Trees, including functions for learning and optimizing VLMC (variable length Markov chains) models from sets of individual sequences possibly containing missing values.
-        </li>
-        <li>
-          <i>.. for contingency table
-          </i>
-          is implemented in
-<a href="../packages/grf/index.html">grf</a>
-          that can also be used for the analysis of contingency tables with missing data.
+          </i>: .
         </li>
         <li>
           <i>.. for compositional data (CODA)
           </i>
           is implemented in
-<a href="../packages/grf/index.html">grf</a>
-          (based on kNN or EM approaches) and in
-<a href="../packages/grf/index.html">grf</a>
-          (various imputation methods for zeros, left-censored and missing data).
-        </li>
-        <li>
-<a href="../packages/experiment/index.html">experiment</a>
-          handles missing values in experimental design such as randomized experiments with missing covariate and outcome data, matched-pairs design with missing outcome.
+<a href="../packages//index.html"></a>
+          (based on .. or .. approaches) and in
+<a href="../packages//index.html"></a>
+          (various .. methods for zeros, left-censored and missing data).
         </li>
       </ul>
       <p>
@@ -497,22 +559,42 @@
         </a>
       </p>
       <ul>
-        <li>..
+        <li>
+          Behavior change science use specialized analyses and visualization tools implemented in
+<a href="../packages/behaviorchange/index.html">behaviorchange</a>.
+        </li>
+        <li>
+          Evaluation of biomarkers and estimation of treatment-biomarker effects can be done using tools from
+<a href="../packages/bhm/index.html">bhm</a>
+          (for biomarker-treatment effects) and .
+        </li>
+        <li>
+          Qualitative Comparative Analysis type methods are implemented in
+<a href="../packages/cna/index.html">cna</a>.
+        </li>
+        <li>
+          <i>
+            Mendelian randomization methods
+          </i>
+          used to examine causal effects related to certain genes are implemented in
+<a href="../packages//index.html"></a>.
         </li>
       </ul>
     </div>
 
   <h3>CRAN packages:</h3>
   <ul>
-    <li><a href="../packages/experiment/index.html">experiment</a></li>
-    <li><a href="../packages/grf/index.html">grf</a></li>
+    <li><a href="./packages/blockRAR/index.html">blockRAR</a></li>
+    <li><a href="./packages/blocksdesign/index.html">blocksdesign</a></li>
   </ul>
 
   <h3>Related links:</h3>
   <ul>
+    <li>CRAN Task View: <a href="ClinicalTrials.html">ClinicalTrials</a></li>
+    <li>CRAN Task View: <a href="ExperimentalDesign.html">ExperimentalDesign</a></li>
+    <li>CRAN Task View: <a href="MetaAnalysis.html">MetaAnalysis</a></li>
     <li>CRAN Task View: <a href="MissingData.html">MissingData</a></li>
-    <li>Bioconductor Package: <a href="https://www.Bioconductor.org/packages/release/bioc/html/impute.html"><span class="BioC">impute</span></a></li>
-    <li>Bioconductor Package: <a href="https://www.Bioconductor.org/packages/release/bioc/html/pcaMethods.html"><span class="BioC">pcaMethods</span></a></li>
+    <li>CRAN Task View: <a href="Survival.html">Survival</a></li>
     <li><a href="http://dagitty.net">
   DAGitty: draw and analyze causal diagrams
 </a></li>
