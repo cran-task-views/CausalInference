@@ -120,7 +120,9 @@
 <a href="../packages/eefAnalytics/index.html">eefAnalytics</a>
           (Frequentist and Bayesian multilevel models),
 <a href="../packages/ipcwswitch/index.html">ipcwswitch</a>
-          (IPW adapted to treatment switch in an RCT).
+          (IPW adapted to treatment switch in an RCT),
+<a href="../packages/idem/index.html">idem</a>
+          (with death and missingness).
         </li>
         <li>
           <i>
@@ -133,31 +135,31 @@
           (conjoint analysis for survey experiments).
         </li>
         <li>
-          Inference in randomized controlled trials with death and missingness is implemented in
-<a href="../packages/idem/index.html">idem</a>.
-        </li>
-        <li>
-          Inverse probability of censoring weights to handle treatment switches when estimating causal treatment effect in randomized clinical trials is implemented in
-<a href="../packages/ipcwswitch/index.html">ipcwswitch</a>
-        </li>
-        <li>
-          Design and analysis of 2-stage preference trials is implemented in
+          Design and analysis of
+          <i>
+            two-stage preference trials
+          </i>
+          is implemented in
 <a href="../packages/preference/index.html">preference</a>.
         </li>
         <li>
-          For two-stage randomized experiments with interference and binary outcome
 <a href="../packages/interferenceCI/index.html">interferenceCI</a>
-          implements treatment effect estimation methods.
+          implements treatment effect estimation methods for two-stage randomized experiments with interference and binary outcome.
         </li>
         <li>
+          In case of
           <i>
-            In case of non-compliance
+            non-compliance
           </i>,
 <a href="../packages/rpsftm/index.html">rpsftm</a>
           uses g-estimation to estimate the causal effect of a treatment in a two-armed randomised control trial where non-compliance exists and is measured, under an assumption of an accelerated failure time model and no unmeasured confounders.
         </li>
         <li>
-          A time series causal inference model for RCT under spillover effect is implemented in
+          A time series causal inference model for RCT under
+          <i>
+            spillover effect
+          </i>
+          is implemented in
 <a href="../packages/SPORTSCausal/index.html">SPORTSCausal</a>.
         </li>
         <li>
@@ -198,13 +200,13 @@
           </i>
           methods are implemented in
 <a href="../packages/Matching/index.html">Matching</a>
-          for multivariate and propensity score matching and for finding optimal balance based on a genetic search algorithm,
+          (multivariate and propensity score matching, and finding optimal balance based on a genetic search algorithm),
 <a href="../packages/MatchIt/index.html">MatchIt</a>
-          for selecting matched samples of the original treated and control groups with similar covariate distributions,
+          (selecting matched samples of the original treated and control groups with similar covariate distributions),
 <a href="../packages/MatchThem/index.html">MatchThem</a>
-          for the pre-processing techniques of matching and weighting multiply imputed datasets,
+          (pre-processing techniques of matching and weighting multiply imputed datasets),
 <a href="../packages/optmatch/index.html">optmatch</a>
-          for distance based bipartite matching using the RELAX-IV minimum cost flow solver,
+          (distance based bipartite matching using the RELAX-IV minimum cost flow solver),
 <a href="../packages/CMatching/index.html">CMatching</a>
           (for cluster data),
 <a href="../packages/FLAME/index.html">FLAME</a>
@@ -212,22 +214,22 @@
         </li>
         <li>
           <i>
-            Inverse propensity weighting (IPW)
+            Inverse propensity weighting
           </i>
-          (also known as inverse probability of treatment weighting, IPTW) is implemented in
+          (IPW, also known as inverse probability of treatment weighting, IPTW) methods are implemented in
 <a href="../packages/ipw/index.html">ipw</a>,
 <a href="../packages/causalweight/index.html">causalweight</a>,
 <a href="../packages/estimatr/index.html">estimatr</a>,
 <a href="../packages/clusteredinterference/index.html">clusteredinterference</a>
           and
 <a href="../packages/inferference/index.html">inferference</a>
-          (the latter two both making interference assumptions) and
+          (the latter two both making interference assumptions),
 <a href="../packages/hrIPW/index.html">hrIPW</a>
-          (under a Cox proportional hazards model).
+          (under a Cox proportional hazards model),
 <a href="../packages/ipwCoxCSV/index.html">ipwCoxCSV</a>
-          implements a corrected sandwich variance estimation for the IPW Cox model.
+          (corrected sandwich variance estimation for the IPW Cox model),
 <a href="../packages/ipwErrorY/index.html">ipwErrorY</a>
-          implements correction methods for the IPW estimation with misclassified binary outcomes.
+          (correction methods for the IPW estimation with misclassified binary outcomes).
 <a href="../packages/autoCovariateSelection/index.html">autoCovariateSelection</a>
           offers automated covariate selection for high-dimensional propensity scores. In case of
           <i>
@@ -237,10 +239,11 @@
           allows to estimate generalized propensity score cumulative distribution functions.
         </li>
         <li>
+          Other
           <i>
-            Other balancing score weighting methods
+            balancing score weighting
           </i>
-          for balancing covariate distributions are available in
+          methods for balancing covariate distributions are available in
 <a href="../packages/CBPS/index.html">CBPS</a>
           (for binary and multivalued exposures, optionally in longitudinal settings).
 <a href="../packages/PSweight/index.html">PSweight</a>
@@ -254,9 +257,13 @@
         </li>
         <li>
           <i>
-            G-formula and other conditional outcome regression based methods
+            G-formula
           </i>
-          are supported in the packages
+          and other
+          <i>
+            conditional outcome regression
+          </i>
+          based methods are supported in the packages
 <a href="../packages/gfoRmula/index.html">gfoRmula</a>
           (also for time-varying treatment and confounding),
 <a href="../packages/EffectLiteR/index.html">EffectLiteR</a>
@@ -278,7 +285,7 @@
           <i>
             Targeted learning
           </i>
-          methods are available in
+          (also known as targeted maximum likelihood estimation or targeted minimum loss-based estimation) methods are available in
 <a href="../packages/drtmle/index.html">drtmle</a>,
 <a href="../packages/tmle/index.html">tmle</a>, and
 <a href="../packages/ltmle/index.html">ltmle</a>
@@ -286,9 +293,9 @@
         </li>
         <li>
           <i>
-            Difference in differences methods
+            Difference in differences
           </i>
-          are implemented in
+          methods are implemented in
 <a href="../packages/DRDID/index.html">DRDID</a>
           (doubly robust estimators with two choices for nuisance function estimation),
 <a href="../packages/bacondecomp/index.html">bacondecomp</a>
@@ -312,7 +319,11 @@
           <i>
             Odds ratio
           </i>
-          estimation and power calculation for the Trend in Trend model is implemented in
+          estimation and power calculation for the
+          <i>
+            Trend in Trend
+          </i>
+          model is implemented in
 <a href="../packages/TrendInTrend/index.html">TrendInTrend</a>.
         </li>
         <li>
@@ -321,17 +332,17 @@
           </i>
           methods are implemented in
 <a href="../packages/Synth/index.html">Synth</a>
-          using a group method for comparative case studies,
+          (using a group method for comparative case studies),
 <a href="../packages/microsynth/index.html">microsynth</a>
-          for micro- and meso-level data, and
+          (for micro- and meso-level data), and
 <a href="../packages/gsynth/index.html">gsynth</a>
-          which extends synthetic control methods to multiple treated units and variable treatment periods.
+          (extension to multiple treated units and variable treatment periods.
         </li>
         <li>
           <i>
-            Instrumental variable methods
+            Instrumental variable
           </i>
-          are implemented in
+          methods are implemented in
 <a href="../packages/ivmodel/index.html">ivmodel</a>,
 <a href="../packages/ivpack/index.html">ivpack</a>
           (including power analysis, sensitivity analysis, and diagnostics),
@@ -340,7 +351,11 @@
 <a href="../packages/grf/index.html">grf</a>, and
 <a href="../packages/estimatr/index.html">estimatr</a>.
 <a href="../packages/ivmte/index.html">ivmte</a>
-          provides a choice-theoretic interpretation to IV models using Marginal Treatment Effects to extrapolate from the compliers to estimate treatment effects for other subpopulations. Estimation of Marginal Treatment Effects using Local Instrumental Variables is implemented in
+          provides a choice-theoretic interpretation to IV models using
+          <i>
+            Marginal Treatment Effects
+          </i>
+          to extrapolate from the compliers to estimate treatment effects for other subpopulations; and estimation using local IVs is implemented in
 <a href="../packages/localIV/index.html">localIV</a>.
 <a href="../packages/LARF/index.html">LARF</a>
           uses Local Average Response Functions for IV estimation of treatment effects with binary endogenous treatment and instrument.
@@ -357,9 +372,9 @@
 <a href="../packages/cit/index.html">cit</a>
           (likelihood-based tests),
 <a href="../packages/MultisiteMediation/index.html">MultisiteMediation</a>
-          for multisite trials,
+          (multisite trials),
 <a href="../packages/DirectEffects/index.html">DirectEffects</a>
-          to estimate the controlled direct effect when fixing a potential mediator to a specific value.
+          (controlled direct effect when fixing a potential mediator to a specific value).
 <a href="../packages/mediation/index.html">mediation</a>
           and
 <a href="../packages/cfdecomp/index.html">cfdecomp</a>
@@ -375,8 +390,9 @@
           performs Granger mediation analysis for time series.
         </li>
         <li>
+          Under
           <i>
-            Under interference
+            interference
           </i>, causal effect estimation can be achieved using
 <a href="../packages/inferference/index.html">inferference</a>
           by inverse-probability weighted (IPW) estimators,
@@ -402,10 +418,13 @@
           <i>
             Regression discontinuity design
           </i>
-          (RDD): density discontinuity testing (a.k.a. manipulation testing) is implemented in
-<a href="../packages/rddensity/index.html">rddensity</a>, inference under local randomization is implemented in
-<a href="../packages/rdlocrand/index.html">rdlocrand</a>, analysis with multiple cutoffs or scores is implemented in
-<a href="../packages/rdmulti/index.html">rdmulti</a>, tools to perform power, sample size and minimum detectable effects (MDE) calculations are available in
+          (RDD) methods are implemented in
+<a href="../packages/rddensity/index.html">rddensity</a>
+          (density discontinuity testing (also known as manipulation testing)),
+<a href="../packages/rdlocrand/index.html">rdlocrand</a>
+          (inference under local randomization),
+<a href="../packages/rdmulti/index.html">rdmulti</a>
+          (analysis with multiple cutoffs or scores); tools to perform power, sample size and minimum detectable effects (MDE) calculations are available in
 <a href="../packages/rdpower/index.html">rdpower</a>, robust confidence interval construction and bandwidth selection are implemented in
 <a href="../packages/rdrobust/index.html">rdrobust</a>,
 <a href="../packages/RATest/index.html">RATest</a>
@@ -453,7 +472,7 @@
           <i>
             Bayesian approaches
           </i>
-          for individual causal effect estimation and are available in several packages including
+          for individual causal effect estimation are available in several packages including
 <a href="../packages/bartCause/index.html">bartCause</a>
           (based on Bayesian Additive Regression Trees) and
 <a href="../packages/bcf/index.html">bcf</a>
@@ -481,9 +500,9 @@
         </li>
         <li>
 <a href="../packages/stepp/index.html">stepp</a>
-          provides diagnostic plots to
+          provides diagnostic plots to explore
           <i>
-            explore treatment-covariate interactions
+            treatment-covariate interactions
           </i>
           for survival or generalized linear models, applicable for continuous, binomial and count data arising from two or more treatment arms of a clinical trial.
         </li>
@@ -491,20 +510,21 @@
       <p>
         <a name="policy">
           <strong>
-            Policy learning
+            Policy learning and dynamic treatment regimes
           </strong>
         </a>
       </p>
       <ul>
         <li>
-          Estimation of an optimal dynamic treatment regime using interactive Q-learning is implemented in
+          Estimation of an optimal dynamic treatment regime (DTR) is implemented in
 <a href="../packages/iqLearn/index.html">iqLearn</a>
           and
-<a href="../packages/DynTxRegime/index.html">DynTxRegime</a>.
+<a href="../packages/DynTxRegime/index.html">DynTxRegime</a>
+          (using interactive Q-learning),
 <a href="../packages/listdtr/index.html">listdtr</a>
-          uses list-based rules to estimate the optimal dynamic treatment regime.
+          (using list-based rules),
 <a href="../packages/qLearn/index.html">qLearn</a>
-          implements Q-learning for estimating optimal dynamic treatment regimes from two stage sequentially randomized trials.
+          (Q-learning for two stage sequentially randomized trials).
 <a href="../packages/quantoptr/index.html">quantoptr</a>
           implements estimation methods for optimal treatment regimes under marginal quantile, marginal mean, and mean absolute difference.
 <a href="../packages/DTRreg/index.html">DTRreg</a>
@@ -513,8 +533,16 @@
           provides methods for estimation of mean- and quantile-optimal treatment regimes from censored data.
         </li>
         <li>
+<a href="../packages/ITRLearn/index.html">ITRLearn</a>
+          implements maximin-projection learning for recommending a meaningful and reliable individualized treatment regime, and also Q-learning and A-learning for estimating the group-wise contrast function.
+<a href="../packages/ITRSelect/index.html">ITRSelect</a>
+          implements sequential advantage selection and penalized A-learning for selecting important variables in optimal individualized (dynamic) treatment regime in both single-stage or multi-stage studies.
+<a href="../packages/OTRselect/index.html">OTRselect</a>
+          implements a penalized regression method that can simultaneously estimate the optimal treatment strategy and identify important variables for either censored or uncensored continuous response.
+        </li>
+        <li>
 <a href="../packages/smartsizer/index.html">smartsizer</a>
-          provides a set of tools for determining the necessary sample size in order to identify the optimal dynamic treatment regime in a
+          provides a set of tools for determining the necessary sample size in order to identify the optimal DTR in a
           <i>
             sequential, multiple assignment, randomized trial (SMART)
           </i>,
@@ -524,14 +552,6 @@
         <li>
           Efficient estimation of the population-level causal effects of stochastic interventions on a continuous-valued exposure is implemented in
 <a href="../packages/txshift/index.html">txshift</a>
-        </li>
-        <li>
-<a href="../packages/ITRLearn/index.html">ITRLearn</a>
-          implements maximin-projection learning for recommending a meaningful and reliable individualized treatment regime, and also Q-learning and A-learning for estimating the group-wise contrast function.
-<a href="../packages/ITRSelect/index.html">ITRSelect</a>
-          implements sequential advantage selection and penalized A-learning for selecting important variables in optimal individualized (dynamic) treatment regime in both single-stage or multi-stage studies.
-<a href="../packages/OTRselect/index.html">OTRselect</a>
-          implements a penalized regression method that can simultaneously estimate the optimal treatment strategy and identify important variables for either censored or uncensored continuous response.
         </li>
         <li>
 <a href="../packages/lpdensity/index.html">lpdensity</a>
@@ -566,6 +586,13 @@
           provides tight bounds for a user defined DAG, query and constraints using a symbolic linear optimizer.
         </li>
         <li>
+<a href="../packages/pcalg/index.html">pcalg</a>
+          provides a set of functions for
+          <i>
+            causal structure learning
+          </i>: PC (for observational data without hidden variables), FCI and RFCI (for observational data with hidden variables), and GIES (for a mix of observational and interventional data) without hidden variables); and for causal inference using graphical models: the IDA algorithm, the Generalized Backdoor Criterion (GBC), the Generalized Adjustment Criterion (GAC); incorporating background knowledge is also possible.
+        </li>
+        <li>
 <a href="../packages/CIEE/index.html">CIEE</a>
           allows estimation of causal effects using estimating equations derived from a DAG.
         </li>
@@ -587,10 +614,6 @@
           Constrained maximum likelihood estimation of a DAG with intervention or observation data is implemented in
 <a href="../packages/intdag/index.html">intdag</a>
           for linear Gaussian SEM.
-        </li>
-        <li>
-<a href="../packages/pcalg/index.html">pcalg</a>
-          provides a set of functions for causal structure learning: PC (for observational data without hidden variables), FCI and RFCI (for observational data with hidden variables), and GIES (for a mix of observational and interventional data) without hidden variables); and for causal inference using graphical models: the IDA algorithm, the Generalized Backdoor Criterion (GBC), the Generalized Adjustment Criterion (GAC); incorporating background knowledge is also possible.
         </li>
       </ul>
       <p>
@@ -676,9 +699,9 @@
           used to examine causal effects related to certain genes are implemented in
 <a href="../packages/MendelianRandomization/index.html">MendelianRandomization</a>,
 <a href="../packages/mr.raps/index.html">mr.raps</a>
-          for two-sample Mendelian randomization with summary statistics by using Robust Adjusted Profile Score,
+          (two-sample Mendelian randomization with summary statistics by using Robust Adjusted Profile Score),
 <a href="../packages/MRPC/index.html">MRPC</a>
-          for PC algorithm with the principle of Mendelian Randomization.
+          (PC algorithm with the principle of Mendelian Randomization).
         </li>
         <li>
           Causal inference approaches in genetic systems exploit quantitative trait loci (QTL) genotypes to infer causal relationships among phenotypes: functions to simultaneously infer causal graphs and genetic architecture (acyclic and cyclic) are implemented in
