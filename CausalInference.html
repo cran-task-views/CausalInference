@@ -6,11 +6,11 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <meta name="citation_title" content="CRAN Task View: Causal Inference" />
   <meta name="citation_author" content="Imke Mayer, Pan Zhao and Julie Josse" />
-  <meta name="citation_publication_date" content="2021-08-18" />
+  <meta name="citation_publication_date" content="2021-08-23" />
   <meta name="citation_public_url" content="https://misscausal.gitlabpages.inria.fr/misscausal.gitlab.io/software.html" />
   <meta name="DC.title" content="CRAN Task View: Causal Inference" />
   <meta name="DC.creator" content="Imke Mayer, Pan Zhao and Julie Josse" />
-  <meta name="DC.issued" content="2021-08-18" />
+  <meta name="DC.issued" content="2021-08-23" />
   <meta name="DC.identifier" content="https://misscausal.gitlabpages.inria.fr/misscausal.gitlab.io/software.html" />
 </head>
 
@@ -19,7 +19,7 @@
   <table summary="CausalInference task view information">
     <tr><td valign="top"><b>Maintainer:</b></td><td>Imke Mayer, Pan Zhao and Julie Josse</td></tr>
     <tr><td valign="top"><b>Contact:</b></td><td>&#x6d;&#x61;&#x79;&#x65;&#x72;&#x2e;&#x69;&#x6d;&#x6b;&#x65;&#x20;&#x61;&#x74;&#x20;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</td></tr>
-    <tr><td valign="top"><b>Version:</b></td><td>2021-08-18</td></tr>
+    <tr><td valign="top"><b>Version:</b></td><td>2021-08-23</td></tr>
     <tr><td valign="top"><b>URL:</b></td><td><a href="https://misscausal.gitlabpages.inria.fr/misscausal.gitlab.io/software.html">https://misscausal.gitlabpages.inria.fr/misscausal.gitlab.io/software.html</a></td></tr>
   </table>
 
@@ -38,7 +38,7 @@
         </li>
         <li>
           <a href="#ate">
-            Point estimation of treatment effects
+            Average treatment effect estimation and other univariate treatment effect estimates
           </a>
         </li>
         <li>
@@ -170,7 +170,7 @@
       <p>
         <a name="ate">
           <strong>
-            Point estimation of treatment effects
+            Average treatment effect estimation and other univariate treatment effect estimates
           </strong>
         </a>
       </p>
@@ -193,6 +193,22 @@
           (average causal dose response functions),
 <a href="../packages/hdm/index.html">hdm</a>
           (efficient estimators with uniformly valid confidence intervals, it assumes approximately sparse models for high-dimensional settings).
+        </li>
+        <li>
+          <i>
+            G-formula
+          </i>
+          and other
+          <i>
+            conditional outcome regression
+          </i>
+          based methods are supported in the packages
+<a href="../packages/gfoRmula/index.html">gfoRmula</a>
+          (also for time-varying treatment and confounding),
+<a href="../packages/EffectLiteR/index.html">EffectLiteR</a>
+          (based on structural equation modeling), and
+<a href="../packages/endoSwitch/index.html">endoSwitch</a>
+          (maximum likelihood estimation of endogenous switching regression models).
         </li>
         <li>
           <i>
@@ -257,29 +273,17 @@
         </li>
         <li>
           <i>
-            G-formula
-          </i>
-          and other
-          <i>
-            conditional outcome regression
-          </i>
-          based methods are supported in the packages
-<a href="../packages/gfoRmula/index.html">gfoRmula</a>
-          (also for time-varying treatment and confounding),
-<a href="../packages/EffectLiteR/index.html">EffectLiteR</a>
-          (based on structural equation modeling), and
-<a href="../packages/endoSwitch/index.html">endoSwitch</a>
-          (maximum likelihood estimation of endogenous switching regression models).
-        </li>
-        <li>
-          <i>
             Doubly robust methods
           </i>
           are implemented in
 <a href="../packages/grf/index.html">grf</a>
           (function
-<tt>average_treatment_effect</tt>) and in
-<a href="../packages/causalweight/index.html">causalweight</a>.
+<tt>average_treatment_effect</tt>), in
+<a href="../packages/causalweight/index.html">causalweight</a>
+          and in
+<a href="../packages/DoubleML/index.html">DoubleML</a>
+          (function
+<tt>DoubleMLIRM</tt>).
         </li>
         <li>
           <i>
@@ -348,8 +352,11 @@
           (including power analysis, sensitivity analysis, and diagnostics),
 <a href="../packages/bpbounds/index.html">bpbounds</a>
           (nonparametric bounds on ATE),
-<a href="../packages/grf/index.html">grf</a>, and
-<a href="../packages/estimatr/index.html">estimatr</a>.
+<a href="../packages/grf/index.html">grf</a>,
+<a href="../packages/estimatr/index.html">estimatr</a>, and
+<a href="../packages/DoubleML/index.html">DoubleML</a>
+          (function
+<tt>DoubleMLIIVM</tt>).
 <a href="../packages/ivmte/index.html">ivmte</a>
           provides a choice-theoretic interpretation to IV models using
           <i>
@@ -392,8 +399,9 @@
         <li>
           Under
           <i>
-            interference
-          </i>, causal effect estimation can be achieved using
+            interference,
+          </i>
+          causal effect estimation can be achieved using
 <a href="../packages/inferference/index.html">inferference</a>
           by inverse-probability weighted (IPW) estimators,
 <a href="../packages/netchain/index.html">netchain</a>
@@ -593,8 +601,14 @@
           </i>: PC (for observational data without hidden variables), FCI and RFCI (for observational data with hidden variables), and GIES (for a mix of observational and interventional data) without hidden variables); and for causal inference using graphical models: the IDA algorithm, the Generalized Backdoor Criterion (GBC), the Generalized Adjustment Criterion (GAC); incorporating background knowledge is also possible.
         </li>
         <li>
+          <i>
+            Estimation of causal effects
+          </i>
+          is possible in
 <a href="../packages/CIEE/index.html">CIEE</a>
-          allows estimation of causal effects using estimating equations derived from a DAG.
+          using estimating equations derived from a DAG and in
+<a href="../packages/InvariantCausalPrediction/index.html">InvariantCausalPrediction</a>
+          using adjustment sets derived from conditional independence tests that leverage causal invariances across environments.
         </li>
         <li>
           <i>
@@ -767,6 +781,7 @@
     <li><a href="../packages/did/index.html">did</a></li>
     <li><a href="../packages/DirectEffects/index.html">DirectEffects</a></li>
     <li><a href="../packages/dosearch/index.html">dosearch</a></li>
+    <li><a href="../packages/DoubleML/index.html">DoubleML</a></li>
     <li><a href="../packages/DRDID/index.html">DRDID</a></li>
     <li><a href="../packages/drtmle/index.html">drtmle</a></li>
     <li><a href="../packages/dstat/index.html">dstat</a></li>

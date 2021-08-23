@@ -1,10 +1,13 @@
 Causal Inference Task View
 ================
-Imke Mayer, Julie Josse and Stefan Wager
-11 March, 2020
+Imke Mayer, Pan Zhao and Julie Josse
+23 August, 2021
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-The Causal Inference task view source is in the file `CausalInference.ctv` that can be transformed into an HTML file using the **R** package [ctv](https://CRAN.R-project.org/package=ctv)
+
+The Causal Inference task view source is in the file
+`CausalInference.ctv` that can be transformed into an HTML file using
+the **R** package [ctv](https://CRAN.R-project.org/package=ctv)
 
 ``` r
 library(ctv)
