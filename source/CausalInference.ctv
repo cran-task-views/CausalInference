@@ -74,7 +74,6 @@
       <li>Estimation of an optimal dynamic treatment regime (DTR) is implemented in <pkg>iqLearn</pkg> and <pkg>DynTxRegime</pkg> (using interactive Q-learning), <pkg>listdtr</pkg> (using list-based rules), <pkg>qLearn</pkg> (Q-learning for two stage sequentially randomized trials). <pkg>quantoptr</pkg> implements estimation methods for optimal treatment regimes under marginal quantile, marginal mean, and mean absolute difference. <pkg>DTRreg</pkg> proposes different methods such as G-estimation, dynamic weighted OLS and Q-learning, as well as several variance estimation approaches, it can handle survival outcomes and continuous treatment variables. <pkg>QTOCen</pkg> provides methods for estimation of mean- and quantile-optimal treatment regimes from censored data.</li>
       <li><pkg>ITRLearn</pkg> implements maximin-projection learning for recommending a meaningful and reliable individualized treatment regime, and also Q-learning and A-learning for estimating the group-wise contrast function. <pkg>ITRSelect</pkg> implements sequential advantage selection and penalized A-learning for selecting important variables in optimal individualized (dynamic) treatment regime in both single-stage or multi-stage studies. <pkg>OTRselect</pkg> implements a penalized regression method that can simultaneously estimate the optimal treatment strategy and identify important variables for either censored or uncensored continuous response.</li>
       <li><pkg>smartsizer</pkg> provides a set of tools for determining the necessary sample size in order to identify the optimal DTR in a <i>sequential, multiple assignment, randomized trial (SMART)</i>, <pkg>DTRlearn2</pkg> implements estimators for general K-stage DTRs from SMARTs with Q-learning and several outcome-weighted learning methods.</li>
-      <li>Efficient estimation of the population-level causal effects of stochastic interventions on a continuous-valued treatment is implemented in <pkg>txshift</pkg> </li>
       <li><pkg>lpdensity</pkg> implements a density (and derivatives) estimator based on local polynomial regressions for counterfactual analysis, program evaluation, and policy recommendations.</li>
       <li>Estimation of treatment decision rules from a randomized clinical trial using Single-Index Models with Multiple-Links is implemented in <pkg>simml</pkg>, Single-Index Models with a Surface-Link for optimizing individualized dose rules from an observational study is implemented in <pkg>simsl</pkg>.</li>
     </ul>
@@ -259,7 +258,6 @@
     <pkg>TrendInTrend</pkg>
     <pkg>twang</pkg>
     <pkg>twangContinuous</pkg>
-    <pkg>txshift</pkg>
     <pkg>ui</pkg>
     <pkg>WhatIf</pkg>
   </packagelist>
