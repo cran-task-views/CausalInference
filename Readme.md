@@ -12,7 +12,7 @@ the **R** package [ctv](https://CRAN.R-project.org/package=ctv)
 ``` r
 library(ctv)
 setwd(paste(getwd(), "source", sep = "/"))
-ctv:::ctv_xml_to_rmd("CausalInference.ctv")
+# ctv:::ctv_xml_to_rmd("CausalInference.ctv")
 source_ctv <- "CausalInference.md"
 ctv2html(source_ctv)
 ```

@@ -21,7 +21,7 @@ can be transformed into an HTML file using the **R** package [ctv](https://CRAN.
 ```{r ctvread, eval=TRUE}
 library(ctv)
 setwd(paste(getwd(), "source", sep = "/"))
-ctv:::ctv_xml_to_rmd("CausalInference.ctv")
+# ctv:::ctv_xml_to_rmd("CausalInference.ctv")
 source_ctv <- "CausalInference.md"
 ctv2html(source_ctv)
 ```
