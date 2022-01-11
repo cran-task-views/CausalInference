@@ -1,7 +1,7 @@
 Causal Inference Task View
 ================
 Imke Mayer, Pan Zhao and Julie Josse
-23 August, 2021
+11 janvier, 2022
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -12,15 +12,13 @@ the **R** package [ctv](https://CRAN.R-project.org/package=ctv)
 ``` r
 library(ctv)
 setwd(paste(getwd(), "source", sep = "/"))
-source_ctv <- read.ctv("CausalInference.ctv")
-```
-
-``` r
+ctv:::ctv_xml_to_rmd("CausalInference.ctv")
+source_ctv <- "CausalInference.md"
 ctv2html(source_ctv)
 ```
 
 In addition, CTV can be checked before submission to CRAN with:
 
 ``` r
-check_ctv_packages("source/CausalInference.ctv")
+check_ctv_packages("source/CausalInference.md")
 ```
