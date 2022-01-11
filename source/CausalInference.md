@@ -68,7 +68,7 @@ data**]{#rct}
 -   `r pkg("interferenceCI")` implements treatment effect
     estimation methods for two-stage randomized experiments with
     interference and binary outcome.
--   In case of *non-compliance* , `r pkg("rpsftm")` uses
+-   In case of *non-compliance*, `r pkg("rpsftm")` uses
     g-estimation to estimate the causal effect of a treatment in a
     two-armed randomised control trial where non-compliance exists and
     is measured, under an assumption of an accelerated failure time
@@ -218,7 +218,7 @@ effect estimates**]{#ate}
     full longitudinal data onto the observed data, and
     `r pkg("interferenceCI")` provides some exact confidence
     intervals for treatment effects on a binary outcome in two-stage
-    randomized experiments with interference
+    randomized experiments with interference.
 -   Diagnostics and visualization for *Multiplicative Interaction
     Models* are implemented in `r pkg("interflex")`.
 -   `r pkg("InvariantCausalPrediction")` provides confidence
@@ -336,18 +336,18 @@ treatment effect (HTE) estimation.
     and `r pkg("dosearch")` providing algorithms to decide
     whether a causal effect is identifiable (non-parametric
     identifiability) and by `r pkg("CausalQueries")` that
-    calculates arbitrary estimands for a given causal model;
+    calculates arbitrary estimands for a given causal model.
     `r pkg("causaloptim")` provides tight bounds for a user
     defined DAG, query and constraints using a symbolic linear
     optimizer.
 -   `r pkg("pcalg", priority = "core")` provides a set of
-    functions for *causal structure learning* : PC (for observational
-    data without hidden variables), FCI and RFCI (for observational data
-    with hidden variables), and GIES (for a mix of observational and
-    interventional data) without hidden variables); and for causal
-    inference using graphical models: the IDA algorithm, the Generalized
-    Backdoor Criterion (GBC), the Generalized Adjustment Criterion
-    (GAC); incorporating background knowledge is also possible.
+    functions for *causal structure learning*: (PC, for observational
+    data without hidden variables, FCI and RFCI, for observational data
+    with hidden variables, and GIES, for a mix of observational and
+    interventional data without hidden variables), and for *causal
+    inference using graphical models* (the IDA algorithm, the Generalized
+    Backdoor Criterion - GBC, the Generalized Adjustment Criterion - GAC). 
+    Incorporating background knowledge is also possible.
 -   *Estimation of causal effects* is possible in
     `r pkg("CIEE")` using estimating equations derived from a
     DAG and in `r pkg("InvariantCausalPrediction")` using
@@ -356,19 +356,19 @@ treatment effect (HTE) estimation.
 -   *Causal networks estimation* is implemented in
     `r pkg("CompareCausalNetworks")`.
 -   `r pkg("generalCorr")` computes generalized correlations,
-    partial correlations and *plausible causal paths* .
+    partial correlations and *plausible causal paths*.
 -   Constrained maximum likelihood estimation of a DAG with intervention
     or observation data is implemented in `r pkg("intdag")`
     for linear Gaussian SEM.
 
 In addition, `r pkg("dagitty", priority = "core")` provides
 methods to define different types of graphical models (cpdags, pdag,
-ect.) and to identify adjustment sets. (A web-based graphical
-environment is also available: [DAGitty](http://dagitty.net) ).
+ect.) and to identify adjustment sets (a web-based graphical
+environment is also available: [DAGitty](http://dagitty.net)).
 
 [**Specific types of data**]{#data}
 
--   *Longitudinal data / time series and censored data* : Causal effect
+-   *Longitudinal data / time series and censored data*: Causal effect
     estimation for time series is implemented in
     `r pkg("CausalImpact")` (using a Bayesian approach),
     `r pkg("confoundr")` (covariate-balance diagnostics), and
@@ -377,7 +377,7 @@ environment is also available: [DAGitty](http://dagitty.net) ).
     set of matching methods to time-series cross-sectional data, are
     dedicated to time series but also contain some (often basic) methods
     to handle missing data (see also `r view("MissingData")`).
--   *GWAS and SNPs* : `r pkg("CKAT")` implements kernel based
+-   *GWAS and SNPs*: `r pkg("CKAT")` implements kernel based
     methods to jointly test genetic main effect and gene-treatment
     interaction effects for a set of SNPs. `r pkg("epiGWAS")`
     provides functions to perform robust epistasis detection in GWAS.
