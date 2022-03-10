@@ -3,7 +3,7 @@ name: CausalInference
 topic: Causal Inference
 maintainer: Imke Mayer, Pan Zhao and Julie Josse
 email: mayer.imke@gmail.com
-version: 2022-01-05
+version: 2022-03-09
 ---
 
 
@@ -197,8 +197,8 @@ effect estimates**]{#ate}
     (functional mediation analysis), `r pkg("cit")`
     (likelihood-based tests), `r pkg("MultisiteMediation")`
     (multisite trials), `r pkg("DirectEffects")` (controlled
-    direct effect when fixing a potential mediator to a specific value)
-    and `r pkg("causalweight")`.
+    direct effect when fixing a potential mediator to a specific value),
+    `r pkg("medflex")` (natural effect models) and `r pkg("causalweight")`.
     `r pkg("mediation")` and `r pkg("cfdecomp")`
     implement identification, inference and
     `r pkg("mediation")` additionally also provides
@@ -346,7 +346,7 @@ treatment effect (HTE) estimation.
     with hidden variables, and GIES, for a mix of observational and
     interventional data without hidden variables), and for *causal
     inference using graphical models* (the IDA algorithm, the Generalized
-    Backdoor Criterion - GBC, the Generalized Adjustment Criterion - GAC). 
+    Backdoor Criterion - GBC, the Generalized Adjustment Criterion - GAC).
     Incorporating background knowledge is also possible.
 -   *Estimation of causal effects* is possible in
     `r pkg("CIEE")` using estimating equations derived from a
