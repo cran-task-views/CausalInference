@@ -338,7 +338,9 @@ treatment effect (HTE) estimation.
     interventional data without hidden variables), and for *causal
     inference using graphical models* (the IDA algorithm, the Generalized
     Backdoor Criterion - GBC, the Generalized Adjustment Criterion - GAC).
-    Incorporating background knowledge is also possible.
+    Incorporating background knowledge is also possible. Many algorithms and
+    methods for general and specific graphical models exist, we refer to the
+    `r view("GraphicalModels")` CRAN Task View for a comprehensive overview.
 -   *Estimation of causal effects* is possible in
     `r pkg("CIEE")` using estimating equations derived from a
     DAG and in `r pkg("InvariantCausalPrediction")` using
