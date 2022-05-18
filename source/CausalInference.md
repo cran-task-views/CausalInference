@@ -3,7 +3,7 @@ name: CausalInference
 topic: Causal Inference
 maintainer: Imke Mayer, Pan Zhao and Julie Josse
 email: mayer.imke@gmail.com
-version: 2022-03-09
+version: 2022-05-18
 ---
 
 
@@ -65,9 +65,6 @@ data**]{#rct}
     experiments).
 -   Design and analysis of *two-stage preference trials* is implemented
     in `r pkg("preference")`.
--   `r pkg("interferenceCI")` implements treatment effect
-    estimation methods for two-stage randomized experiments with
-    interference and binary outcome.
 -   In case of *non-compliance*, `r pkg("rpsftm")` uses
     g-estimation to estimate the causal effect of a treatment in a
     two-armed randomised control trial where non-compliance exists and
@@ -112,7 +109,6 @@ effect estimates**]{#ate}
     (pre-processing techniques of matching and weighting multiply
     imputed datasets), `r pkg("optmatch")` (distance based
     bipartite matching using the RELAX-IV minimum cost flow solver),
-    `r pkg("CMatching")` (for cluster data),
     `r pkg("FLAME")` (almost-matching-exactly via learned
     weighted Hamming distance).
 -   *Inverse propensity weighting* (IPW, also known as inverse
@@ -215,10 +211,7 @@ effect estimates**]{#ate}
     `r pkg("inferference")` by inverse-probability weighted
     (IPW) estimators, `r pkg("netchain")` on collective
     outcomes by chain graph models approximating the projection of the
-    full longitudinal data onto the observed data, and
-    `r pkg("interferenceCI")` provides some exact confidence
-    intervals for treatment effects on a binary outcome in two-stage
-    randomized experiments with interference.
+    full longitudinal data onto the observed data.
 -   Diagnostics and visualization for *Multiplicative Interaction
     Models* are implemented in `r pkg("interflex")`.
 -   `r pkg("InvariantCausalPrediction")` provides confidence
@@ -291,10 +284,8 @@ treatment effect (HTE) estimation.
 
 -   Estimation of an optimal dynamic treatment regime (DTR) is
     implemented in `r pkg("iqLearn")` and
-    `r pkg("DynTxRegime")` (using interactive Q-learning),
-    `r pkg("listdtr")` (using list-based rules),
-    `r pkg("qLearn")` (Q-learning for two stage sequentially
-    randomized trials). `r pkg("quantoptr")` implements
+    `r pkg("DynTxRegime")` (using interactive Q-learning).
+    `r pkg("quantoptr")` implements
     estimation methods for optimal treatment regimes under marginal
     quantile, marginal mean, and mean absolute difference.
     `r pkg("DTRreg")` proposes different methods such as
@@ -357,9 +348,6 @@ treatment effect (HTE) estimation.
     `r pkg("CompareCausalNetworks")`.
 -   `r pkg("generalCorr")` computes generalized correlations,
     partial correlations and *plausible causal paths*.
--   Constrained maximum likelihood estimation of a DAG with intervention
-    or observation data is implemented in `r pkg("intdag")`
-    for linear Gaussian SEM.
 
 In addition, `r pkg("dagitty", priority = "core")` provides
 methods to define different types of graphical models (cpdags, pdag,
@@ -379,8 +367,7 @@ environment is also available: [DAGitty](http://dagitty.net)).
     to handle missing data (see also `r view("MissingData")`).
 -   *GWAS and SNPs*: `r pkg("CKAT")` implements kernel based
     methods to jointly test genetic main effect and gene-treatment
-    interaction effects for a set of SNPs. `r pkg("epiGWAS")`
-    provides functions to perform robust epistasis detection in GWAS.
+    interaction effects for a set of SNPs.
 -   *Example data sets* to run frequent example problems from causal
     inference textbooks are accessible through the
     `r pkg("causaldata")` package.
