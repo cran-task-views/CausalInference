@@ -12,7 +12,7 @@ Causal inference can be seen as a subfield of statistical analysis. It
 is used in various fields such as econometrics, epidemiology,
 educational sciences, etc. With causal inference one addresses questions
 about effects of a treatment, intervention or policy on some target over
-a given sample or population. Under certain model assumptions, causal
+a given sample or population. Under certain identifiability and model assumptions, causal
 inferences can be carried out by fitting simple regression models or
 combining several regression models in a specific way as will be
 sketched out later. For observational data, additional untestable
@@ -28,7 +28,7 @@ different packages on CRAN, which we structure into main topics:
     effect estimates](#ate)
 -   [Heterogeneous treatment effect estimation](#hte)
 -   [Policy learning and dynamic treatment regimes](#policy)
--   [Do-calculus and causal discovery](#dag)
+-   [Structural equation models, do-calculus causal discovery](#dag)
 -   [Specific types of data](#data)
 -   [Specific application fields](#applications)
 
@@ -54,7 +54,7 @@ data**]{#rct}
 -   *Regression models* where the causal estimand is defined as a
     coefficient of a regression model are implemented in the packages
     `r pkg("allestimates")`.
--   *Evaluation of RCTs* is provided in `r pkg("experiment")`
+-   *Analysis methods for RCTs* are provided in `r pkg("experiment")`
     (various statistical methods), `r pkg("eefAnalytics")`
     (Frequentist and Bayesian multilevel models),
     `r pkg("ipcwswitch")` (IPW adapted to treatment switch in
@@ -328,7 +328,7 @@ treatment effect (HTE) estimation.
     Surface-Link for optimizing individualized dose rules from an
     observational study is implemented in `r pkg("simsl")`.
 
-[**Do-calculus and causal discovery**]{#dag}
+[**Structural equation models, do-calculus causal discovery**]{#dag}
 
 -   *Identifiability* is addressed by `r pkg("causaleffect")`
     and `r pkg("dosearch")` providing algorithms to decide
@@ -338,11 +338,12 @@ treatment effect (HTE) estimation.
     `r pkg("causaloptim")` provides tight bounds for a user
     defined DAG, query and constraints using a symbolic linear
     optimizer.
--   `r pkg("pcalg", priority = "core")` provides a set of
-    functions for *causal structure learning*: (PC, for observational
+-   *Causal structure learning* is possible with functions from
+    `r pkg("pcalg", priority = "core")`: PC, for observational
     data without hidden variables, FCI and RFCI, for observational data
     with hidden variables, and GIES, for a mix of observational and
-    interventional data without hidden variables), and for *causal
+    interventional data without hidden variables;
+    `r pkg("pcalg", priority = "core")` also allows to do *causal
     inference using graphical models* (the IDA algorithm, the Generalized
     Backdoor Criterion - GBC, the Generalized Adjustment Criterion - GAC).
     Incorporating background knowledge is also possible. Many algorithms and
