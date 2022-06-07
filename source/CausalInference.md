@@ -19,8 +19,8 @@ sketched out later. For observational data, additional untestable
 assumptions have to be made to (non-parametrically) identify causal
 effects.
 
-There do not exist basic R functions to do causal analyses straight
-away, but many methods - more or less complex - are implemented in
+There are no basic R functions that are direct implementations of standard causal
+inference designs, but many methods - more or less complex - are implemented in
 different packages on CRAN, which we structure into main topics:
 
 -   [Methods for experimental data](#rct)
@@ -80,9 +80,9 @@ data**]{#rct}
 effect estimates**]{#ate}
 
 -   *Regression models* where the causal estimand is a regression
-    parameter are implemented in `r pkg("estimatr")`,
-    `r pkg("CausalGAM")` (using generalized additive models),
-    `r pkg("sampleSelection")` (two-step and maximum
+    parameter are implemented in `r pkg("fixest", priority = "core")`,
+    `r pkg("estimatr")`, `r pkg("CausalGAM")` (using generalized additive
+    models), `r pkg("sampleSelection")` (two-step and maximum
     likelihood estimation of Heckman-type sample selection models),
     `r pkg("BCEE")` (Bayesian causal effect estimation for
     binary or continuous treatment and outcomes),
@@ -90,7 +90,11 @@ effect estimates**]{#ate}
     exchangeable data sources), `r pkg("causaldrf")` (average
     causal dose response functions), `r pkg("hdm")` (efficient
     estimators with uniformly valid confidence intervals, it assumes
-    approximately sparse models for high-dimensional settings).
+    approximately sparse models for high-dimensional settings). Estimation in
+    *fixed effects designs* is possible through `r pkg("fixest")` (linear and
+    generalized linear fixed effects models and combined with Instrumental
+    variables), `r pkg("plm")` (for panel data) and `r pkg("alpaca")` (for
+    high-dimensional k-way fixed effects).
 -   *G-formula* and other *conditional outcome regression* based methods
     are supported in the packages `r pkg("gfoRmula")` (also
     for time-varying treatment and confounding),
@@ -100,17 +104,17 @@ effect estimates**]{#ate}
     `r pkg("riskRegression", priority = "core")` (for survival
     outcomes with or without competing risks).
 -   *Matching* methods are implemented in
-    `r pkg("Matching", priority = "core")` (multivariate and
-    propensity score matching, and finding optimal balance based on a
-    genetic search algorithm),
+    `r pkg("Matching", priority = "core")` (k-nearest-neighbor matching,
+    multivariate and propensity score matching, and finding optimal balance
+    based on a genetic search algorithm),
     `r pkg("MatchIt", priority = "core")` (selecting matched
     samples of the original treated and control groups with similar
     covariate distributions), `r pkg("MatchThem")`
     (pre-processing techniques of matching and weighting multiply
-    imputed datasets), `r pkg("optmatch")` (distance based
-    bipartite matching using the RELAX-IV minimum cost flow solver),
-    `r pkg("FLAME")` (almost-matching-exactly via learned
-    weighted Hamming distance).
+    imputed datasets), `r pkg("cem")` (coarsened exact matching),
+    `r pkg("optmatch")` (distance based bipartite matching using the RELAX-IV
+    minimum cost flow solver), `r pkg("FLAME")` (almost-matching-exactly via
+    learned weighted Hamming distance).
 -   *Inverse propensity weighting* (IPW, also known as inverse
     probability of treatment weighting, IPTW) methods are implemented in
     `r pkg("ipw")`, `r pkg("causalweight")`,
@@ -161,8 +165,8 @@ effect estimates**]{#ate}
     `r pkg("bacondecomp")` (using the Goodman-Bacon
     decomposition to allow for variation in treatment timing),
     `r pkg("did")` (for cases with more than two periods and
-    with variation in treatment timing), and in
-    `r pkg("qte")`.
+    with variation in treatment timing), `r pkg("fixest")` (Sun & Abraham
+    estimator), and in `r pkg("qte")`.
 -   *Quantile treatment effects* can be estimated using the
     `r pkg("qte")`, `r pkg("Counterfactual")` and
     `r pkg("grf")` packages.
@@ -170,14 +174,16 @@ effect estimates**]{#ate}
     Trend* model is implemented in `r pkg("TrendInTrend")`.
 -   *Synthetic control* methods are implemented in
     `r pkg("Synth")` (using a group method for comparative
-    case studies), `r pkg("microsynth")` (for micro- and
+    case studies),`r pkg("microsynth")` (for micro- and
     meso-level data), and `r pkg("gsynth")` (extension to
-    multiple treated units and variable treatment periods.
+    multiple treated units and variable treatment periods).
+    `r pkg("tidysynth")` offers an easy-to-use syntax for using synthetic
+    control methods.
 -   *Instrumental variable* methods are implemented in
     `r pkg("ivmodel")`, `r pkg("ivpack")` (including
     power analysis, sensitivity analysis, and diagnostics),
     `r pkg("bpbounds")` (nonparametric bounds on ATE),
-    `r pkg("grf")`, `r pkg("estimatr")`, and
+    `r pkg("grf")`, `r pkg("fixest")`, `r pkg("estimatr")`, and
     `r pkg("DoubleML")` (function `DoubleMLIIVM`).
     `r pkg("ivmte")` provides a choice-theoretic
     interpretation to IV models using *Marginal Treatment Effects* to
@@ -220,20 +226,21 @@ effect estimates**]{#ate}
     extensions to nonlinear models are implemented in
     `r pkg("nonlinearICP")`.
 -   *Regression discontinuity design* (RDD) methods are implemented in
-    `r pkg("rddensity")` (density discontinuity testing (also
-    known as manipulation testing)), `r pkg("rdlocrand")`
+    `r pkg("rdrobust")` (offering robust confidence interval construction and
+    bandwidth selection), `r pkg("rddensity")` (density discontinuity testing
+    (also known as manipulation testing)), `r pkg("rdlocrand")`
     (inference under local randomization), `r pkg("rdmulti")`
     (analysis with multiple cutoffs or scores); tools to perform power,
     sample size and minimum detectable effects (MDE) calculations are
-    available in `r pkg("rdpower")`, robust confidence
-    interval construction and bandwidth selection are implemented in
-    `r pkg("rdrobust")`, `r pkg("RATest")` provides
+    available in `r pkg("rdpower")`, `r pkg("RATest")` provides
     a collection of randomization tests, including a permutation test
     for the continuity assumption of the baseline covariates in the
     sharp RDD.
 -   Regularized calibrated estimation of the average treatment effects
     (ATE) and local average treatment effects (LATE) is implemented in
     `r pkg("RCAL")`.
+-   *Continuous or multivalued treatments* can be analyzed using functions from
+    `r pkg("CBPS")`, `r pkg("PSweight")`, `r pkg("twang")`.
 -   `r pkg("WhatIf")` offers easy-to-apply methods to evaluate
     counterfactuals that do not require sensitivity testing over
     specified classes of models.
@@ -400,6 +407,9 @@ environment is also available: [DAGitty](http://dagitty.net)).
 -   `r pkg("tools4uplift")` uplift modeling aims at predicting
     the causal effect of an action such as a marketing campaign on a
     particular individual.
+-   `r pkg("estudy2")` allows examining the impact of certain events on the
+    stock valuation of companies through an event study methodology (with
+    parametric and nonparametric tests).
 -   *Coincidence analysis* through configurational comparative methods
     is provided by `r pkg("cna")`.
 

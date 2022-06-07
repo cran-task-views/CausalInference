@@ -1,7 +1,7 @@
 Causal Inference Task View
 ================
 Imke Mayer, Pan Zhao and Julie Josse
-18 May, 2022
+07 June, 2022
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 

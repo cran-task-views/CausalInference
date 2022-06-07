@@ -20,114 +20,552 @@
     <tr><td valign="top"><b>Citation:</b></td><td>Imke Mayer, Pan Zhao and Julie Josse (2022). CRAN Task View: Causal Inference. Version 2022-05-18.</td></tr>
   </table>
 
-<p>Causal inference can be seen as a subfield of statistical analysis. It is used in various fields such as econometrics, epidemiology, educational sciences, etc. With causal inference one addresses questions about effects of a treatment, intervention or policy on some target over a given sample or population. Under certain model assumptions, causal inferences can be carried out by fitting simple regression models or combining several regression models in a specific way as will be sketched out later. For observational data, additional untestable assumptions have to be made to (non-parametrically) identify causal effects.</p>
-<p>There do not exist basic R functions to do causal analyses straight away, but many methods - more or less complex - are implemented in different packages on CRAN, which we structure into main topics:</p>
+<p>Causal inference can be seen as a subfield of statistical analysis.
+It is used in various fields such as econometrics, epidemiology,
+educational sciences, etc. With causal inference one addresses questions
+about effects of a treatment, intervention or policy on some target over
+a given sample or population. Under certain identifiability and model
+assumptions, causal inferences can be carried out by fitting simple
+regression models or combining several regression models in a specific
+way as will be sketched out later. For observational data, additional
+untestable assumptions have to be made to (non-parametrically) identify
+causal effects.</p>
+<p>There are no basic R functions that are direct implementations of
+standard causal inference designs, but many methods - more or less
+complex - are implemented in different packages on CRAN, which we
+structure into main topics:</p>
 <ul>
 <li><a href="#rct">Methods for experimental data</a></li>
-<li><a href="#ate">Average treatment effect estimation and other univariate treatment effect estimates</a></li>
+<li><a href="#ate">Average treatment effect estimation and other
+univariate treatment effect estimates</a></li>
 <li><a href="#hte">Heterogeneous treatment effect estimation</a></li>
-<li><a href="#policy">Policy learning and dynamic treatment regimes</a></li>
-<li><a href="#dag">Do-calculus and causal discovery</a></li>
+<li><a href="#policy">Policy learning and dynamic treatment
+regimes</a></li>
+<li><a href="#dag">Structural equation models, do-calculus causal
+discovery</a></li>
 <li><a href="#data">Specific types of data</a></li>
 <li><a href="#applications">Specific application fields</a></li>
 </ul>
-<p>If you think that we missed some important packages in this list, please contact the maintainers.</p>
-<p><span id="rct"><strong>Methods for randomized controlled trial (RCT) and other experimental data</strong></span></p>
+<p>If you think that we missed some important packages in this list,
+please contact the maintainers.</p>
+<p><span id="rct"><strong>Methods for randomized controlled trial (RCT)
+and other experimental data</strong></span></p>
 <ul>
-<li><em>Construction of experimental designs</em> is implemented in <a href="https://CRAN.R-project.org/package=blocksdesign">blocksdesign</a> (blocks for general factorial treatment designs), <a href="https://CRAN.R-project.org/package=BCHM">BCHM</a> (Bayesian cluster hierarchical model design for multiple subgroup basket trials), <a href="https://CRAN.R-project.org/package=Boptbd">Boptbd</a> (Bayesian optimal block designs under linear mixed effects model), <a href="https://CRAN.R-project.org/package=seqDesign">seqDesign</a> (sequential design of randomized two-stage treatment efficacy trials with time-to-event endpoints). Many other tools and packages exist for designing experiments and clinical trials, we refer to the <a href="https://CRAN.R-project.org/view=ExperimentalDesign">ExperimentalDesign</a> and <a href="https://CRAN.R-project.org/view=ClinicalTrials">ClinicalTrials</a> CRAN Task Views.</li>
-<li><em>Tests based on pairwise comparisons</em> are provided in <a href="https://CRAN.R-project.org/package=BuyseTest">BuyseTest</a>.</li>
-<li><em>Regression models</em> where the causal estimand is defined as a coefficient of a regression model are implemented in the packages <a href="https://CRAN.R-project.org/package=allestimates">allestimates</a>.</li>
-<li><em>Evaluation of RCTs</em> is provided in <a href="https://CRAN.R-project.org/package=experiment">experiment</a> (various statistical methods), <a href="https://CRAN.R-project.org/package=eefAnalytics">eefAnalytics</a> (Frequentist and Bayesian multilevel models), <a href="https://CRAN.R-project.org/package=ipcwswitch">ipcwswitch</a> (IPW adapted to treatment switch in an RCT), <a href="https://CRAN.R-project.org/package=idem">idem</a> (with death and missingness).</li>
-<li><em>Posterior analysis tools</em> are implemented in <a href="https://CRAN.R-project.org/package=beanz">beanz</a> (Bayesian HTE models), <a href="https://CRAN.R-project.org/package=cjoint">cjoint</a> (conjoint analysis for survey experiments).</li>
-<li>Design and analysis of <em>two-stage preference trials</em> is implemented in <a href="https://CRAN.R-project.org/package=preference">preference</a>.</li>
-<li>In case of <em>non-compliance</em>, <a href="https://CRAN.R-project.org/package=rpsftm">rpsftm</a> uses g-estimation to estimate the causal effect of a treatment in a two-armed randomised control trial where non-compliance exists and is measured, under an assumption of an accelerated failure time model and no unmeasured confounders.</li>
-<li>A time series causal inference model for RCT under <em>spillover effect</em> is implemented in <a href="https://CRAN.R-project.org/package=SPORTSCausal">SPORTSCausal</a>.</li>
-<li>Design and analysis of clinical non-inferiority or superiority trials with active and placebo control is implemented in <a href="https://CRAN.R-project.org/package=ThreeArmedTrials">ThreeArmedTrials</a>.</li>
+<li><em>Construction of experimental designs</em> is implemented in <a
+href="https://CRAN.R-project.org/package=blocksdesign">blocksdesign</a>
+(blocks for general factorial treatment designs), <a
+href="https://CRAN.R-project.org/package=BCHM">BCHM</a> (Bayesian
+cluster hierarchical model design for multiple subgroup basket trials),
+<a href="https://CRAN.R-project.org/package=Boptbd">Boptbd</a> (Bayesian
+optimal block designs under linear mixed effects model), <a
+href="https://CRAN.R-project.org/package=seqDesign">seqDesign</a>
+(sequential design of randomized two-stage treatment efficacy trials
+with time-to-event endpoints). Many other tools and packages exist for
+designing experiments and clinical trials, we refer to the <a
+href="https://CRAN.R-project.org/view=ExperimentalDesign">ExperimentalDesign</a>
+and <a
+href="https://CRAN.R-project.org/view=ClinicalTrials">ClinicalTrials</a>
+CRAN Task Views.</li>
+<li><em>Tests based on pairwise comparisons</em> are provided in <a
+href="https://CRAN.R-project.org/package=BuyseTest">BuyseTest</a>.</li>
+<li><em>Regression models</em> where the causal estimand is defined as a
+coefficient of a regression model are implemented in the packages <a
+href="https://CRAN.R-project.org/package=allestimates">allestimates</a>.</li>
+<li><em>Analysis methods for RCTs</em> are provided in <a
+href="https://CRAN.R-project.org/package=experiment">experiment</a>
+(various statistical methods), <a
+href="https://CRAN.R-project.org/package=eefAnalytics">eefAnalytics</a>
+(Frequentist and Bayesian multilevel models), <a
+href="https://CRAN.R-project.org/package=ipcwswitch">ipcwswitch</a> (IPW
+adapted to treatment switch in an RCT), <a
+href="https://CRAN.R-project.org/package=idem">idem</a> (with death and
+missingness).</li>
+<li><em>Posterior analysis tools</em> are implemented in <a
+href="https://CRAN.R-project.org/package=beanz">beanz</a> (Bayesian HTE
+models), <a href="https://CRAN.R-project.org/package=cjoint">cjoint</a>
+(conjoint analysis for survey experiments).</li>
+<li>Design and analysis of <em>two-stage preference trials</em> is
+implemented in <a
+href="https://CRAN.R-project.org/package=preference">preference</a>.</li>
+<li>In case of <em>non-compliance</em>, <a
+href="https://CRAN.R-project.org/package=rpsftm">rpsftm</a> uses
+g-estimation to estimate the causal effect of a treatment in a two-armed
+randomised control trial where non-compliance exists and is measured,
+under an assumption of an accelerated failure time model and no
+unmeasured confounders.</li>
+<li>A time series causal inference model for RCT under <em>spillover
+effect</em> is implemented in <a
+href="https://CRAN.R-project.org/package=SPORTSCausal">SPORTSCausal</a>.</li>
+<li>Design and analysis of clinical non-inferiority or superiority
+trials with active and placebo control is implemented in <a
+href="https://CRAN.R-project.org/package=ThreeArmedTrials">ThreeArmedTrials</a>.</li>
 </ul>
-<p><span id="ate"><strong>Average treatment effect estimation and other univariate treatment effect estimates</strong></span></p>
+<p><span id="ate"><strong>Average treatment effect estimation and other
+univariate treatment effect estimates</strong></span></p>
 <ul>
-<li><em>Regression models</em> where the causal estimand is a regression parameter are implemented in <a href="https://CRAN.R-project.org/package=estimatr">estimatr</a>, <a href="https://CRAN.R-project.org/package=CausalGAM">CausalGAM</a> (using generalized additive models), <a href="https://CRAN.R-project.org/package=sampleSelection">sampleSelection</a> (two-step and maximum likelihood estimation of Heckman-type sample selection models), <a href="https://CRAN.R-project.org/package=BCEE">BCEE</a> (Bayesian causal effect estimation for binary or continuous treatment and outcomes), <a href="https://CRAN.R-project.org/package=borrowr">borrowr</a> (Bayesian PATE estimation for multiple exchangeable data sources), <a href="https://CRAN.R-project.org/package=causaldrf">causaldrf</a> (average causal dose response functions), <a href="https://CRAN.R-project.org/package=hdm">hdm</a> (efficient estimators with uniformly valid confidence intervals, it assumes approximately sparse models for high-dimensional settings).</li>
-<li><em>G-formula</em> and other <em>conditional outcome regression</em> based methods are supported in the packages <a href="https://CRAN.R-project.org/package=gfoRmula">gfoRmula</a> (also for time-varying treatment and confounding), <a href="https://CRAN.R-project.org/package=EffectLiteR">EffectLiteR</a> (based on structural equation modeling), <a href="https://CRAN.R-project.org/package=endoSwitch">endoSwitch</a> (maximum likelihood estimation of endogenous switching regression models), and <a href="https://CRAN.R-project.org/package=riskRegression">riskRegression</a> (for survival outcomes with or without competing risks).</li>
-<li><em>Matching</em> methods are implemented in <a href="https://CRAN.R-project.org/package=Matching">Matching</a> (multivariate and propensity score matching, and finding optimal balance based on a genetic search algorithm), <a href="https://CRAN.R-project.org/package=MatchIt">MatchIt</a> (selecting matched samples of the original treated and control groups with similar covariate distributions), <a href="https://CRAN.R-project.org/package=MatchThem">MatchThem</a> (pre-processing techniques of matching and weighting multiply imputed datasets), <a href="https://CRAN.R-project.org/package=optmatch">optmatch</a> (distance based bipartite matching using the RELAX-IV minimum cost flow solver), <a href="https://CRAN.R-project.org/package=FLAME">FLAME</a> (almost-matching-exactly via learned weighted Hamming distance).</li>
-<li><em>Inverse propensity weighting</em> (IPW, also known as inverse probability of treatment weighting, IPTW) methods are implemented in <a href="https://CRAN.R-project.org/package=ipw">ipw</a>, <a href="https://CRAN.R-project.org/package=causalweight">causalweight</a>, <a href="https://CRAN.R-project.org/package=estimatr">estimatr</a>, <a href="https://CRAN.R-project.org/package=riskRegression">riskRegression</a> (for survival outcomes), <a href="https://CRAN.R-project.org/package=clusteredinterference">clusteredinterference</a> and <a href="https://CRAN.R-project.org/package=inferference">inferference</a> (the latter two both making interference assumptions), <a href="https://CRAN.R-project.org/package=hrIPW">hrIPW</a> (under a Cox proportional hazards model), <a href="https://CRAN.R-project.org/package=ipwCoxCSV">ipwCoxCSV</a> (corrected sandwich variance estimation for the IPW Cox model), <a href="https://CRAN.R-project.org/package=ipwErrorY">ipwErrorY</a> (correction methods for the IPW estimation with measurement error in outcomes). <a href="https://CRAN.R-project.org/package=autoCovariateSelection">autoCovariateSelection</a> offers automated covariate selection for high-dimensional propensity scores. <a href="https://CRAN.R-project.org/package=pstest">pstest</a> provides specification tests for parametric propensity score models. In case of <em>ordinal or multinomial treatment,</em> <a href="https://CRAN.R-project.org/package=GPSCDF">GPSCDF</a> allows to estimate generalized propensity score cumulative distribution functions.</li>
-<li>Other <em>balancing score weighting</em> methods for balancing covariate distributions are available in <a href="https://CRAN.R-project.org/package=CBPS">CBPS</a> (for binary and multivalued treatments, optionally in longitudinal settings). <a href="https://CRAN.R-project.org/package=PSweight">PSweight</a> supports propensity score weighting analysis (including overlap weights) of observational studies and randomized trials (available for multivalued treatment). <a href="https://CRAN.R-project.org/package=twang">twang</a> provides a set of functions for propensity score estimation and weighting (including time-varying and multivalued treatment), nonresponse weighting, and diagnosis of the weights (of nonequivalent groups). <a href="https://CRAN.R-project.org/package=twangContinuous">twangContinuous</a> provides functions for propensity score estimation and weighting for continuous treatments.</li>
-<li><em>Doubly robust methods</em> are implemented in <a href="https://CRAN.R-project.org/package=grf">grf</a> (function <code>average_treatment_effect</code> for the AIPW estimator using generalized random forest), in <a href="https://CRAN.R-project.org/package=AIPW">AIPW</a> (allowing for user-defined stacked machine learning predictive models), in <a href="https://CRAN.R-project.org/package=causalweight">causalweight</a>, in <a href="https://CRAN.R-project.org/package=riskRegression">riskRegression</a> (function <code>ate</code> implements a parametric doubly robust estimator for survival outcomes), and in <a href="https://CRAN.R-project.org/package=DoubleML">DoubleML</a> (function <code>DoubleMLIRM</code>).</li>
-<li><em>Targeted learning</em> (also known as targeted maximum likelihood estimation or targeted minimum loss-based estimation) methods are available in <a href="https://CRAN.R-project.org/package=drtmle">drtmle</a>, <a href="https://CRAN.R-project.org/package=tmle">tmle</a>, and <a href="https://CRAN.R-project.org/package=ltmle">ltmle</a> (for longitudinal data).</li>
-<li><em>Difference in differences</em> methods are implemented in <a href="https://CRAN.R-project.org/package=DRDID">DRDID</a> (doubly robust estimators with two choices for nuisance function estimation), <a href="https://CRAN.R-project.org/package=bacondecomp">bacondecomp</a> (using the Goodman-Bacon decomposition to allow for variation in treatment timing), <a href="https://CRAN.R-project.org/package=did">did</a> (for cases with more than two periods and with variation in treatment timing), and in <a href="https://CRAN.R-project.org/package=qte">qte</a>.</li>
-<li><em>Quantile treatment effects</em> can be estimated using the <a href="https://CRAN.R-project.org/package=qte">qte</a>, <a href="https://CRAN.R-project.org/package=Counterfactual">Counterfactual</a> and <a href="https://CRAN.R-project.org/package=grf">grf</a> packages.</li>
-<li><em>Odds ratio</em> estimation and power calculation for the <em>Trend in Trend</em> model is implemented in <a href="https://CRAN.R-project.org/package=TrendInTrend">TrendInTrend</a>.</li>
-<li><em>Synthetic control</em> methods are implemented in <a href="https://CRAN.R-project.org/package=Synth">Synth</a> (using a group method for comparative case studies), <a href="https://CRAN.R-project.org/package=microsynth">microsynth</a> (for micro- and meso-level data), and <a href="https://CRAN.R-project.org/package=gsynth">gsynth</a> (extension to multiple treated units and variable treatment periods.</li>
-<li><em>Instrumental variable</em> methods are implemented in <a href="https://CRAN.R-project.org/package=ivmodel">ivmodel</a>, <a href="https://CRAN.R-project.org/package=ivpack">ivpack</a> (including power analysis, sensitivity analysis, and diagnostics), <a href="https://CRAN.R-project.org/package=bpbounds">bpbounds</a> (nonparametric bounds on ATE), <a href="https://CRAN.R-project.org/package=grf">grf</a>, <a href="https://CRAN.R-project.org/package=estimatr">estimatr</a>, and <a href="https://CRAN.R-project.org/package=DoubleML">DoubleML</a> (function <code>DoubleMLIIVM</code>). <a href="https://CRAN.R-project.org/package=ivmte">ivmte</a> provides a choice-theoretic interpretation to IV models using <em>Marginal Treatment Effects</em> to extrapolate from the compliers to estimate treatment effects for other subpopulations; and estimation using local IVs is implemented in <a href="https://CRAN.R-project.org/package=localIV">localIV</a>. <a href="https://CRAN.R-project.org/package=LARF">LARF</a> uses Local Average Response Functions for IV estimation of treatment effects with binary endogenous treatment and instrument. <a href="https://CRAN.R-project.org/package=icsw">icsw</a> implements inverse compliance score weighting for estimating average treatment effects with an instrumental variable.</li>
-<li><em>Mediation analysis</em> can be performed with <a href="https://CRAN.R-project.org/package=cfma">cfma</a> (functional mediation analysis), <a href="https://CRAN.R-project.org/package=cit">cit</a> (likelihood-based tests), <a href="https://CRAN.R-project.org/package=MultisiteMediation">MultisiteMediation</a> (multisite trials), <a href="https://CRAN.R-project.org/package=DirectEffects">DirectEffects</a> (controlled direct effect when fixing a potential mediator to a specific value), <a href="https://CRAN.R-project.org/package=medflex">medflex</a> (natural effect models) and <a href="https://CRAN.R-project.org/package=causalweight">causalweight</a>. <a href="https://CRAN.R-project.org/package=mediation">mediation</a> and <a href="https://CRAN.R-project.org/package=cfdecomp">cfdecomp</a> implement identification, inference and <a href="https://CRAN.R-project.org/package=mediation">mediation</a> additionally also provides sensitivity analysis for causal mediation effects. Linear mediation analysis for complex surveys using balanced repeated replication is implemented in <a href="https://CRAN.R-project.org/package=MedSurvey">MedSurvey</a>. <a href="https://CRAN.R-project.org/package=paths">paths</a> uses an imputation approach to estimate path-specific causal effects along with a set of bias formulas for conducting sensitivity analysis. <a href="https://CRAN.R-project.org/package=regmedint">regmedint</a> implements regression-based analysis with a treatment-mediator interaction term. <a href="https://CRAN.R-project.org/package=gma">gma</a> performs Granger mediation analysis for time series.</li>
-<li>Under <em>interference,</em> causal effect estimation can be achieved using <a href="https://CRAN.R-project.org/package=inferference">inferference</a> by inverse-probability weighted (IPW) estimators, <a href="https://CRAN.R-project.org/package=netchain">netchain</a> on collective outcomes by chain graph models approximating the projection of the full longitudinal data onto the observed data.</li>
-<li>Diagnostics and visualization for <em>Multiplicative Interaction Models</em> are implemented in <a href="https://CRAN.R-project.org/package=interflex">interflex</a>.</li>
-<li><a href="https://CRAN.R-project.org/package=InvariantCausalPrediction">InvariantCausalPrediction</a> provides confidence intervals for causal effects, using data collected in different experimental or environmental conditions (with hidden variables), extensions to nonlinear models are implemented in <a href="https://CRAN.R-project.org/package=nonlinearICP">nonlinearICP</a>.</li>
-<li><em>Regression discontinuity design</em> (RDD) methods are implemented in <a href="https://CRAN.R-project.org/package=rddensity">rddensity</a> (density discontinuity testing (also known as manipulation testing)), <a href="https://CRAN.R-project.org/package=rdlocrand">rdlocrand</a> (inference under local randomization), <a href="https://CRAN.R-project.org/package=rdmulti">rdmulti</a> (analysis with multiple cutoffs or scores); tools to perform power, sample size and minimum detectable effects (MDE) calculations are available in <a href="https://CRAN.R-project.org/package=rdpower">rdpower</a>, robust confidence interval construction and bandwidth selection are implemented in <a href="https://CRAN.R-project.org/package=rdrobust">rdrobust</a>, <a href="https://CRAN.R-project.org/package=RATest">RATest</a> provides a collection of randomization tests, including a permutation test for the continuity assumption of the baseline covariates in the sharp RDD.</li>
-<li>Regularized calibrated estimation of the average treatment effects (ATE) and local average treatment effects (LATE) is implemented in <a href="https://CRAN.R-project.org/package=RCAL">RCAL</a>.</li>
-<li><a href="https://CRAN.R-project.org/package=WhatIf">WhatIf</a> offers easy-to-apply methods to evaluate counterfactuals that do not require sensitivity testing over specified classes of models.</li>
+<li><em>Regression models</em> where the causal estimand is a regression
+parameter are implemented in <a
+href="https://CRAN.R-project.org/package=fixest">fixest</a>, <a
+href="https://CRAN.R-project.org/package=estimatr">estimatr</a>, <a
+href="https://CRAN.R-project.org/package=CausalGAM">CausalGAM</a> (using
+generalized additive models), <a
+href="https://CRAN.R-project.org/package=sampleSelection">sampleSelection</a>
+(two-step and maximum likelihood estimation of Heckman-type sample
+selection models), <a
+href="https://CRAN.R-project.org/package=BCEE">BCEE</a> (Bayesian causal
+effect estimation for binary or continuous treatment and outcomes), <a
+href="https://CRAN.R-project.org/package=borrowr">borrowr</a> (Bayesian
+PATE estimation for multiple exchangeable data sources), <a
+href="https://CRAN.R-project.org/package=causaldrf">causaldrf</a>
+(average causal dose response functions), <a
+href="https://CRAN.R-project.org/package=hdm">hdm</a> (efficient
+estimators with uniformly valid confidence intervals, it assumes
+approximately sparse models for high-dimensional settings). Estimation
+in <em>fixed effects designs</em> is possible through <a
+href="https://CRAN.R-project.org/package=fixest">fixest</a> (linear and
+generalized linear fixed effects models and combined with Instrumental
+variables), <a href="https://CRAN.R-project.org/package=plm">plm</a>
+(for panel data) and <a
+href="https://CRAN.R-project.org/package=alpaca">alpaca</a> (for
+high-dimensional k-way fixed effects).</li>
+<li><em>G-formula</em> and other <em>conditional outcome regression</em>
+based methods are supported in the packages <a
+href="https://CRAN.R-project.org/package=gfoRmula">gfoRmula</a> (also
+for time-varying treatment and confounding), <a
+href="https://CRAN.R-project.org/package=EffectLiteR">EffectLiteR</a>
+(based on structural equation modeling), <a
+href="https://CRAN.R-project.org/package=endoSwitch">endoSwitch</a>
+(maximum likelihood estimation of endogenous switching regression
+models), and <a
+href="https://CRAN.R-project.org/package=riskRegression">riskRegression</a>
+(for survival outcomes with or without competing risks).</li>
+<li><em>Matching</em> methods are implemented in <a
+href="https://CRAN.R-project.org/package=Matching">Matching</a>
+(k-nearest-neighbor matching, multivariate and propensity score
+matching, and finding optimal balance based on a genetic search
+algorithm), <a
+href="https://CRAN.R-project.org/package=MatchIt">MatchIt</a> (selecting
+matched samples of the original treated and control groups with similar
+covariate distributions), <a
+href="https://CRAN.R-project.org/package=MatchThem">MatchThem</a>
+(pre-processing techniques of matching and weighting multiply imputed
+datasets), <a href="https://CRAN.R-project.org/package=cem">cem</a>
+(coarsened exact matching), <a
+href="https://CRAN.R-project.org/package=optmatch">optmatch</a>
+(distance based bipartite matching using the RELAX-IV minimum cost flow
+solver), <a href="https://CRAN.R-project.org/package=FLAME">FLAME</a>
+(almost-matching-exactly via learned weighted Hamming distance).</li>
+<li><em>Inverse propensity weighting</em> (IPW, also known as inverse
+probability of treatment weighting, IPTW) methods are implemented in <a
+href="https://CRAN.R-project.org/package=ipw">ipw</a>, <a
+href="https://CRAN.R-project.org/package=causalweight">causalweight</a>,
+<a href="https://CRAN.R-project.org/package=estimatr">estimatr</a>, <a
+href="https://CRAN.R-project.org/package=riskRegression">riskRegression</a>
+(for survival outcomes), <a
+href="https://CRAN.R-project.org/package=clusteredinterference">clusteredinterference</a>
+and <a
+href="https://CRAN.R-project.org/package=inferference">inferference</a>
+(the latter two both making interference assumptions), <a
+href="https://CRAN.R-project.org/package=hrIPW">hrIPW</a> (under a Cox
+proportional hazards model), <a
+href="https://CRAN.R-project.org/package=ipwCoxCSV">ipwCoxCSV</a>
+(corrected sandwich variance estimation for the IPW Cox model), <a
+href="https://CRAN.R-project.org/package=ipwErrorY">ipwErrorY</a>
+(correction methods for the IPW estimation with measurement error in
+outcomes). <a
+href="https://CRAN.R-project.org/package=autoCovariateSelection">autoCovariateSelection</a>
+offers automated covariate selection for high-dimensional propensity
+scores. <a href="https://CRAN.R-project.org/package=pstest">pstest</a>
+provides specification tests for parametric propensity score models. In
+case of <em>ordinal or multinomial treatment,</em> <a
+href="https://CRAN.R-project.org/package=GPSCDF">GPSCDF</a> allows to
+estimate generalized propensity score cumulative distribution
+functions.</li>
+<li>Other <em>balancing score weighting</em> methods for balancing
+covariate distributions are available in <a
+href="https://CRAN.R-project.org/package=CBPS">CBPS</a> (for binary and
+multivalued treatments, optionally in longitudinal settings). <a
+href="https://CRAN.R-project.org/package=PSweight">PSweight</a> supports
+propensity score weighting analysis (including overlap weights) of
+observational studies and randomized trials (available for multivalued
+treatment). <a href="https://CRAN.R-project.org/package=twang">twang</a>
+provides a set of functions for propensity score estimation and
+weighting (including time-varying and multivalued treatment),
+nonresponse weighting, and diagnosis of the weights (of nonequivalent
+groups). <a
+href="https://CRAN.R-project.org/package=twangContinuous">twangContinuous</a>
+provides functions for propensity score estimation and weighting for
+continuous treatments.</li>
+<li><em>Doubly robust methods</em> are implemented in <a
+href="https://CRAN.R-project.org/package=grf">grf</a> (function
+<code>average_treatment_effect</code> for the AIPW estimator using
+generalized random forest), in <a
+href="https://CRAN.R-project.org/package=AIPW">AIPW</a> (allowing for
+user-defined stacked machine learning predictive models), in <a
+href="https://CRAN.R-project.org/package=causalweight">causalweight</a>,
+in <a
+href="https://CRAN.R-project.org/package=riskRegression">riskRegression</a>
+(function <code>ate</code> implements a parametric doubly robust
+estimator for survival outcomes), and in <a
+href="https://CRAN.R-project.org/package=DoubleML">DoubleML</a>
+(function <code>DoubleMLIRM</code>).</li>
+<li><em>Targeted learning</em> (also known as targeted maximum
+likelihood estimation or targeted minimum loss-based estimation) methods
+are available in <a
+href="https://CRAN.R-project.org/package=drtmle">drtmle</a>, <a
+href="https://CRAN.R-project.org/package=tmle">tmle</a>, and <a
+href="https://CRAN.R-project.org/package=ltmle">ltmle</a> (for
+longitudinal data).</li>
+<li><em>Difference in differences</em> methods are implemented in <a
+href="https://CRAN.R-project.org/package=DRDID">DRDID</a> (doubly robust
+estimators with two choices for nuisance function estimation), <a
+href="https://CRAN.R-project.org/package=bacondecomp">bacondecomp</a>
+(using the Goodman-Bacon decomposition to allow for variation in
+treatment timing), <a
+href="https://CRAN.R-project.org/package=did">did</a> (for cases with
+more than two periods and with variation in treatment timing), <a
+href="https://CRAN.R-project.org/package=fixest">fixest</a> (Sun &amp;
+Abraham estimator), and in <a
+href="https://CRAN.R-project.org/package=qte">qte</a>.</li>
+<li><em>Quantile treatment effects</em> can be estimated using the <a
+href="https://CRAN.R-project.org/package=qte">qte</a>, <a
+href="https://CRAN.R-project.org/package=Counterfactual">Counterfactual</a>
+and <a href="https://CRAN.R-project.org/package=grf">grf</a>
+packages.</li>
+<li><em>Odds ratio</em> estimation and power calculation for the
+<em>Trend in Trend</em> model is implemented in <a
+href="https://CRAN.R-project.org/package=TrendInTrend">TrendInTrend</a>.</li>
+<li><em>Synthetic control</em> methods are implemented in <a
+href="https://CRAN.R-project.org/package=Synth">Synth</a> (using a group
+method for comparative case studies),<a
+href="https://CRAN.R-project.org/package=microsynth">microsynth</a> (for
+micro- and meso-level data), and <a
+href="https://CRAN.R-project.org/package=gsynth">gsynth</a> (extension
+to multiple treated units and variable treatment periods). <a
+href="https://CRAN.R-project.org/package=tidysynth">tidysynth</a> offers
+an easy-to-use syntax for using synthetic control methods.</li>
+<li><em>Instrumental variable</em> methods are implemented in <a
+href="https://CRAN.R-project.org/package=ivmodel">ivmodel</a>, <a
+href="https://CRAN.R-project.org/package=ivpack">ivpack</a> (including
+power analysis, sensitivity analysis, and diagnostics), <a
+href="https://CRAN.R-project.org/package=bpbounds">bpbounds</a>
+(nonparametric bounds on ATE), <a
+href="https://CRAN.R-project.org/package=grf">grf</a>, <a
+href="https://CRAN.R-project.org/package=fixest">fixest</a>, <a
+href="https://CRAN.R-project.org/package=estimatr">estimatr</a>, and <a
+href="https://CRAN.R-project.org/package=DoubleML">DoubleML</a>
+(function <code>DoubleMLIIVM</code>). <a
+href="https://CRAN.R-project.org/package=ivmte">ivmte</a> provides a
+choice-theoretic interpretation to IV models using <em>Marginal
+Treatment Effects</em> to extrapolate from the compliers to estimate
+treatment effects for other subpopulations; and estimation using local
+IVs is implemented in <a
+href="https://CRAN.R-project.org/package=localIV">localIV</a>. <a
+href="https://CRAN.R-project.org/package=LARF">LARF</a> uses Local
+Average Response Functions for IV estimation of treatment effects with
+binary endogenous treatment and instrument. <a
+href="https://CRAN.R-project.org/package=icsw">icsw</a> implements
+inverse compliance score weighting for estimating average treatment
+effects with an instrumental variable.</li>
+<li><em>Mediation analysis</em> can be performed with <a
+href="https://CRAN.R-project.org/package=cfma">cfma</a> (functional
+mediation analysis), <a
+href="https://CRAN.R-project.org/package=cit">cit</a> (likelihood-based
+tests), <a
+href="https://CRAN.R-project.org/package=MultisiteMediation">MultisiteMediation</a>
+(multisite trials), <a
+href="https://CRAN.R-project.org/package=DirectEffects">DirectEffects</a>
+(controlled direct effect when fixing a potential mediator to a specific
+value), <a href="https://CRAN.R-project.org/package=medflex">medflex</a>
+(natural effect models) and <a
+href="https://CRAN.R-project.org/package=causalweight">causalweight</a>.
+<a href="https://CRAN.R-project.org/package=mediation">mediation</a> and
+<a href="https://CRAN.R-project.org/package=cfdecomp">cfdecomp</a>
+implement identification, inference and <a
+href="https://CRAN.R-project.org/package=mediation">mediation</a>
+additionally also provides sensitivity analysis for causal mediation
+effects. Linear mediation analysis for complex surveys using balanced
+repeated replication is implemented in <a
+href="https://CRAN.R-project.org/package=MedSurvey">MedSurvey</a>. <a
+href="https://CRAN.R-project.org/package=paths">paths</a> uses an
+imputation approach to estimate path-specific causal effects along with
+a set of bias formulas for conducting sensitivity analysis. <a
+href="https://CRAN.R-project.org/package=regmedint">regmedint</a>
+implements regression-based analysis with a treatment-mediator
+interaction term. <a
+href="https://CRAN.R-project.org/package=gma">gma</a> performs Granger
+mediation analysis for time series.</li>
+<li>Under <em>interference,</em> causal effect estimation can be
+achieved using <a
+href="https://CRAN.R-project.org/package=inferference">inferference</a>
+by inverse-probability weighted (IPW) estimators, <a
+href="https://CRAN.R-project.org/package=netchain">netchain</a> on
+collective outcomes by chain graph models approximating the projection
+of the full longitudinal data onto the observed data.</li>
+<li>Diagnostics and visualization for <em>Multiplicative Interaction
+Models</em> are implemented in <a
+href="https://CRAN.R-project.org/package=interflex">interflex</a>.</li>
+<li><a
+href="https://CRAN.R-project.org/package=InvariantCausalPrediction">InvariantCausalPrediction</a>
+provides confidence intervals for causal effects, using data collected
+in different experimental or environmental conditions (with hidden
+variables), extensions to nonlinear models are implemented in <a
+href="https://CRAN.R-project.org/package=nonlinearICP">nonlinearICP</a>.</li>
+<li><em>Regression discontinuity design</em> (RDD) methods are
+implemented in <a
+href="https://CRAN.R-project.org/package=rdrobust">rdrobust</a>
+(offering robust confidence interval construction and bandwidth
+selection), <a
+href="https://CRAN.R-project.org/package=rddensity">rddensity</a>
+(density discontinuity testing (also known as manipulation testing)), <a
+href="https://CRAN.R-project.org/package=rdlocrand">rdlocrand</a>
+(inference under local randomization), <a
+href="https://CRAN.R-project.org/package=rdmulti">rdmulti</a> (analysis
+with multiple cutoffs or scores); tools to perform power, sample size
+and minimum detectable effects (MDE) calculations are available in <a
+href="https://CRAN.R-project.org/package=rdpower">rdpower</a>, <a
+href="https://CRAN.R-project.org/package=RATest">RATest</a> provides a
+collection of randomization tests, including a permutation test for the
+continuity assumption of the baseline covariates in the sharp RDD.</li>
+<li>Regularized calibrated estimation of the average treatment effects
+(ATE) and local average treatment effects (LATE) is implemented in <a
+href="https://CRAN.R-project.org/package=RCAL">RCAL</a>.</li>
+<li><em>Continuous or multivalued treatments</em> can be analyzed using
+functions from <a
+href="https://CRAN.R-project.org/package=CBPS">CBPS</a>, <a
+href="https://CRAN.R-project.org/package=PSweight">PSweight</a>, <a
+href="https://CRAN.R-project.org/package=twang">twang</a>.</li>
+<li><a href="https://CRAN.R-project.org/package=WhatIf">WhatIf</a>
+offers easy-to-apply methods to evaluate counterfactuals that do not
+require sensitivity testing over specified classes of models.</li>
 </ul>
-<p>In addition, <a href="https://CRAN.R-project.org/package=causalsens">causalsens</a>, <a href="https://CRAN.R-project.org/package=hettx">hettx</a>, <a href="https://CRAN.R-project.org/package=dstat">dstat</a> and <a href="https://CRAN.R-project.org/package=EValue">EValue</a> provide functions for <em>sensitivity analyses</em> (for unmeasured confounding, selection bias, measurement error), <a href="https://CRAN.R-project.org/package=ui">ui</a> implements functions to derive uncertainty intervals and conduct sensitivity analysis for missing data and unobserved confounding. <a href="https://CRAN.R-project.org/package=BalanceCheck">BalanceCheck</a> provides tests to assess balancing of the treatment groups after matching, <a href="https://CRAN.R-project.org/package=cobalt">cobalt</a> generates balance tables and plots before and after covariate balancing, and <a href="https://CRAN.R-project.org/package=confoundr">confoundr</a> implements covariate-balance diagnostics for time-varying confounding.</p>
-<p><span id="hte"><strong>Heterogeneous treatment effect estimation</strong></span></p>
-<p>Some of the above mentioned packages can also be used for heterogeneous treatment effect (HTE) estimation.</p>
+<p>In addition, <a
+href="https://CRAN.R-project.org/package=causalsens">causalsens</a>, <a
+href="https://CRAN.R-project.org/package=hettx">hettx</a>, <a
+href="https://CRAN.R-project.org/package=dstat">dstat</a> and <a
+href="https://CRAN.R-project.org/package=EValue">EValue</a> provide
+functions for <em>sensitivity analyses</em> (for unmeasured confounding,
+selection bias, measurement error), <a
+href="https://CRAN.R-project.org/package=ui">ui</a> implements functions
+to derive uncertainty intervals and conduct sensitivity analysis for
+missing data and unobserved confounding. <a
+href="https://CRAN.R-project.org/package=BalanceCheck">BalanceCheck</a>
+provides tests to assess balancing of the treatment groups after
+matching, <a href="https://CRAN.R-project.org/package=cobalt">cobalt</a>
+generates balance tables and plots before and after covariate balancing,
+and <a href="https://CRAN.R-project.org/package=confoundr">confoundr</a>
+implements covariate-balance diagnostics for time-varying
+confounding.</p>
+<p><span id="hte"><strong>Heterogeneous treatment effect
+estimation</strong></span></p>
+<p>Some of the above mentioned packages can also be used for
+heterogeneous treatment effect (HTE) estimation.</p>
 <ul>
-<li><em>Bayesian approaches</em> for individual causal effect estimation are available in several packages including <a href="https://CRAN.R-project.org/package=bartCause">bartCause</a> (based on Bayesian Additive Regression Trees) and <a href="https://CRAN.R-project.org/package=bcf">bcf</a> (Bayesian Causal Forest).</li>
-<li><em>Efficacious treatment or population subset selection</em> exploiting treatment effect heterogeneity is implemented in <a href="https://CRAN.R-project.org/package=FindIt">FindIt</a> and <a href="https://CRAN.R-project.org/package=grf">grf</a>. This latter package supports missing covariate values using the Missing Incorporated in Attributes approach. Additionally the package <a href="https://CRAN.R-project.org/package=subdetect">subdetect</a> provides a test for the existence of a subgroup with enhanced treatment effect.</li>
-<li>Other approaches for personalized causal predictions are provided by <a href="https://CRAN.R-project.org/package=EffectTreat">EffectTreat</a> (exploiting correlation-based expressions), and for randomized data by <a href="https://CRAN.R-project.org/package=evalITR">evalITR</a> (it additionally allows for defining budget constraints) and by <a href="https://CRAN.R-project.org/package=SortedEffects">SortedEffects</a> (estimation and inference methods for sorted causal effects and classification analysis).</li>
-<li><a href="https://CRAN.R-project.org/package=stepp">stepp</a> provides diagnostic plots to explore <em>treatment-covariate interactions</em> for survival or generalized linear models, applicable for continuous, binomial and count data arising from two or more treatment arms of a clinical trial.</li>
+<li><em>Bayesian approaches</em> for individual causal effect estimation
+are available in several packages including <a
+href="https://CRAN.R-project.org/package=bartCause">bartCause</a> (based
+on Bayesian Additive Regression Trees) and <a
+href="https://CRAN.R-project.org/package=bcf">bcf</a> (Bayesian Causal
+Forest).</li>
+<li><em>Efficacious treatment or population subset selection</em>
+exploiting treatment effect heterogeneity is implemented in <a
+href="https://CRAN.R-project.org/package=FindIt">FindIt</a> and <a
+href="https://CRAN.R-project.org/package=grf">grf</a>. This latter
+package supports missing covariate values using the Missing Incorporated
+in Attributes approach. Additionally the package <a
+href="https://CRAN.R-project.org/package=subdetect">subdetect</a>
+provides a test for the existence of a subgroup with enhanced treatment
+effect.</li>
+<li>Other approaches for personalized causal predictions are provided by
+<a href="https://CRAN.R-project.org/package=EffectTreat">EffectTreat</a>
+(exploiting correlation-based expressions), and for randomized data by
+<a href="https://CRAN.R-project.org/package=evalITR">evalITR</a> (it
+additionally allows for defining budget constraints) and by <a
+href="https://CRAN.R-project.org/package=SortedEffects">SortedEffects</a>
+(estimation and inference methods for sorted causal effects and
+classification analysis).</li>
+<li><a href="https://CRAN.R-project.org/package=stepp">stepp</a>
+provides diagnostic plots to explore <em>treatment-covariate
+interactions</em> for survival or generalized linear models, applicable
+for continuous, binomial and count data arising from two or more
+treatment arms of a clinical trial.</li>
 </ul>
-<p><span id="policy"><strong>Policy learning and dynamic treatment regimes</strong></span></p>
+<p><span id="policy"><strong>Policy learning and dynamic treatment
+regimes</strong></span></p>
 <ul>
-<li>Estimation of an optimal dynamic treatment regime (DTR) is implemented in <a href="https://CRAN.R-project.org/package=iqLearn">iqLearn</a> and <a href="https://CRAN.R-project.org/package=DynTxRegime">DynTxRegime</a> (using interactive Q-learning). <a href="https://CRAN.R-project.org/package=quantoptr">quantoptr</a> implements estimation methods for optimal treatment regimes under marginal quantile, marginal mean, and mean absolute difference. <a href="https://CRAN.R-project.org/package=DTRreg">DTRreg</a> proposes different methods such as G-estimation, dynamic weighted OLS and Q-learning, as well as several variance estimation approaches, it can handle survival outcomes and continuous treatment variables. <a href="https://CRAN.R-project.org/package=QTOCen">QTOCen</a> provides methods for estimation of mean- and quantile-optimal treatment regimes from censored data.</li>
-<li><a href="https://CRAN.R-project.org/package=ITRLearn">ITRLearn</a> implements maximin-projection learning for recommending a meaningful and reliable individualized treatment regime, and also Q-learning and A-learning for estimating the group-wise contrast function. <a href="https://CRAN.R-project.org/package=ITRSelect">ITRSelect</a> implements sequential advantage selection and penalized A-learning for selecting important variables in optimal individualized (dynamic) treatment regime in both single-stage or multi-stage studies. <a href="https://CRAN.R-project.org/package=OTRselect">OTRselect</a> implements a penalized regression method that can simultaneously estimate the optimal treatment strategy and identify important variables for either censored or uncensored continuous response.</li>
-<li><a href="https://CRAN.R-project.org/package=smartsizer">smartsizer</a> provides a set of tools for determining the necessary sample size in order to identify the optimal DTR in a <em>sequential, multiple assignment, randomized trial (SMART)</em> , <a href="https://CRAN.R-project.org/package=DTRlearn2">DTRlearn2</a> implements estimators for general K-stage DTRs from SMARTs with Q-learning and several outcome-weighted learning methods.</li>
-<li><a href="https://CRAN.R-project.org/package=lpdensity">lpdensity</a> implements a density (and derivatives) estimator based on local polynomial regressions for counterfactual analysis, program evaluation, and policy recommendations.</li>
-<li>Estimation of treatment decision rules from a randomized clinical trial using Single-Index Models with Multiple-Links is implemented in <a href="https://CRAN.R-project.org/package=simml">simml</a>, Single-Index Models with a Surface-Link for optimizing individualized dose rules from an observational study is implemented in <a href="https://CRAN.R-project.org/package=simsl">simsl</a>.</li>
+<li>Estimation of an optimal dynamic treatment regime (DTR) is
+implemented in <a
+href="https://CRAN.R-project.org/package=iqLearn">iqLearn</a> and <a
+href="https://CRAN.R-project.org/package=DynTxRegime">DynTxRegime</a>
+(using interactive Q-learning). <a
+href="https://CRAN.R-project.org/package=quantoptr">quantoptr</a>
+implements estimation methods for optimal treatment regimes under
+marginal quantile, marginal mean, and mean absolute difference. <a
+href="https://CRAN.R-project.org/package=DTRreg">DTRreg</a> proposes
+different methods such as G-estimation, dynamic weighted OLS and
+Q-learning, as well as several variance estimation approaches, it can
+handle survival outcomes and continuous treatment variables. <a
+href="https://CRAN.R-project.org/package=QTOCen">QTOCen</a> provides
+methods for estimation of mean- and quantile-optimal treatment regimes
+from censored data.</li>
+<li><a href="https://CRAN.R-project.org/package=ITRLearn">ITRLearn</a>
+implements maximin-projection learning for recommending a meaningful and
+reliable individualized treatment regime, and also Q-learning and
+A-learning for estimating the group-wise contrast function. <a
+href="https://CRAN.R-project.org/package=ITRSelect">ITRSelect</a>
+implements sequential advantage selection and penalized A-learning for
+selecting important variables in optimal individualized (dynamic)
+treatment regime in both single-stage or multi-stage studies. <a
+href="https://CRAN.R-project.org/package=OTRselect">OTRselect</a>
+implements a penalized regression method that can simultaneously
+estimate the optimal treatment strategy and identify important variables
+for either censored or uncensored continuous response.</li>
+<li><a
+href="https://CRAN.R-project.org/package=smartsizer">smartsizer</a>
+provides a set of tools for determining the necessary sample size in
+order to identify the optimal DTR in a <em>sequential, multiple
+assignment, randomized trial (SMART)</em> , <a
+href="https://CRAN.R-project.org/package=DTRlearn2">DTRlearn2</a>
+implements estimators for general K-stage DTRs from SMARTs with
+Q-learning and several outcome-weighted learning methods.</li>
+<li><a href="https://CRAN.R-project.org/package=lpdensity">lpdensity</a>
+implements a density (and derivatives) estimator based on local
+polynomial regressions for counterfactual analysis, program evaluation,
+and policy recommendations.</li>
+<li>Estimation of treatment decision rules from a randomized clinical
+trial using Single-Index Models with Multiple-Links is implemented in <a
+href="https://CRAN.R-project.org/package=simml">simml</a>, Single-Index
+Models with a Surface-Link for optimizing individualized dose rules from
+an observational study is implemented in <a
+href="https://CRAN.R-project.org/package=simsl">simsl</a>.</li>
 </ul>
-<p><span id="dag"><strong>Do-calculus and causal discovery</strong></span></p>
+<p><span id="dag"><strong>Structural equation models, do-calculus causal
+discovery</strong></span></p>
 <ul>
-<li><em>Identifiability</em> is addressed by <a href="https://CRAN.R-project.org/package=causaleffect">causaleffect</a> and <a href="https://CRAN.R-project.org/package=dosearch">dosearch</a> providing algorithms to decide whether a causal effect is identifiable (non-parametric identifiability) and by <a href="https://CRAN.R-project.org/package=CausalQueries">CausalQueries</a> that calculates arbitrary estimands for a given causal model. <a href="https://CRAN.R-project.org/package=causaloptim">causaloptim</a> provides tight bounds for a user defined DAG, query and constraints using a symbolic linear optimizer.</li>
-<li><a href="https://CRAN.R-project.org/package=pcalg">pcalg</a> provides a set of functions for <em>causal structure learning</em>: (PC, for observational data without hidden variables, FCI and RFCI, for observational data with hidden variables, and GIES, for a mix of observational and interventional data without hidden variables), and for <em>causal inference using graphical models</em> (the IDA algorithm, the Generalized Backdoor Criterion - GBC, the Generalized Adjustment Criterion - GAC). Incorporating background knowledge is also possible. Many algorithms and methods for general and specific graphical models exist, we refer to the <a href="https://CRAN.R-project.org/view=GraphicalModels">GraphicalModels</a> CRAN Task View for a comprehensive overview.</li>
-<li><em>Estimation of causal effects</em> is possible in <a href="https://CRAN.R-project.org/package=CIEE">CIEE</a> using estimating equations derived from a DAG and in <a href="https://CRAN.R-project.org/package=InvariantCausalPrediction">InvariantCausalPrediction</a> using adjustment sets derived from conditional independence tests that leverage causal invariances across environments.</li>
-<li><em>Causal networks estimation</em> is implemented in <a href="https://CRAN.R-project.org/package=CompareCausalNetworks">CompareCausalNetworks</a>.</li>
-<li><a href="https://CRAN.R-project.org/package=generalCorr">generalCorr</a> computes generalized correlations, partial correlations and <em>plausible causal paths</em>.</li>
+<li><em>Identifiability</em> is addressed by <a
+href="https://CRAN.R-project.org/package=causaleffect">causaleffect</a>
+and <a href="https://CRAN.R-project.org/package=dosearch">dosearch</a>
+providing algorithms to decide whether a causal effect is identifiable
+(non-parametric identifiability) and by <a
+href="https://CRAN.R-project.org/package=CausalQueries">CausalQueries</a>
+that calculates arbitrary estimands for a given causal model. <a
+href="https://CRAN.R-project.org/package=causaloptim">causaloptim</a>
+provides tight bounds for a user defined DAG, query and constraints
+using a symbolic linear optimizer.</li>
+<li><em>Causal structure learning</em> is possible with functions from
+<a href="https://CRAN.R-project.org/package=pcalg">pcalg</a>: PC, for
+observational data without hidden variables, FCI and RFCI, for
+observational data with hidden variables, and GIES, for a mix of
+observational and interventional data without hidden variables; <a
+href="https://CRAN.R-project.org/package=pcalg">pcalg</a> also allows to
+do <em>causal inference using graphical models</em> (the IDA algorithm,
+the Generalized Backdoor Criterion - GBC, the Generalized Adjustment
+Criterion - GAC). Incorporating background knowledge is also possible.
+Many algorithms and methods for general and specific graphical models
+exist, we refer to the <a
+href="https://CRAN.R-project.org/view=GraphicalModels">GraphicalModels</a>
+CRAN Task View for a comprehensive overview.</li>
+<li><em>Estimation of causal effects</em> is possible in <a
+href="https://CRAN.R-project.org/package=CIEE">CIEE</a> using estimating
+equations derived from a DAG and in <a
+href="https://CRAN.R-project.org/package=InvariantCausalPrediction">InvariantCausalPrediction</a>
+using adjustment sets derived from conditional independence tests that
+leverage causal invariances across environments.</li>
+<li><em>Causal networks estimation</em> is implemented in <a
+href="https://CRAN.R-project.org/package=CompareCausalNetworks">CompareCausalNetworks</a>.</li>
+<li><a
+href="https://CRAN.R-project.org/package=generalCorr">generalCorr</a>
+computes generalized correlations, partial correlations and
+<em>plausible causal paths</em>.</li>
 </ul>
-<p>In addition, <a href="https://CRAN.R-project.org/package=dagitty">dagitty</a> provides methods to define different types of graphical models (cpdags, pdag, ect.) and to identify adjustment sets (a web-based graphical environment is also available: <a href="http://dagitty.net">DAGitty</a>).</p>
+<p>In addition, <a
+href="https://CRAN.R-project.org/package=dagitty">dagitty</a> provides
+methods to define different types of graphical models (cpdags, pdag,
+ect.) and to identify adjustment sets (a web-based graphical environment
+is also available: <a href="http://dagitty.net">DAGitty</a>).</p>
 <p><span id="data"><strong>Specific types of data</strong></span></p>
 <ul>
-<li><em>Longitudinal data / time series and censored data</em>: Causal effect estimation for time series is implemented in <a href="https://CRAN.R-project.org/package=CausalImpact">CausalImpact</a> (using a Bayesian approach), <a href="https://CRAN.R-project.org/package=confoundr">confoundr</a> (covariate-balance diagnostics), and <a href="https://CRAN.R-project.org/package=CausalMBSTS">CausalMBSTS</a> (for multivariate responses).</li>
-<li>Other packages, such as <a href="https://CRAN.R-project.org/package=PanelMatch">PanelMatch</a> implements a set of matching methods to time-series cross-sectional data, are dedicated to time series but also contain some (often basic) methods to handle missing data (see also <a href="https://CRAN.R-project.org/view=MissingData">MissingData</a>).</li>
-<li><em>GWAS and SNPs</em>: <a href="https://CRAN.R-project.org/package=CKAT">CKAT</a> implements kernel based methods to jointly test genetic main effect and gene-treatment interaction effects for a set of SNPs.</li>
-<li><em>Example data sets</em> to run frequent example problems from causal inference textbooks are accessible through the <a href="https://CRAN.R-project.org/package=causaldata">causaldata</a> package.</li>
-<li>Weighted, two-mode, and longitudinal networks analysis is implemented in <a href="https://CRAN.R-project.org/package=tnet">tnet</a></li>
+<li><em>Longitudinal data / time series and censored data</em>: Causal
+effect estimation for time series is implemented in <a
+href="https://CRAN.R-project.org/package=CausalImpact">CausalImpact</a>
+(using a Bayesian approach), <a
+href="https://CRAN.R-project.org/package=confoundr">confoundr</a>
+(covariate-balance diagnostics), and <a
+href="https://CRAN.R-project.org/package=CausalMBSTS">CausalMBSTS</a>
+(for multivariate responses).</li>
+<li>Other packages, such as <a
+href="https://CRAN.R-project.org/package=PanelMatch">PanelMatch</a>
+implements a set of matching methods to time-series cross-sectional
+data, are dedicated to time series but also contain some (often basic)
+methods to handle missing data (see also <a
+href="https://CRAN.R-project.org/view=MissingData">MissingData</a>).</li>
+<li><em>GWAS and SNPs</em>: <a
+href="https://CRAN.R-project.org/package=CKAT">CKAT</a> implements
+kernel based methods to jointly test genetic main effect and
+gene-treatment interaction effects for a set of SNPs.</li>
+<li><em>Example data sets</em> to run frequent example problems from
+causal inference textbooks are accessible through the <a
+href="https://CRAN.R-project.org/package=causaldata">causaldata</a>
+package.</li>
+<li>Weighted, two-mode, and longitudinal networks analysis is
+implemented in <a
+href="https://CRAN.R-project.org/package=tnet">tnet</a></li>
 </ul>
-<p><span id="applications"><strong>Specific application fields</strong></span></p>
+<p><span id="applications"><strong>Specific application
+fields</strong></span></p>
 <ul>
-<li>Behavior change sciences use specialized analyses and visualization tools implemented in <a href="https://CRAN.R-project.org/package=behaviorchange">behaviorchange</a>.</li>
-<li>Evaluation of biomarkers and estimation of treatment-biomarker effects can be done using tools from <a href="https://CRAN.R-project.org/package=bhm">bhm</a> (for biomarker-treatment effects).</li>
-<li>Qualitative Comparative Analysis type methods are implemented in <a href="https://CRAN.R-project.org/package=cna">cna</a>.</li>
-<li><em>Mendelian randomization methods</em> used to examine causal effects related to certain genes are implemented in <a href="https://CRAN.R-project.org/package=MendelianRandomization">MendelianRandomization</a>, <a href="https://CRAN.R-project.org/package=mr.raps">mr.raps</a> (two-sample Mendelian randomization with summary statistics by using Robust Adjusted Profile Score), <a href="https://CRAN.R-project.org/package=MRPC">MRPC</a> (PC algorithm with the principle of Mendelian Randomization).</li>
-<li>Causal inference approaches in genetic systems exploit quantitative trait loci (QTL) genotypes to infer causal relationships among phenotypes: functions to simultaneously infer causal graphs and genetic architecture (acyclic and cyclic) are implemented in <a href="https://CRAN.R-project.org/package=qtlnet">qtlnet</a>.</li>
-<li><a href="https://CRAN.R-project.org/package=tools4uplift">tools4uplift</a> uplift modeling aims at predicting the causal effect of an action such as a marketing campaign on a particular individual.</li>
-<li><em>Coincidence analysis</em> through configurational comparative methods is provided by <a href="https://CRAN.R-project.org/package=cna">cna</a>.</li>
+<li>Behavior change sciences use specialized analyses and visualization
+tools implemented in <a
+href="https://CRAN.R-project.org/package=behaviorchange">behaviorchange</a>.</li>
+<li>Evaluation of biomarkers and estimation of treatment-biomarker
+effects can be done using tools from <a
+href="https://CRAN.R-project.org/package=bhm">bhm</a> (for
+biomarker-treatment effects).</li>
+<li>Qualitative Comparative Analysis type methods are implemented in <a
+href="https://CRAN.R-project.org/package=cna">cna</a>.</li>
+<li><em>Mendelian randomization methods</em> used to examine causal
+effects related to certain genes are implemented in <a
+href="https://CRAN.R-project.org/package=MendelianRandomization">MendelianRandomization</a>,
+<a href="https://CRAN.R-project.org/package=mr.raps">mr.raps</a>
+(two-sample Mendelian randomization with summary statistics by using
+Robust Adjusted Profile Score), <a
+href="https://CRAN.R-project.org/package=MRPC">MRPC</a> (PC algorithm
+with the principle of Mendelian Randomization).</li>
+<li>Causal inference approaches in genetic systems exploit quantitative
+trait loci (QTL) genotypes to infer causal relationships among
+phenotypes: functions to simultaneously infer causal graphs and genetic
+architecture (acyclic and cyclic) are implemented in <a
+href="https://CRAN.R-project.org/package=qtlnet">qtlnet</a>.</li>
+<li><a
+href="https://CRAN.R-project.org/package=tools4uplift">tools4uplift</a>
+uplift modeling aims at predicting the causal effect of an action such
+as a marketing campaign on a particular individual.</li>
+<li><a href="https://CRAN.R-project.org/package=estudy2">estudy2</a>
+allows examining the impact of certain events on the stock valuation of
+companies through an event study methodology (with parametric and
+nonparametric tests).</li>
+<li><em>Coincidence analysis</em> through configurational comparative
+methods is provided by <a
+href="https://CRAN.R-project.org/package=cna">cna</a>.</li>
 </ul>
 
   <h3>CRAN packages</h3>
   <table>
-    <tr valign="top"><td><i>Core:</i></td><td><a href="https://CRAN.R-project.org/package=cobalt">cobalt</a>, <a href="https://CRAN.R-project.org/package=dagitty">dagitty</a>, <a href="https://CRAN.R-project.org/package=grf">grf</a>, <a href="https://CRAN.R-project.org/package=Matching">Matching</a>, <a href="https://CRAN.R-project.org/package=MatchIt">MatchIt</a>, <a href="https://CRAN.R-project.org/package=pcalg">pcalg</a>, <a href="https://CRAN.R-project.org/package=riskRegression">riskRegression</a>, <a href="https://CRAN.R-project.org/package=tmle">tmle</a>.</td></tr>
-    <tr valign="top"><td><i>Regular:</i></td><td><a href="https://CRAN.R-project.org/package=AIPW">AIPW</a>, <a href="https://CRAN.R-project.org/package=allestimates">allestimates</a>, <a href="https://CRAN.R-project.org/package=autoCovariateSelection">autoCovariateSelection</a>, <a href="https://CRAN.R-project.org/package=bacondecomp">bacondecomp</a>, <a href="https://CRAN.R-project.org/package=BalanceCheck">BalanceCheck</a>, <a href="https://CRAN.R-project.org/package=bartCause">bartCause</a>, <a href="https://CRAN.R-project.org/package=BCEE">BCEE</a>, <a href="https://CRAN.R-project.org/package=bcf">bcf</a>, <a href="https://CRAN.R-project.org/package=BCHM">BCHM</a>, <a href="https://CRAN.R-project.org/package=beanz">beanz</a>, <a href="https://CRAN.R-project.org/package=behaviorchange">behaviorchange</a>, <a href="https://CRAN.R-project.org/package=bhm">bhm</a>, <a href="https://CRAN.R-project.org/package=blocksdesign">blocksdesign</a>, <a href="https://CRAN.R-project.org/package=Boptbd">Boptbd</a>, <a href="https://CRAN.R-project.org/package=borrowr">borrowr</a>, <a href="https://CRAN.R-project.org/package=bpbounds">bpbounds</a>, <a href="https://CRAN.R-project.org/package=BuyseTest">BuyseTest</a>, <a href="https://CRAN.R-project.org/package=causaldata">causaldata</a>, <a href="https://CRAN.R-project.org/package=causaldrf">causaldrf</a>, <a href="https://CRAN.R-project.org/package=causaleffect">causaleffect</a>, <a href="https://CRAN.R-project.org/package=CausalGAM">CausalGAM</a>, <a href="https://CRAN.R-project.org/package=CausalImpact">CausalImpact</a>, <a href="https://CRAN.R-project.org/package=CausalMBSTS">CausalMBSTS</a>, <a href="https://CRAN.R-project.org/package=causaloptim">causaloptim</a>, <a href="https://CRAN.R-project.org/package=CausalQueries">CausalQueries</a>, <a href="https://CRAN.R-project.org/package=causalsens">causalsens</a>, <a href="https://CRAN.R-project.org/package=causalweight">causalweight</a>, <a href="https://CRAN.R-project.org/package=CBPS">CBPS</a>, <a href="https://CRAN.R-project.org/package=cfdecomp">cfdecomp</a>, <a href="https://CRAN.R-project.org/package=cfma">cfma</a>, <a href="https://CRAN.R-project.org/package=CIEE">CIEE</a>, <a href="https://CRAN.R-project.org/package=cit">cit</a>, <a href="https://CRAN.R-project.org/package=cjoint">cjoint</a>, <a href="https://CRAN.R-project.org/package=CKAT">CKAT</a>, <a href="https://CRAN.R-project.org/package=clusteredinterference">clusteredinterference</a>, <a href="https://CRAN.R-project.org/package=cna">cna</a>, <a href="https://CRAN.R-project.org/package=CompareCausalNetworks">CompareCausalNetworks</a>, <a href="https://CRAN.R-project.org/package=confoundr">confoundr</a>, <a href="https://CRAN.R-project.org/package=Counterfactual">Counterfactual</a>, <a href="https://CRAN.R-project.org/package=did">did</a>, <a href="https://CRAN.R-project.org/package=DirectEffects">DirectEffects</a>, <a href="https://CRAN.R-project.org/package=dosearch">dosearch</a>, <a href="https://CRAN.R-project.org/package=DoubleML">DoubleML</a>, <a href="https://CRAN.R-project.org/package=DRDID">DRDID</a>, <a href="https://CRAN.R-project.org/package=drtmle">drtmle</a>, <a href="https://CRAN.R-project.org/package=dstat">dstat</a>, <a href="https://CRAN.R-project.org/package=DTRlearn2">DTRlearn2</a>, <a href="https://CRAN.R-project.org/package=DTRreg">DTRreg</a>, <a href="https://CRAN.R-project.org/package=DynTxRegime">DynTxRegime</a>, <a href="https://CRAN.R-project.org/package=eefAnalytics">eefAnalytics</a>, <a href="https://CRAN.R-project.org/package=EffectLiteR">EffectLiteR</a>, <a href="https://CRAN.R-project.org/package=EffectTreat">EffectTreat</a>, <a href="https://CRAN.R-project.org/package=endoSwitch">endoSwitch</a>, <a href="https://CRAN.R-project.org/package=estimatr">estimatr</a>, <a href="https://CRAN.R-project.org/package=evalITR">evalITR</a>, <a href="https://CRAN.R-project.org/package=EValue">EValue</a>, <a href="https://CRAN.R-project.org/package=experiment">experiment</a>, <a href="https://CRAN.R-project.org/package=FindIt">FindIt</a>, <a href="https://CRAN.R-project.org/package=FLAME">FLAME</a>, <a href="https://CRAN.R-project.org/package=generalCorr">generalCorr</a>, <a href="https://CRAN.R-project.org/package=gfoRmula">gfoRmula</a>, <a href="https://CRAN.R-project.org/package=gma">gma</a>, <a href="https://CRAN.R-project.org/package=GPSCDF">GPSCDF</a>, <a href="https://CRAN.R-project.org/package=gsynth">gsynth</a>, <a href="https://CRAN.R-project.org/package=hdm">hdm</a>, <a href="https://CRAN.R-project.org/package=hettx">hettx</a>, <a href="https://CRAN.R-project.org/package=hrIPW">hrIPW</a>, <a href="https://CRAN.R-project.org/package=icsw">icsw</a>, <a href="https://CRAN.R-project.org/package=idem">idem</a>, <a href="https://CRAN.R-project.org/package=inferference">inferference</a>, <a href="https://CRAN.R-project.org/package=interflex">interflex</a>, <a href="https://CRAN.R-project.org/package=InvariantCausalPrediction">InvariantCausalPrediction</a>, <a href="https://CRAN.R-project.org/package=ipcwswitch">ipcwswitch</a>, <a href="https://CRAN.R-project.org/package=ipw">ipw</a>, <a href="https://CRAN.R-project.org/package=ipwCoxCSV">ipwCoxCSV</a>, <a href="https://CRAN.R-project.org/package=ipwErrorY">ipwErrorY</a>, <a href="https://CRAN.R-project.org/package=iqLearn">iqLearn</a>, <a href="https://CRAN.R-project.org/package=ITRLearn">ITRLearn</a>, <a href="https://CRAN.R-project.org/package=ITRSelect">ITRSelect</a>, <a href="https://CRAN.R-project.org/package=ivmodel">ivmodel</a>, <a href="https://CRAN.R-project.org/package=ivmte">ivmte</a>, <a href="https://CRAN.R-project.org/package=ivpack">ivpack</a>, <a href="https://CRAN.R-project.org/package=LARF">LARF</a>, <a href="https://CRAN.R-project.org/package=localIV">localIV</a>, <a href="https://CRAN.R-project.org/package=lpdensity">lpdensity</a>, <a href="https://CRAN.R-project.org/package=ltmle">ltmle</a>, <a href="https://CRAN.R-project.org/package=MatchThem">MatchThem</a>, <a href="https://CRAN.R-project.org/package=medflex">medflex</a>, <a href="https://CRAN.R-project.org/package=mediation">mediation</a>, <a href="https://CRAN.R-project.org/package=MedSurvey">MedSurvey</a>, <a href="https://CRAN.R-project.org/package=MendelianRandomization">MendelianRandomization</a>, <a href="https://CRAN.R-project.org/package=microsynth">microsynth</a>, <a href="https://CRAN.R-project.org/package=mr.raps">mr.raps</a>, <a href="https://CRAN.R-project.org/package=MRPC">MRPC</a>, <a href="https://CRAN.R-project.org/package=MultisiteMediation">MultisiteMediation</a>, <a href="https://CRAN.R-project.org/package=netchain">netchain</a>, <a href="https://CRAN.R-project.org/package=nonlinearICP">nonlinearICP</a>, <a href="https://CRAN.R-project.org/package=optmatch">optmatch</a>, <a href="https://CRAN.R-project.org/package=OTRselect">OTRselect</a>, <a href="https://CRAN.R-project.org/package=PanelMatch">PanelMatch</a>, <a href="https://CRAN.R-project.org/package=paths">paths</a>, <a href="https://CRAN.R-project.org/package=preference">preference</a>, <a href="https://CRAN.R-project.org/package=pstest">pstest</a>, <a href="https://CRAN.R-project.org/package=PSweight">PSweight</a>, <a href="https://CRAN.R-project.org/package=qte">qte</a>, <a href="https://CRAN.R-project.org/package=qtlnet">qtlnet</a>, <a href="https://CRAN.R-project.org/package=QTOCen">QTOCen</a>, <a href="https://CRAN.R-project.org/package=quantoptr">quantoptr</a>, <a href="https://CRAN.R-project.org/package=RATest">RATest</a>, <a href="https://CRAN.R-project.org/package=RCAL">RCAL</a>, <a href="https://CRAN.R-project.org/package=rddensity">rddensity</a>, <a href="https://CRAN.R-project.org/package=rdlocrand">rdlocrand</a>, <a href="https://CRAN.R-project.org/package=rdmulti">rdmulti</a>, <a href="https://CRAN.R-project.org/package=rdpower">rdpower</a>, <a href="https://CRAN.R-project.org/package=rdrobust">rdrobust</a>, <a href="https://CRAN.R-project.org/package=regmedint">regmedint</a>, <a href="https://CRAN.R-project.org/package=rpsftm">rpsftm</a>, <a href="https://CRAN.R-project.org/package=sampleSelection">sampleSelection</a>, <a href="https://CRAN.R-project.org/package=seqDesign">seqDesign</a>, <a href="https://CRAN.R-project.org/package=simml">simml</a>, <a href="https://CRAN.R-project.org/package=simsl">simsl</a>, <a href="https://CRAN.R-project.org/package=smartsizer">smartsizer</a>, <a href="https://CRAN.R-project.org/package=SortedEffects">SortedEffects</a>, <a href="https://CRAN.R-project.org/package=SPORTSCausal">SPORTSCausal</a>, <a href="https://CRAN.R-project.org/package=stepp">stepp</a>, <a href="https://CRAN.R-project.org/package=subdetect">subdetect</a>, <a href="https://CRAN.R-project.org/package=Synth">Synth</a>, <a href="https://CRAN.R-project.org/package=ThreeArmedTrials">ThreeArmedTrials</a>, <a href="https://CRAN.R-project.org/package=tnet">tnet</a>, <a href="https://CRAN.R-project.org/package=tools4uplift">tools4uplift</a>, <a href="https://CRAN.R-project.org/package=TrendInTrend">TrendInTrend</a>, <a href="https://CRAN.R-project.org/package=twang">twang</a>, <a href="https://CRAN.R-project.org/package=twangContinuous">twangContinuous</a>, <a href="https://CRAN.R-project.org/package=ui">ui</a>, <a href="https://CRAN.R-project.org/package=WhatIf">WhatIf</a>.</td></tr>
+    <tr valign="top"><td><i>Core:</i></td><td><a href="https://CRAN.R-project.org/package=cobalt">cobalt</a>, <a href="https://CRAN.R-project.org/package=dagitty">dagitty</a>, <a href="https://CRAN.R-project.org/package=fixest">fixest</a>, <a href="https://CRAN.R-project.org/package=grf">grf</a>, <a href="https://CRAN.R-project.org/package=Matching">Matching</a>, <a href="https://CRAN.R-project.org/package=MatchIt">MatchIt</a>, <a href="https://CRAN.R-project.org/package=pcalg">pcalg</a>, <a href="https://CRAN.R-project.org/package=riskRegression">riskRegression</a>, <a href="https://CRAN.R-project.org/package=tmle">tmle</a>.</td></tr>
+    <tr valign="top"><td><i>Regular:</i></td><td><a href="https://CRAN.R-project.org/package=AIPW">AIPW</a>, <a href="https://CRAN.R-project.org/package=allestimates">allestimates</a>, <a href="https://CRAN.R-project.org/package=alpaca">alpaca</a>, <a href="https://CRAN.R-project.org/package=autoCovariateSelection">autoCovariateSelection</a>, <a href="https://CRAN.R-project.org/package=bacondecomp">bacondecomp</a>, <a href="https://CRAN.R-project.org/package=BalanceCheck">BalanceCheck</a>, <a href="https://CRAN.R-project.org/package=bartCause">bartCause</a>, <a href="https://CRAN.R-project.org/package=BCEE">BCEE</a>, <a href="https://CRAN.R-project.org/package=bcf">bcf</a>, <a href="https://CRAN.R-project.org/package=BCHM">BCHM</a>, <a href="https://CRAN.R-project.org/package=beanz">beanz</a>, <a href="https://CRAN.R-project.org/package=behaviorchange">behaviorchange</a>, <a href="https://CRAN.R-project.org/package=bhm">bhm</a>, <a href="https://CRAN.R-project.org/package=blocksdesign">blocksdesign</a>, <a href="https://CRAN.R-project.org/package=Boptbd">Boptbd</a>, <a href="https://CRAN.R-project.org/package=borrowr">borrowr</a>, <a href="https://CRAN.R-project.org/package=bpbounds">bpbounds</a>, <a href="https://CRAN.R-project.org/package=BuyseTest">BuyseTest</a>, <a href="https://CRAN.R-project.org/package=causaldata">causaldata</a>, <a href="https://CRAN.R-project.org/package=causaldrf">causaldrf</a>, <a href="https://CRAN.R-project.org/package=causaleffect">causaleffect</a>, <a href="https://CRAN.R-project.org/package=CausalGAM">CausalGAM</a>, <a href="https://CRAN.R-project.org/package=CausalImpact">CausalImpact</a>, <a href="https://CRAN.R-project.org/package=CausalMBSTS">CausalMBSTS</a>, <a href="https://CRAN.R-project.org/package=causaloptim">causaloptim</a>, <a href="https://CRAN.R-project.org/package=CausalQueries">CausalQueries</a>, <a href="https://CRAN.R-project.org/package=causalsens">causalsens</a>, <a href="https://CRAN.R-project.org/package=causalweight">causalweight</a>, <a href="https://CRAN.R-project.org/package=CBPS">CBPS</a>, <a href="https://CRAN.R-project.org/package=cem">cem</a>, <a href="https://CRAN.R-project.org/package=cfdecomp">cfdecomp</a>, <a href="https://CRAN.R-project.org/package=cfma">cfma</a>, <a href="https://CRAN.R-project.org/package=CIEE">CIEE</a>, <a href="https://CRAN.R-project.org/package=cit">cit</a>, <a href="https://CRAN.R-project.org/package=cjoint">cjoint</a>, <a href="https://CRAN.R-project.org/package=CKAT">CKAT</a>, <a href="https://CRAN.R-project.org/package=clusteredinterference">clusteredinterference</a>, <a href="https://CRAN.R-project.org/package=cna">cna</a>, <a href="https://CRAN.R-project.org/package=CompareCausalNetworks">CompareCausalNetworks</a>, <a href="https://CRAN.R-project.org/package=confoundr">confoundr</a>, <a href="https://CRAN.R-project.org/package=Counterfactual">Counterfactual</a>, <a href="https://CRAN.R-project.org/package=did">did</a>, <a href="https://CRAN.R-project.org/package=DirectEffects">DirectEffects</a>, <a href="https://CRAN.R-project.org/package=dosearch">dosearch</a>, <a href="https://CRAN.R-project.org/package=DoubleML">DoubleML</a>, <a href="https://CRAN.R-project.org/package=DRDID">DRDID</a>, <a href="https://CRAN.R-project.org/package=drtmle">drtmle</a>, <a href="https://CRAN.R-project.org/package=dstat">dstat</a>, <a href="https://CRAN.R-project.org/package=DTRlearn2">DTRlearn2</a>, <a href="https://CRAN.R-project.org/package=DTRreg">DTRreg</a>, <a href="https://CRAN.R-project.org/package=DynTxRegime">DynTxRegime</a>, <a href="https://CRAN.R-project.org/package=eefAnalytics">eefAnalytics</a>, <a href="https://CRAN.R-project.org/package=EffectLiteR">EffectLiteR</a>, <a href="https://CRAN.R-project.org/package=EffectTreat">EffectTreat</a>, <a href="https://CRAN.R-project.org/package=endoSwitch">endoSwitch</a>, <a href="https://CRAN.R-project.org/package=estimatr">estimatr</a>, <a href="https://CRAN.R-project.org/package=estudy2">estudy2</a>, <a href="https://CRAN.R-project.org/package=evalITR">evalITR</a>, <a href="https://CRAN.R-project.org/package=EValue">EValue</a>, <a href="https://CRAN.R-project.org/package=experiment">experiment</a>, <a href="https://CRAN.R-project.org/package=FindIt">FindIt</a>, <a href="https://CRAN.R-project.org/package=FLAME">FLAME</a>, <a href="https://CRAN.R-project.org/package=generalCorr">generalCorr</a>, <a href="https://CRAN.R-project.org/package=gfoRmula">gfoRmula</a>, <a href="https://CRAN.R-project.org/package=gma">gma</a>, <a href="https://CRAN.R-project.org/package=GPSCDF">GPSCDF</a>, <a href="https://CRAN.R-project.org/package=gsynth">gsynth</a>, <a href="https://CRAN.R-project.org/package=hdm">hdm</a>, <a href="https://CRAN.R-project.org/package=hettx">hettx</a>, <a href="https://CRAN.R-project.org/package=hrIPW">hrIPW</a>, <a href="https://CRAN.R-project.org/package=icsw">icsw</a>, <a href="https://CRAN.R-project.org/package=idem">idem</a>, <a href="https://CRAN.R-project.org/package=inferference">inferference</a>, <a href="https://CRAN.R-project.org/package=interflex">interflex</a>, <a href="https://CRAN.R-project.org/package=InvariantCausalPrediction">InvariantCausalPrediction</a>, <a href="https://CRAN.R-project.org/package=ipcwswitch">ipcwswitch</a>, <a href="https://CRAN.R-project.org/package=ipw">ipw</a>, <a href="https://CRAN.R-project.org/package=ipwCoxCSV">ipwCoxCSV</a>, <a href="https://CRAN.R-project.org/package=ipwErrorY">ipwErrorY</a>, <a href="https://CRAN.R-project.org/package=iqLearn">iqLearn</a>, <a href="https://CRAN.R-project.org/package=ITRLearn">ITRLearn</a>, <a href="https://CRAN.R-project.org/package=ITRSelect">ITRSelect</a>, <a href="https://CRAN.R-project.org/package=ivmodel">ivmodel</a>, <a href="https://CRAN.R-project.org/package=ivmte">ivmte</a>, <a href="https://CRAN.R-project.org/package=ivpack">ivpack</a>, <a href="https://CRAN.R-project.org/package=LARF">LARF</a>, <a href="https://CRAN.R-project.org/package=localIV">localIV</a>, <a href="https://CRAN.R-project.org/package=lpdensity">lpdensity</a>, <a href="https://CRAN.R-project.org/package=ltmle">ltmle</a>, <a href="https://CRAN.R-project.org/package=MatchThem">MatchThem</a>, <a href="https://CRAN.R-project.org/package=medflex">medflex</a>, <a href="https://CRAN.R-project.org/package=mediation">mediation</a>, <a href="https://CRAN.R-project.org/package=MedSurvey">MedSurvey</a>, <a href="https://CRAN.R-project.org/package=MendelianRandomization">MendelianRandomization</a>, <a href="https://CRAN.R-project.org/package=microsynth">microsynth</a>, <a href="https://CRAN.R-project.org/package=mr.raps">mr.raps</a>, <a href="https://CRAN.R-project.org/package=MRPC">MRPC</a>, <a href="https://CRAN.R-project.org/package=MultisiteMediation">MultisiteMediation</a>, <a href="https://CRAN.R-project.org/package=netchain">netchain</a>, <a href="https://CRAN.R-project.org/package=nonlinearICP">nonlinearICP</a>, <a href="https://CRAN.R-project.org/package=optmatch">optmatch</a>, <a href="https://CRAN.R-project.org/package=OTRselect">OTRselect</a>, <a href="https://CRAN.R-project.org/package=PanelMatch">PanelMatch</a>, <a href="https://CRAN.R-project.org/package=paths">paths</a>, <a href="https://CRAN.R-project.org/package=plm">plm</a>, <a href="https://CRAN.R-project.org/package=preference">preference</a>, <a href="https://CRAN.R-project.org/package=pstest">pstest</a>, <a href="https://CRAN.R-project.org/package=PSweight">PSweight</a>, <a href="https://CRAN.R-project.org/package=qte">qte</a>, <a href="https://CRAN.R-project.org/package=qtlnet">qtlnet</a>, <a href="https://CRAN.R-project.org/package=QTOCen">QTOCen</a>, <a href="https://CRAN.R-project.org/package=quantoptr">quantoptr</a>, <a href="https://CRAN.R-project.org/package=RATest">RATest</a>, <a href="https://CRAN.R-project.org/package=RCAL">RCAL</a>, <a href="https://CRAN.R-project.org/package=rddensity">rddensity</a>, <a href="https://CRAN.R-project.org/package=rdlocrand">rdlocrand</a>, <a href="https://CRAN.R-project.org/package=rdmulti">rdmulti</a>, <a href="https://CRAN.R-project.org/package=rdpower">rdpower</a>, <a href="https://CRAN.R-project.org/package=rdrobust">rdrobust</a>, <a href="https://CRAN.R-project.org/package=regmedint">regmedint</a>, <a href="https://CRAN.R-project.org/package=rpsftm">rpsftm</a>, <a href="https://CRAN.R-project.org/package=sampleSelection">sampleSelection</a>, <a href="https://CRAN.R-project.org/package=seqDesign">seqDesign</a>, <a href="https://CRAN.R-project.org/package=simml">simml</a>, <a href="https://CRAN.R-project.org/package=simsl">simsl</a>, <a href="https://CRAN.R-project.org/package=smartsizer">smartsizer</a>, <a href="https://CRAN.R-project.org/package=SortedEffects">SortedEffects</a>, <a href="https://CRAN.R-project.org/package=SPORTSCausal">SPORTSCausal</a>, <a href="https://CRAN.R-project.org/package=stepp">stepp</a>, <a href="https://CRAN.R-project.org/package=subdetect">subdetect</a>, <a href="https://CRAN.R-project.org/package=Synth">Synth</a>, <a href="https://CRAN.R-project.org/package=ThreeArmedTrials">ThreeArmedTrials</a>, <a href="https://CRAN.R-project.org/package=tidysynth">tidysynth</a>, <a href="https://CRAN.R-project.org/package=tnet">tnet</a>, <a href="https://CRAN.R-project.org/package=tools4uplift">tools4uplift</a>, <a href="https://CRAN.R-project.org/package=TrendInTrend">TrendInTrend</a>, <a href="https://CRAN.R-project.org/package=twang">twang</a>, <a href="https://CRAN.R-project.org/package=twangContinuous">twangContinuous</a>, <a href="https://CRAN.R-project.org/package=ui">ui</a>, <a href="https://CRAN.R-project.org/package=WhatIf">WhatIf</a>.</td></tr>
   </table>
 
   <h3>Related links</h3>
   <ul>
-    <li><a href="http://dagitty.net">DAGitty: draw and analyze causal diagrams</a></li>
+    <li>c("<p><a href=\"http://dagitty.net\">DAGitty: draw and analyze causal", "diagrams</a></p>")</li>
   </ul>
 
   <h3>Other resources</h3>
   <ul>
-    <li>CRAN Task View: <a href="https://CRAN.R-project.org/view=ClinicalTrials">ClinicalTrials</a></li>
-    <li>CRAN Task View: <a href="https://CRAN.R-project.org/view=ExperimentalDesign">ExperimentalDesign</a></li>
-    <li>CRAN Task View: <a href="https://CRAN.R-project.org/view=GraphicalModels">GraphicalModels</a></li>
-    <li>CRAN Task View: <a href="https://CRAN.R-project.org/view=MissingData">MissingData</a></li>
+    <li>c("<p>CRAN Task View: <a", "href=\"https://CRAN.R-project.org/view=ClinicalTrials\">ClinicalTrials</a></p>")</li>
+    <li>c("<p>CRAN Task View: <a", "href=\"https://CRAN.R-project.org/view=ExperimentalDesign\">ExperimentalDesign</a></p>")</li>
+    <li>c("<p>CRAN Task View: <a", "href=\"https://CRAN.R-project.org/view=GraphicalModels\">GraphicalModels</a></p>")</li>
+    <li>c("<p>CRAN Task View: <a", "href=\"https://CRAN.R-project.org/view=MissingData\">MissingData</a></p>")</li>
   </ul>
 
 </body>
