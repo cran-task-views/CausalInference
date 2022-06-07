@@ -121,8 +121,7 @@ effect estimates**]{#ate}
     `r pkg("estimatr")`, `r pkg("riskRegression")`
     (for survival outcomes), `r pkg("clusteredinterference")`
     and `r pkg("inferference")` (the latter two both making
-    interference assumptions), `r pkg("hrIPW")` (under a Cox
-    proportional hazards model), `r pkg("ipwCoxCSV")`
+    interference assumptions), `r pkg("ipwCoxCSV")`
     (corrected sandwich variance estimation for the IPW Cox model),
     `r pkg("ipwErrorY")` (correction methods for the IPW
     estimation with measurement error in outcomes).
@@ -194,7 +193,8 @@ effect estimates**]{#ate}
     effects with binary endogenous treatment and instrument.
     `r pkg("icsw")` implements inverse compliance score
     weighting for estimating average treatment effects with an
-    instrumental variable.
+    instrumental variable. More details and a longer list of packages for
+    IV methods can be found in the `r view("Econometrics")` CRAN task view.
 -   *Mediation analysis* can be performed with `r pkg("cfma")`
     (functional mediation analysis), `r pkg("cit")`
     (likelihood-based tests), `r pkg("MultisiteMediation")`
@@ -343,12 +343,13 @@ treatment effect (HTE) estimation.
     data without hidden variables, FCI and RFCI, for observational data
     with hidden variables, and GIES, for a mix of observational and
     interventional data without hidden variables;
-    `r pkg("pcalg", priority = "core")` also allows to do *causal
+    `r pkg("pcalg")` also allows to do *causal
     inference using graphical models* (the IDA algorithm, the Generalized
     Backdoor Criterion - GBC, the Generalized Adjustment Criterion - GAC).
     Incorporating background knowledge is also possible. Many algorithms and
     methods for general and specific graphical models exist, we refer to the
-    `r view("GraphicalModels")` CRAN Task View for a comprehensive overview.
+    `r view("GraphicalModels")` and `r view("Psychometrics")` CRAN Task Views
+    for a comprehensive overview.
 -   *Estimation of causal effects* is possible in
     `r pkg("CIEE")` using estimating equations derived from a
     DAG and in `r pkg("InvariantCausalPrediction")` using
