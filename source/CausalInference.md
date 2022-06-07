@@ -32,6 +32,12 @@ different packages on CRAN, which we structure into main topics:
 -   [Specific types of data](#data)
 -   [Specific application fields](#applications)
 
+Certain causal inference methods originated in specific fields such as
+econometrics or clinical trials and remain most popular therein. In certain
+cases, we therefore refer to other task views covering these methods in more
+depth. More generally, in this task view we focus on causal analyses with
+observational data.
+
 If you think that we missed some important packages in this list, please
 contact the maintainers.
 
