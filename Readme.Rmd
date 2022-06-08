@@ -1,6 +1,6 @@
 ---
 title: "Causal Inference Task View"
-author: "Imke Mayer, Pan Zhao and Julie Josse"
+author: "Imke Mayer, Pan Zhao, Nick Huntington-Klein, and Julie Josse"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: github_document
 ---

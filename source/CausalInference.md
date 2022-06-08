@@ -1,9 +1,9 @@
 ---
 name: CausalInference
 topic: Causal Inference
-maintainer: Imke Mayer, Pan Zhao and Julie Josse
-email: mayer.imke@gmail.com
-version: 2022-06-07
+maintainer: Imke Mayer, Pan Zhao, Nick Huntington-Klein, and Julie Josse
+email: imke.mayer@inria.fr
+version: 2022-06-08
 ---
 
 
