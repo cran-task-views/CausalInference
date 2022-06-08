@@ -233,16 +233,9 @@ effect estimates**]{#ate}
     `r pkg("nonlinearICP")`.
 -   *Regression discontinuity design* (RDD) methods are implemented in
     `r pkg("rdrobust")` (offering robust confidence interval construction and
-    bandwidth selection), `r pkg("rddensity")` (density discontinuity testing
-    (also known as manipulation testing)), `r pkg("rdlocrand")`
-    (inference under local randomization), `r pkg("rdmulti")`
-    (analysis with multiple cutoffs or scores); tools to perform power,
-    sample size and minimum detectable effects (MDE) calculations are
-    available in `r pkg("rdpower")`, `r pkg("RATest")` provides
-    a collection of randomization tests, including a permutation test
-    for the continuity assumption of the baseline covariates in the
-    sharp RDD.
--   Regularized calibrated estimation of the average treatment effects
+    bandwidth selection). A more detailed curated list of packages for
+    RDD methods can be found in the `r view("Econometrics")` CRAN task view.
+-   *Regularized calibrated estimation* of the average treatment effects
     (ATE) and local average treatment effects (LATE) is implemented in
     `r pkg("RCAL")`.
 -   *Continuous or multivalued treatments* can be analyzed using functions from
