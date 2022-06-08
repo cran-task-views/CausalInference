@@ -3,7 +3,7 @@ name: CausalInference
 topic: Causal Inference
 maintainer: Imke Mayer, Pan Zhao and Julie Josse
 email: mayer.imke@gmail.com
-version: 2022-05-18
+version: 2022-06-07
 ---
 
 
