@@ -3,7 +3,7 @@ name: CausalInference
 topic: Causal Inference
 maintainer: Imke Mayer, Pan Zhao, Nick Huntington-Klein, and Julie Josse
 email: imke.mayer@inria.fr
-version: 2022-06-08
+version: 2022-06-10
 ---
 
 
@@ -185,7 +185,7 @@ effect estimates**]{#ate}
     `r pkg("tidysynth")` offers an easy-to-use syntax for using synthetic
     control methods.
 -   *Instrumental variable* methods are implemented in
-    `r pkg("ivmodel")`, `r pkg("ivpack")` (including
+    `r pkg("ivreg")`, `r pkg("ivmodel")`, `r pkg("ivpack")` (including
     power analysis, sensitivity analysis, and diagnostics),
     `r pkg("bpbounds")` (nonparametric bounds on ATE),
     `r pkg("grf")`, `r pkg("fixest")`, `r pkg("estimatr")`, and
@@ -193,14 +193,13 @@ effect estimates**]{#ate}
     `r pkg("ivmte")` provides a choice-theoretic
     interpretation to IV models using *Marginal Treatment Effects* to
     extrapolate from the compliers to estimate treatment effects for
-    other subpopulations; and estimation using local IVs is implemented
-    in `r pkg("localIV")`. `r pkg("LARF")` uses
+    other subpopulations. `r pkg("LARF")` uses
     Local Average Response Functions for IV estimation of treatment
     effects with binary endogenous treatment and instrument.
     `r pkg("icsw")` implements inverse compliance score
     weighting for estimating average treatment effects with an
     instrumental variable. More details and a longer list of packages for
-    IV methods can be found in the `r view("Econometrics")` CRAN task view.
+    IV methods can be found in `r view("Econometrics", "Instrumental variables")`.
 -   *Mediation analysis* can be performed with `r pkg("cfma")`
     (functional mediation analysis), `r pkg("cit")`
     (likelihood-based tests), `r pkg("MultisiteMediation")`
@@ -234,7 +233,7 @@ effect estimates**]{#ate}
 -   *Regression discontinuity design* (RDD) methods are implemented in
     `r pkg("rdrobust")` (offering robust confidence interval construction and
     bandwidth selection). A more detailed curated list of packages for
-    RDD methods can be found in the `r view("Econometrics")` CRAN task view.
+    RDD methods can be found in `r view("Econometrics", "Regression discontinuity design")`.
 -   *Regularized calibrated estimation* of the average treatment effects
     (ATE) and local average treatment effects (LATE) is implemented in
     `r pkg("RCAL")`.
