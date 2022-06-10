@@ -30,6 +30,7 @@ mda_words <- c("causal",
                "causal model",
                "causal models",
                "causal structure",
+               "instrumental",
                "instrumental variable",
                "instrumental variables",
                "IV",
@@ -38,7 +39,7 @@ mda_words <- c("causal",
                "IPSW")
 
 # extract already listed packages
-cur_page <- htmlTreeParse("../source/CausalInference.ctv", useInternalNodes = TRUE)
+cur_page <- htmlTreeParse("../source/CausalInference.md", useInternalNodes = TRUE)
 listed_packages <- unique(xpathSApply(cur_page, "//pkg", xmlValue))
 
 # browse CRAN
@@ -56,13 +57,13 @@ cleaned_desc <- tidy_desc %>% anti_join(stop_words)
 
 causal_pkgs <- cleaned_desc %>% 
   group_by(Package) %>%
-  filter(word %in% mda_words) %>%
+  filter(tolower(word) %in% mda_words) %>%
   #filter(!(Package %in% listed_packages)) %>%
   ungroup()
 
 
 n_distinct(causal_pkgs$Package)
-#> [1] 482
+#> [1] 554
 
 write.table(unique(causal_pkgs$Package), file = "../data/causal_packages.txt",
             row.names = FALSE, col.names = FALSE, quote = FALSE)
