@@ -1,7 +1,8 @@
 Causal Inference Task View
 ================
-Imke Mayer, Pan Zhao, Nick Huntington-Klein, and Julie Josse
-10 June, 2022
+Imke Mayer, Pan Zhao, Noah Greifer, Nick Huntington-Klein, and Julie
+Josse
+16 June, 2022
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 

@@ -1,9 +1,9 @@
 ---
 name: CausalInference
 topic: Causal Inference
-maintainer: Imke Mayer, Pan Zhao, Nick Huntington-Klein, and Julie Josse
+maintainer: Imke Mayer, Pan Zhao, Noah Greifer, Nick Huntington-Klein, and Julie Josse
 email: imke.mayer@inria.fr
-version: 2022-06-10
+version: 2022-06-16
 ---
 
 
@@ -287,19 +287,26 @@ treatment effect (HTE) estimation.
 
 [**Policy learning and dynamic treatment regimes**]{#policy}
 
--   Estimation of an optimal dynamic treatment regime (DTR) is
-    implemented in `r pkg("iqLearn")` and
-    `r pkg("DynTxRegime")` (using interactive Q-learning).
-    `r pkg("quantoptr")` implements
-    estimation methods for optimal treatment regimes under marginal
-    quantile, marginal mean, and mean absolute difference.
-    `r pkg("DTRreg")` proposes different methods such as
-    G-estimation, dynamic weighted OLS and Q-learning, as well as
-    several variance estimation approaches, it can handle survival
-    outcomes and continuous treatment variables.
-    `r pkg("QTOCen")` provides methods for estimation of mean-
-    and quantile-optimal treatment regimes from censored data.
--   `r pkg("ITRLearn")` implements maximin-projection learning
+-   *Estimation of an optimal dynamic treatment regime (DTR)* is
+    implemented in `r pkg("DynTxRegime")` (Q-Learning, Interactive Q-Learning,
+    weighted learning, and value-search methods based on Augmented Inverse
+    Probability Weighted Estimators and Inverse Probability Weighted
+    Estimators), and `r pkg("iqLearn")` (interactive Q-learning); methods based on
+    marginal quantile, marginal mean, and mean absolute difference are
+    implemented in `r pkg("quantoptr")` as well as doubly-robust methods for
+    quantile-optimal treatment regime). `r pkg("DTRreg")` proposes different
+    methods such as G-estimation, dynamic weighted OLS and Q-learning, as well
+    as several variance estimation approaches, it can handle survival
+    outcomes and continuous treatment variables. `r pkg("QTOCen")` provides
+    methods for estimation of mean- and quantile-optimal treatment regimes
+    from censored data. `r pkg("ITRLearn")` implements maximin-projection
+    learning for recommending a meaningful and reliable individualized
+    treatment regime, and also Q-learning and A-learning for estimating the
+    group-wise contrast function. `r pkg("simml")` and `r pkg("simsl")` offer
+    Single-Index Models with Multiple-Links for, respectively, experimental
+    and observational data.  
+-   Estimation of DTR with *variable selection* is proposed by
+    `r pkg("ITRLearn")` implements maximin-projection learning
     for recommending a meaningful and reliable individualized treatment
     regime, and also Q-learning and A-learning for estimating the
     group-wise contrast function. `r pkg("ITRSelect")`
@@ -309,22 +316,14 @@ treatment effect (HTE) estimation.
     studies. `r pkg("OTRselect")` implements a penalized
     regression method that can simultaneously estimate the optimal
     treatment strategy and identify important variables for either
-    censored or uncensored continuous response.
--   `r pkg("smartsizer")` provides a set of tools for
-    determining the necessary sample size in order to identify the
-    optimal DTR in a *sequential, multiple assignment, randomized trial
-    (SMART)* , `r pkg("DTRlearn2")` implements estimators for
-    general K-stage DTRs from SMARTs with Q-learning and several
-    outcome-weighted learning methods.
--   `r pkg("lpdensity")` implements a density (and
-    derivatives) estimator based on local polynomial regressions for
-    counterfactual analysis, program evaluation, and policy
-    recommendations.
--   Estimation of treatment decision rules from a randomized clinical
-    trial using Single-Index Models with Multiple-Links is implemented
-    in `r pkg("simml")`, Single-Index Models with a
-    Surface-Link for optimizing individualized dose rules from an
-    observational study is implemented in `r pkg("simsl")`.
+    censored or uncensored continuous response. `r pkg("DTRlearn2")` offers
+    Q-learning and outcome-weighted learning methods with variable selection
+    via penalization.
+-   *For sequential, multiple assignment, randomized trials (SMART)*,
+    `r pkg("smartsizer")` provides a set of tools for determining the necessary
+    sample size in order to identify the optimal DTR; `r pkg("DTRlearn2")` also
+    implements estimators for general K-stage DTRs from SMARTs.
+
 
 [**Structural equation models, do-calculus causal discovery**]{#dag}
 
