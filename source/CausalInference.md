@@ -11,9 +11,9 @@ version: 2022-06-16
 Causal inference can be seen as a subfield of statistical analysis. It
 is used in various fields such as econometrics, epidemiology,
 educational sciences, etc. With causal inference one addresses questions
-about effects of a treatment, intervention or policy on some target over
+about effects of a treatment, intervention, or policy on some target over
 a given sample or population. Under certain identifiability and model assumptions, causal
-inferences can be carried out by fitting simple regression models or
+inference can be carried out by fitting simple regression models or
 combining several regression models in a specific way as will be
 sketched out later. For observational data, additional untestable
 assumptions have to be made to (non-parametrically) identify causal
@@ -86,7 +86,7 @@ data**]{#rct}
 effect estimates**]{#ate}
 
 -   *Regression models* where the causal estimand is a regression
-    parameter are implemented in `r pkg("fixest", priority = "core")`,
+    parameter are implemented in `lm()` and `glm()` from stats, as well as in a number of more specialized packages such as `r pkg("fixest", priority = "core")`,
     `r pkg("estimatr")`, `r pkg("CausalGAM")` (using generalized additive
     models), `r pkg("sampleSelection")` (two-step and maximum
     likelihood estimation of Heckman-type sample selection models),
@@ -98,72 +98,22 @@ effect estimates**]{#ate}
     estimators with uniformly valid confidence intervals, it assumes
     approximately sparse models for high-dimensional settings). Estimation in
     *fixed effects designs* is possible through `r pkg("fixest")` (linear and
-    generalized linear fixed effects models and combined with Instrumental
-    variables), `r pkg("plm")` (for panel data) and `r pkg("alpaca")` (for
+    generalized linear fixed effects models and combined with instrumental
+    variables), `r pkg("plm")` (for panel data), and `r pkg("alpaca")` (for
     high-dimensional k-way fixed effects).
--   *G-formula* and other *conditional outcome regression* based methods
+-   *G-computation* and other *conditional outcome regression* based methods
     are supported in the packages `r pkg("gfoRmula")` (also
     for time-varying treatment and confounding),
     `r pkg("EffectLiteR")` (based on structural equation
     modeling), `r pkg("endoSwitch")` (maximum likelihood
     estimation of endogenous switching regression models), and
     `r pkg("riskRegression", priority = "core")` (for survival
-    outcomes with or without competing risks).
--   *Matching* methods are implemented in
-    `r pkg("Matching", priority = "core")` (k-nearest-neighbor matching,
-    multivariate and propensity score matching, and finding optimal balance
-    based on a genetic search algorithm),
-    `r pkg("MatchIt", priority = "core")` (selecting matched
-    samples of the original treated and control groups with similar
-    covariate distributions), `r pkg("MatchThem")`
-    (pre-processing techniques of matching and weighting multiply
-    imputed datasets), `r pkg("cem")` (coarsened exact matching),
-    `r pkg("optmatch")` (distance based bipartite matching using the RELAX-IV
-    minimum cost flow solver), `r pkg("FLAME")` (almost-matching-exactly via
-    learned weighted Hamming distance).
--   *Inverse propensity weighting* (IPW, also known as inverse
-    probability of treatment weighting, IPTW) methods are implemented in
-    `r pkg("ipw")`, `r pkg("causalweight")`,
-    `r pkg("estimatr")`, `r pkg("riskRegression")`
-    (for survival outcomes), `r pkg("clusteredinterference")`
-    and `r pkg("inferference")` (the latter two both making
-    interference assumptions), `r pkg("ipwCoxCSV")`
-    (corrected sandwich variance estimation for the IPW Cox model),
-    `r pkg("ipwErrorY")` (correction methods for the IPW
-    estimation with measurement error in outcomes).
-    `r pkg("autoCovariateSelection")` offers automated
-    covariate selection for high-dimensional propensity scores.
-    `r pkg("pstest")` provides specification tests for
-    parametric propensity score models. In case of *ordinal or
-    multinomial treatment,* `r pkg("GPSCDF")` allows to
-    estimate generalized propensity score cumulative distribution
-    functions.
--   Other *balancing score weighting* methods for balancing covariate
-    distributions are available in `r pkg("CBPS")` (for binary
-    and multivalued treatments, optionally in longitudinal settings).
-    `r pkg("PSweight")` supports propensity score weighting
-    analysis (including overlap weights) of observational studies and
-    randomized trials (available for multivalued treatment).
-    `r pkg("twang")` provides a set of functions for
-    propensity score estimation and weighting (including time-varying
-    and multivalued treatment), nonresponse weighting, and diagnosis of
-    the weights (of nonequivalent groups).
-    `r pkg("twangContinuous")` provides functions for
-    propensity score estimation and weighting for continuous treatments.
--   *Doubly robust methods* are implemented in
-    `r pkg("grf", priority = "core")` (function
-    `average_treatment_effect` for the AIPW estimator using generalized
-    random forest), in `r pkg("AIPW")` (allowing for
-    user-defined stacked machine learning predictive models), in
-    `r pkg("causalweight")`, in
-    `r pkg("riskRegression")` (function `ate` implements a
-    parametric doubly robust estimator for survival outcomes), and in
-    `r pkg("DoubleML")` (function `DoubleMLIRM`).
--   *Targeted learning* (also known as targeted maximum likelihood
-    estimation or targeted minimum loss-based estimation) methods are
-    available in `r pkg("drtmle")`,
-    `r pkg("tmle", priority = "core")`, and
-    `r pkg("ltmle")` (for longitudinal data).
+    outcomes with or without competing risks). For parametric models, g-computation is the same as estimating average marginal effects, which can be achieved using `r pkg("margins")`, `r pkg("marginaleffects")`, `r pkg("modelbased")`, and `r pkg("stdReg")`.
+-   *Matching* methods are implemented in `r pkg("MatchIt", priority = "core")`, which provides wrappers for a number of popular methods including propensity score matching and subclassification, (coarsened) exact matching, full matching, and cardinality matching; more specialized matching methods are implemented in some of the packages below, some of which MatchIt depends on. `r pkg("MatchThem")` provides a wrapper for MatchIt with multiply-imputed data. `r pkg("Matching", priority = "core")` performs nearest neighbor and genetic matching and implements Abadie and Imbens-style matching imputation estimators. `r pkg("optmatch")` performs optimal matching using network flows; several other packages rely on the same infrastructure, including `r pkg("DiPs")` (near-fine matching with directional penalties), `r pkg("matchMulti")` (optimal matching for clustered data), `r pkg("rcbalance")` and `r pkg("rcbsubset")` (optimal matching for refined balance), `r pkg("approxmatch")` (near-optimal matching for multi-category treatments), and `r pkg("match2C")` (optimal matching using two criteria). Other packages include `r pkg("cem")` (coarsened exact matching), `r pkg("designmatch")` (optimization-based matching using mixed integer programming), `r pkg("stratamatch")` (matching and stratification in large datasets), `r pkg("FLAME")` (almost-matching-exactly via learned weighted Hamming distance), `r pkg("PanelMatch")` (matching with time-series cross-sectional data), and `r pkg("CausalGPS")` (generalized propensity score matching for continuous treatments).
+-   *Inverse propensity weighting* (IPW, also known as inverse probability of treatment weighting, IPTW) methods are implemented in `r pkg("WeightIt", priority = "core")`, which provides implementations and wrappers for several popular weighting methods for binary, multi-category, continuous, and longitudinal treatments. `r pkg("MatchThem")` provides a wrapper for WeightIt with multiply-imputed data. `r pkg("PSweight", priority = "core")` offers propensity score weighting and uncertainty estimation using M-estimation. `r pkg("clusteredinterference")` and `r pkg("inferference")` offer weighting methods in the context of interference. Several packages offer specialized methods of estimating balancing weights for various treatment types, which may or may not involve a propensity score: `r pkg("CBPS")` (generalized method of moments-based propensity score estimation for binary, multi-category, continuous, and longitudinal treatments), `r pkg("twang")` and `r pkg("twangContinuous")` (propensity score weighting using gradient boosting machines for binary, multi-category, continuous, and longitudinal treatments), `r pkg("sbw")` and `r pkg("optweight")` (optimization-based weights using quadratic programming), and `r pkg("ebal")` (entropy balancing). `r pkg("mvGPS")` estimates weights for multivariate treatments using WeightIt's infrastructure. *Matching-adjusted indirect comparison*, a relative of propensity score weighting when unit-level data is only available for some groups, is available in `r pkg("maic")`, `r pkg("maicChecks")`, and `r pkg("optweight")` (using the `optweight.svy()` function).
+-   *Doubly robust methods* involve both a treatment and outcome model. Augmented IPW (AIPW) is implemented in `r pkg("AIPW")`, `r pkg("PSweight")`, `r pkg("DoubleML")`, and `r pkg("causalweight")`. Targeted maximum likelihood
+    estimation (TMLE, also known as targeted minimum loss-based estimation) is available in `r pkg("drtmle")`,
+    `r pkg("tmle", priority = "core")`, `r pkg("ctmle")` (for TMLE with variable selection), `r pkg("ltmle")` (for longitudinal data), and `r pkg("AIPW")`.
 -   *Difference in differences* methods are implemented in
     `r pkg("DRDID")` (doubly robust estimators with two
     choices for nuisance function estimation),
@@ -205,8 +155,9 @@ effect estimates**]{#ate}
     (likelihood-based tests), `r pkg("MultisiteMediation")`
     (multisite trials), `r pkg("DirectEffects")` (controlled
     direct effect when fixing a potential mediator to a specific value),
-    `r pkg("medflex")` (natural effect models) and `r pkg("causalweight")`.
-    `r pkg("mediation")` and `r pkg("cfdecomp")`
+    `r pkg("medflex")` (natural effect models). `r pkg("causalweight")` and `r pkg("twangMediation")`
+    implement weighted estimators for mediation.
+    `r pkg("mediation, priority = "core"")` and `r pkg("cfdecomp")`
     implement identification, inference and
     `r pkg("mediation")` additionally also provides
     sensitivity analysis for causal mediation effects. Linear mediation
@@ -234,27 +185,16 @@ effect estimates**]{#ate}
     `r pkg("rdrobust")` (offering robust confidence interval construction and
     bandwidth selection). A more detailed curated list of packages for
     RDD methods can be found in `r view("Econometrics", "Regression discontinuity design")`.
--   *Regularized calibrated estimation* of the average treatment effects
-    (ATE) and local average treatment effects (LATE) is implemented in
-    `r pkg("RCAL")`.
--   *Continuous or multivalued treatments* can be analyzed using functions from
-    `r pkg("CBPS")`, `r pkg("PSweight")`, `r pkg("twang")`.
--   `r pkg("WhatIf")` offers easy-to-apply methods to evaluate
-    counterfactuals that do not require sensitivity testing over
-    specified classes of models.
 
-In addition, `r pkg("causalsens")`,
-`r pkg("hettx")`, `r pkg("dstat")` and
-`r pkg("EValue")` provide functions for *sensitivity analyses*
+In addition, `r pkg("causalsens")`, `r pkg("OVtool")`,
+`r pkg("dstat")`, and `r pkg("EValue")` provide functions for *sensitivity analyses*
 (for unmeasured confounding, selection bias, measurement error),
-`r pkg("ui")` implements functions to derive uncertainty
+and `r pkg("ui")` implements functions to derive uncertainty
 intervals and conduct sensitivity analysis for missing data and
-unobserved confounding. `r pkg("BalanceCheck")` provides tests
-to assess balancing of the treatment groups after matching,
-`r pkg("cobalt", priority = "core")` generates balance tables
-and plots before and after covariate balancing, and
+unobserved confounding. `r pkg("cobalt", priority = "core")` and `r pkg("tableone")`
+generate balance tables and plots before and after covariate balancing, and
 `r pkg("confoundr")` implements covariate-balance diagnostics
-for time-varying confounding.
+for time-varying confounding. `r pkg("WhatIf")` offers methods to assess overlap and extrapolation.
 
 [**Heterogeneous treatment effect estimation**]{#hte}
 
@@ -366,13 +306,8 @@ environment is also available: [DAGitty](http://dagitty.net)).
 
 -   *Longitudinal data / time series and censored data*: Causal effect
     estimation for time series is implemented in
-    `r pkg("CausalImpact")` (using a Bayesian approach),
-    `r pkg("confoundr")` (covariate-balance diagnostics), and
+    `r pkg("CausalImpact")` (using a Bayesian approach) and
     `r pkg("CausalMBSTS")` (for multivariate responses).
--   Other packages, such as `r pkg("PanelMatch")` implements a
-    set of matching methods to time-series cross-sectional data, are
-    dedicated to time series but also contain some (often basic) methods
-    to handle missing data (see also `r view("MissingData")`).
 -   *GWAS and SNPs*: `r pkg("CKAT")` implements kernel based
     methods to jointly test genetic main effect and gene-treatment
     interaction effects for a set of SNPs.
