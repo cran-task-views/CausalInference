@@ -135,8 +135,7 @@ effect estimates**]{#ate}
     `r pkg("tidysynth")` offers an easy-to-use syntax for using synthetic
     control methods.
 -   *Instrumental variable* methods are implemented in
-    `r pkg("ivreg")`, `r pkg("ivmodel")`, `r pkg("ivpack")` (including
-    power analysis, sensitivity analysis, and diagnostics),
+    `r pkg("ivreg")`, `r pkg("ivmodel")`, 
     `r pkg("bpbounds")` (nonparametric bounds on ATE),
     `r pkg("grf")`, `r pkg("fixest")`, `r pkg("estimatr")`, and
     `r pkg("DoubleML")` (function `DoubleMLIIVM`).
@@ -157,7 +156,7 @@ effect estimates**]{#ate}
     direct effect when fixing a potential mediator to a specific value),
     `r pkg("medflex")` (natural effect models). `r pkg("causalweight")` and `r pkg("twangMediation")`
     implement weighted estimators for mediation.
-    `r pkg("mediation, priority = "core"")` and `r pkg("cfdecomp")`
+    `r pkg("mediation", priority = "core")` and `r pkg("cfdecomp")`
     implement identification, inference and
     `r pkg("mediation")` additionally also provides
     sensitivity analysis for causal mediation effects. Linear mediation
