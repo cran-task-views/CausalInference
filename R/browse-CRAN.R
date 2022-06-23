@@ -1,9 +1,8 @@
 # packages
-library(tidytext)
-library(tidyverse)
-library(XML)
+library("tidytext")
+library("tidyverse")
 
-# keywords for missing data
+# keywords for causal inference and related topics
 mda_words <- c("causal",
                "causal inference",
                "treatment effect",
@@ -39,8 +38,7 @@ mda_words <- c("causal",
                "IPSW")
 
 # extract already listed packages
-cur_page <- htmlTreeParse("../source/CausalInference.md", useInternalNodes = TRUE)
-listed_packages <- unique(xpathSApply(cur_page, "//pkg", xmlValue))
+listed_packages <- ctv::read.ctv("../CausalInference.md")$packagelist[,1]
 
 # browse CRAN
 cran_db <- tools::CRAN_package_db()
