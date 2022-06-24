@@ -4,6 +4,7 @@ topic: Causal Inference
 maintainer: Imke Mayer, Pan Zhao, Noah Greifer, Nick Huntington-Klein, Julie Josse
 email: imke.mayer@inria.fr
 version: 2022-06-16
+source: https://github.com/cran-task-views/CausalInference/
 ---
 
 ### Overview
