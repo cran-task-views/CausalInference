@@ -1,12 +1,12 @@
 ---
 name: CausalInference
 topic: Causal Inference
-maintainer: Imke Mayer, Pan Zhao, Noah Greifer, Nick Huntington-Klein, and Julie Josse
+maintainer: Imke Mayer, Pan Zhao, Noah Greifer, Nick Huntington-Klein, Julie Josse
 email: imke.mayer@inria.fr
 version: 2022-06-16
 ---
 
-
+### Overview
 
 Causal inference can be seen as a subfield of statistical analysis. It
 is used in various fields such as econometrics, epidemiology,
@@ -23,14 +23,13 @@ There are no basic R functions that are direct implementations of standard causa
 inference designs, but many methods - more or less complex - are implemented in
 different packages on CRAN, which we structure into main topics:
 
--   [Methods for experimental data](#rct)
--   [Average treatment effect estimation and other univariate treatment
-    effect estimates](#ate)
--   [Heterogeneous treatment effect estimation](#hte)
--   [Policy learning and dynamic treatment regimes](#policy)
--   [Structural equation models, do-calculus causal discovery](#dag)
--   [Specific types of data](#data)
--   [Specific application fields](#applications)
+- [Methods for experimental data](#rct)
+- [Average treatment effect estimation and other univariate treatment effect estimates](#ate)
+- [Heterogeneous treatment effect estimation](#hte)
+- [Policy learning and dynamic treatment regimes](#policy)
+- [Structural equation models, do-calculus causal discovery](#dag)
+- [Specific types of data](#data)
+- [Specific application fields](#applications)
 
 Certain causal inference methods originated in specific fields such as
 econometrics or clinical trials and remain most popular therein. In certain
@@ -41,8 +40,7 @@ observational data.
 If you think that we missed some important packages in this list, please
 contact the maintainers.
 
-[**Methods for randomized controlled trial (RCT) and other experimental
-data**]{#rct}
+### [Methods for randomized controlled trial (RCT) and other experimental data]{#rct}
 
 -   *Construction of experimental designs* is implemented in
     `r pkg("blocksdesign")` (blocks for general factorial
@@ -82,8 +80,7 @@ data**]{#rct}
     trials with active and placebo control is implemented in
     `r pkg("ThreeArmedTrials")`.
 
-[**Average treatment effect estimation and other univariate treatment
-effect estimates**]{#ate}
+### [Average treatment effect estimation and other univariate treatment effect estimates]{#ate}
 
 -   *Regression models* where the causal estimand is a regression
     parameter are implemented in `lm()` and `glm()` from stats, as well as in a number of more specialized packages such as `r pkg("fixest", priority = "core")`,
@@ -148,7 +145,8 @@ effect estimates**]{#ate}
     `r pkg("icsw")` implements inverse compliance score
     weighting for estimating average treatment effects with an
     instrumental variable. More details and a longer list of packages for
-    IV methods can be found in `r view("Econometrics", "Instrumental variables")`.
+    IV methods can be found in `r view("Econometrics", "Instrumental variables")`
+    in the `r view("Econometrics")` task view.
 -   *Mediation analysis* can be performed with `r pkg("cfma")`
     (functional mediation analysis), `r pkg("cit")`
     (likelihood-based tests), `r pkg("MultisiteMediation")`
@@ -183,7 +181,8 @@ effect estimates**]{#ate}
 -   *Regression discontinuity design* (RDD) methods are implemented in
     `r pkg("rdrobust")` (offering robust confidence interval construction and
     bandwidth selection). A more detailed curated list of packages for
-    RDD methods can be found in `r view("Econometrics", "Regression discontinuity design")`.
+    RDD methods can be found in `r view("Econometrics", "Regression discontinuity design")`
+    in the `r view("Econometrics")` task view.
 
 In addition, `r pkg("causalsens")`, `r pkg("OVtool")`,
 `r pkg("dstat")`, and `r pkg("EValue")` provide functions for *sensitivity analyses*
@@ -195,7 +194,7 @@ generate balance tables and plots before and after covariate balancing, and
 `r pkg("confoundr")` implements covariate-balance diagnostics
 for time-varying confounding. `r pkg("WhatIf")` offers methods to assess overlap and extrapolation.
 
-[**Heterogeneous treatment effect estimation**]{#hte}
+### [Heterogeneous treatment effect estimation]{#hte}
 
 Some of the above mentioned packages can also be used for heterogeneous
 treatment effect (HTE) estimation.
@@ -224,7 +223,7 @@ treatment effect (HTE) estimation.
     linear models, applicable for continuous, binomial and count data
     arising from two or more treatment arms of a clinical trial.
 
-[**Policy learning and dynamic treatment regimes**]{#policy}
+### [Policy learning and dynamic treatment regimes]{#policy}
 
 -   *Estimation of an optimal dynamic treatment regime (DTR)* is
     implemented in `r pkg("DynTxRegime")` (Q-Learning, Interactive Q-Learning,
@@ -264,7 +263,7 @@ treatment effect (HTE) estimation.
     implements estimators for general K-stage DTRs from SMARTs.
 
 
-[**Structural equation models, do-calculus causal discovery**]{#dag}
+### [Structural equation models, do-calculus causal discovery]{#dag}
 
 -   *Identifiability* is addressed by `r pkg("causaleffect")`
     and `r pkg("dosearch")` providing algorithms to decide
@@ -301,7 +300,8 @@ methods to define different types of graphical models (cpdags, pdag,
 ect.) and to identify adjustment sets (a web-based graphical
 environment is also available: [DAGitty](http://dagitty.net)).
 
-[**Specific types of data**]{#data}
+
+### [Specific types of data]{#data}
 
 -   *Longitudinal data / time series and censored data*: Causal effect
     estimation for time series is implemented in
@@ -316,7 +316,7 @@ environment is also available: [DAGitty](http://dagitty.net)).
 -   Weighted, two-mode, and longitudinal networks analysis is
     implemented in `r pkg("tnet")`
 
-[**Specific application fields**]{#applications}
+### [Specific application fields]{#applications}
 
 -   Behavior change sciences use specialized analyses and visualization
     tools implemented in `r pkg("behaviorchange")`.
