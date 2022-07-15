@@ -145,7 +145,9 @@ contact the maintainers.
     effects with binary endogenous treatment and instrument.
     `r pkg("icsw")` implements inverse compliance score
     weighting for estimating average treatment effects with an
-    instrumental variable. More details and a longer list of packages for
+    instrumental variable.  `r pkg("ivdesc")` gives descriptive statistics for the 
+    complier, never-taker and always-taker subpopulations. 
+    More details and a longer list of packages for
     IV methods can be found in `r view("Econometrics", "Instrumental variables")`
     in the `r view("Econometrics")` task view.
 -   *Mediation analysis* can be performed with `r pkg("cfma")`
