@@ -341,9 +341,6 @@ environment is also available: [DAGitty](http://dagitty.net)).
 -   `r pkg("tools4uplift")` uplift modeling aims at predicting
     the causal effect of an action such as a marketing campaign on a
     particular individual.
--   `r pkg("estudy2")` allows examining the impact of certain events on the
-    stock valuation of companies through an event study methodology (with
-    parametric and nonparametric tests).
 -   *Coincidence analysis* through configurational comparative methods
     is provided by `r pkg("cna")`.
 
