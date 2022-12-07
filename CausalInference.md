@@ -3,7 +3,7 @@ name: CausalInference
 topic: Causal Inference
 maintainer: Imke Mayer, Pan Zhao, Noah Greifer, Nick Huntington-Klein, Julie Josse
 email: imke.mayer@inria.fr
-version: 2022-06-16
+version: 2022-12-07
 source: https://github.com/cran-task-views/CausalInference/
 ---
 
@@ -133,7 +133,7 @@ contact the maintainers.
     `r pkg("tidysynth")` offers an easy-to-use syntax for using synthetic
     control methods.
 -   *Instrumental variable* methods are implemented in
-    `r pkg("ivreg")`, `r pkg("ivmodel")`, 
+    `r pkg("ivreg")`, `r pkg("ivmodel")`,
     `r pkg("bpbounds")` (nonparametric bounds on ATE),
     `r pkg("grf")`, `r pkg("fixest")`, `r pkg("estimatr")`, and
     `r pkg("DoubleML")` (function `DoubleMLIIVM`).
