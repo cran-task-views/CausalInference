@@ -243,7 +243,11 @@ treatment effect (HTE) estimation.
     treatment regime, and also Q-learning and A-learning for estimating the
     group-wise contrast function. `r pkg("simml")` and `r pkg("simsl")` offer
     Single-Index Models with Multiple-Links for, respectively, experimental
-    and observational data.  
+    and observational data. `r pkg("personalized")` implements methods for
+    estimation of individualized treatment rules from observational and
+    randomized data with options for variable-selection and gradient boosting
+    based estimation, and for outcome model augmentation (for continuous,
+    binary, count, and time-to-event outcomes).
 -   Estimation of DTR with *variable selection* is proposed by
     `r pkg("ITRLearn")` implements maximin-projection learning
     for recommending a meaningful and reliable individualized treatment
