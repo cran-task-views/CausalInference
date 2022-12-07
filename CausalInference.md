@@ -230,7 +230,7 @@ treatment effect (HTE) estimation.
     implemented in `r pkg("DynTxRegime")` (Q-Learning, Interactive Q-Learning,
     weighted learning, and value-search methods based on Augmented Inverse
     Probability Weighted Estimators and Inverse Probability Weighted
-    Estimators), and `r pkg("iqLearn")` (interactive Q-learning); methods based on
+    Estimators); methods based on
     marginal quantile, marginal mean, and mean absolute difference are
     implemented in `r pkg("quantoptr")` as well as doubly-robust methods for
     quantile-optimal treatment regime). `r pkg("DTRreg")` proposes different
