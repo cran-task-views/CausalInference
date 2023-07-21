@@ -3,7 +3,7 @@ name: CausalInference
 topic: Causal Inference
 maintainer: Imke Mayer, Pan Zhao, Noah Greifer, Nick Huntington-Klein, Julie Josse
 email: imke.mayer@inria.fr
-version: 2022-12-07
+version: 2023-07-21
 source: https://github.com/cran-task-views/CausalInference/
 ---
 
@@ -28,7 +28,7 @@ different packages on CRAN, which we structure into main topics:
 - [Average treatment effect estimation and other univariate treatment effect estimates](#ate)
 - [Heterogeneous treatment effect estimation](#hte)
 - [Policy learning and dynamic treatment regimes](#policy)
-- [Structural equation models, do-calculus causal discovery](#dag)
+- [Structural equation models (SEM), do-calculus causal discovery](#dag)
 - [Specific types of data](#data)
 - [Specific application fields](#applications)
 
@@ -166,7 +166,10 @@ contact the maintainers.
     conducting sensitivity analysis. `r pkg("regmedint")`
     implements regression-based analysis with a treatment-mediator
     interaction term. `r pkg("gma")` performs Granger
-    mediation analysis for time series.
+    mediation analysis for time series. `r pkg("bmem")` provides several different
+    methods for mediation analysis in the case of missing data (listwise/pairwise 
+    deletion, multiple imputation, two stage maximum likelihood) and power analysis 
+    for mediation analysis. 
 -   Under *interference,* causal effect estimation can be achieved using
     `r pkg("inferference")` by inverse-probability weighted
     (IPW) estimators, `r pkg("netchain")` on collective
@@ -234,7 +237,8 @@ treatment effect (HTE) estimation.
     Estimators); methods based on
     marginal quantile, marginal mean, and mean absolute difference are
     implemented in `r pkg("quantoptr")` as well as doubly-robust methods for
-    quantile-optimal treatment regime). `r pkg("DTRreg")` proposes different
+    quantile-optimal treatment regime). `r pkg("lmtp")` also provides doubly-robust
+    causal effect estimates for modified treatment policies, dynamic treatment regimes (and static interventions). `r pkg("DTRreg")` proposes different
     methods such as G-estimation, dynamic weighted OLS and Q-learning, as well
     as several variance estimation approaches, it can handle survival
     outcomes and continuous treatment variables. `r pkg("QTOCen")` provides
@@ -269,13 +273,14 @@ treatment effect (HTE) estimation.
     implements estimators for general K-stage DTRs from SMARTs.
 
 
-### [Structural equation models, do-calculus causal discovery]{#dag}
+### [Structural equation models (SEM), do-calculus causal discovery]{#dag}
 
 -   *Identifiability* is addressed by `r pkg("causaleffect")`
     and `r pkg("dosearch")` providing algorithms to decide
     whether a causal effect is identifiable (non-parametric
     identifiability) and by `r pkg("CausalQueries")` that
-    calculates arbitrary estimands for a given causal model.
+    calculates arbitrary estimands for a given causal model. 
+    `r pkg("SEMID")` implements SEM-based routines to check identifiability or non-identifiability of linear SEMs.
     `r pkg("causaloptim")` provides tight bounds for a user
     defined DAG, query and constraints using a symbolic linear
     optimizer.
