@@ -65,7 +65,6 @@ contact the maintainers.
     `r pkg("ipcwswitch")` (IPW adapted to treatment switch in
     an RCT), `r pkg("idem")` (with death and missingness).
 -   *Posterior analysis tools* are implemented in
-    `r pkg("beanz")` (Bayesian HTE models),
     `r pkg("cjoint")` (conjoint analysis for survey
     experiments).
 -   Design and analysis of *two-stage preference trials* is implemented
