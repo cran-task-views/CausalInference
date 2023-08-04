@@ -3,7 +3,7 @@ name: CausalInference
 topic: Causal Inference
 maintainer: Imke Mayer, Pan Zhao, Noah Greifer, Nick Huntington-Klein, Julie Josse
 email: imke.mayer@inria.fr
-version: 2023-07-21
+version: 2023-08-04
 source: https://github.com/cran-task-views/CausalInference/
 ---
 
@@ -157,9 +157,7 @@ contact the maintainers.
     `r pkg("mediation", priority = "core")` and `r pkg("cfdecomp")`
     implement identification, inference and
     `r pkg("mediation")` additionally also provides
-    sensitivity analysis for causal mediation effects. Linear mediation
-    analysis for complex surveys using balanced repeated replication is
-    implemented in `r pkg("MedSurvey")`.
+    sensitivity analysis for causal mediation effects.
     `r pkg("paths")` uses an imputation approach to estimate
     path-specific causal effects along with a set of bias formulas for
     conducting sensitivity analysis. `r pkg("regmedint")`
@@ -203,10 +201,8 @@ Some of the above mentioned packages can also be used for heterogeneous
 treatment effect (HTE) estimation.
 
 -   *Bayesian approaches* for individual causal effect estimation are
-    available in several packages including
-    `r pkg("bartCause")` (based on Bayesian Additive
-    Regression Trees) and `r pkg("bcf")` (Bayesian Causal
-    Forest).
+    available in `r pkg("bartCause")` (based on Bayesian Additive
+    Regression Trees).
 -   *Fisherian approaches* for an omnibus test of heterogeneity and decomposition of overall treatment effect heterogeneity into a systematic component explained by covariates and an idiosyncratic component is implemented in `r pkg("hettx")`.
 -   *Efficacious treatment or population subset selection* exploiting
     treatment effect heterogeneity is implemented in
