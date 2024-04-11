@@ -247,7 +247,13 @@ treatment effect (HTE) estimation.
     estimation of individualized treatment rules from observational and
     randomized data with options for variable-selection and gradient boosting
     based estimation, and for outcome model augmentation (for continuous,
-    binary, count, and time-to-event outcomes).
+    binary, count, and time-to-event outcomes). 
+    `r pkg("polle")` provides a unified framework for
+    learning and evaluating finite stage policies based on observational data
+    with methods such as doubly robust restricted Q-learning, policy tree
+    learning,  and outcome weighted learning. Flexible machine learning methods
+    can be used to estimate the nuisance components and valid inference for the 
+    policy value is ensured via cross-fitting.
 -   Estimation of DTR with *variable selection* is proposed by
     `r pkg("ITRLearn")` implements maximin-projection learning
     for recommending a meaningful and reliable individualized treatment
