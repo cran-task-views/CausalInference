@@ -3,7 +3,7 @@ name: CausalInference
 topic: Causal Inference
 maintainer: Imke Mayer, Pan Zhao, Noah Greifer, Nick Huntington-Klein, Julie Josse
 email: imke.mayer@inria.fr
-version: 2023-08-04
+version: 2025-10-17
 source: https://github.com/cran-task-views/CausalInference/
 ---
 
@@ -280,7 +280,7 @@ treatment effect (HTE) estimation.
 In addition, `r pkg("dagitty", priority = "core")` provides
 methods to define different types of graphical models (cpdags, pdag,
 ect.) and to identify adjustment sets (a web-based graphical
-environment is also available: [DAGitty](http://dagitty.net)).
+environment is also available: [DAGitty](http://dagitty.net)). The package `r pkg("ggdag")` produces plots of these causal diagrams from within R.
 
 
 ### [Specific types of data]{#data}
