@@ -1,9 +1,9 @@
 ---
 name: CausalInference
 topic: Causal Inference
-maintainer: Imke Mayer, Pan Zhao, Noah Greifer, Nick Huntington-Klein, Julie Josse
+maintainer: Imke Mayer, Pan Zhao, Nick Huntington-Klein, Julie Josse
 email: imke.mayer@inria.fr
-version: 2025-10-17
+version: 2025-11-12
 source: https://github.com/cran-task-views/CausalInference/
 ---
 
