@@ -187,9 +187,10 @@ generate balance tables and plots before and after covariate balancing. `r pkg("
 Some of the above mentioned packages can also be used for heterogeneous
 treatment effect (HTE) estimation.
 
--   *Bayesian approaches* for individual causal effect estimation are
+-   *Bayesian approaches* for heterogeneous causal effect estimation are
     available in `r pkg("bartCause")` (based on Bayesian Additive
-    Regression Trees).
+    Regression Trees) and `r pkg("stochtree")` (which implements the Bayesian
+    Causal Forest method, based on Bayesian Additive Regression Trees).
 -   *Fisherian approaches* for an omnibus test of heterogeneity and decomposition of overall treatment effect heterogeneity into a systematic component explained by covariates and an idiosyncratic component is implemented in `r pkg("hettx")`.
 -   *Efficacious treatment or population subset selection* exploiting
     treatment effect heterogeneity is implemented in
