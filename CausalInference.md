@@ -101,7 +101,7 @@ contact the maintainers.
     estimation of endogenous switching regression models), and
     `r pkg("riskRegression", priority = "core")` (for survival
     outcomes with or without competing risks). For parametric models, g-computation is the same as estimating average marginal effects, which can be achieved using `r pkg("margins")`, `r pkg("marginaleffects")`, `r pkg("modelbased")`, and `r pkg("stdReg")`.
--   *Matching* methods are implemented in `r pkg("MatchIt", priority = "core")`, which provides wrappers for a number of popular methods including propensity score matching and subclassification, (coarsened) exact matching, full matching, and cardinality matching; more specialized matching methods are implemented in some of the packages below, some of which MatchIt depends on. `r pkg("MatchThem")` provides a wrapper for MatchIt with multiply-imputed data. `r pkg("Matching", priority = "core")` performs nearest neighbor and genetic matching and implements Abadie and Imbens-style matching imputation estimators. `r pkg("optmatch")` performs optimal matching using network flows; several other packages rely on the same infrastructure, including `r pkg("DiPs")` (near-fine matching with directional penalties), `r pkg("matchMulti")` (optimal matching for clustered data), `r pkg("rcbalance")` and `r pkg("rcbsubset")` (optimal matching for refined balance), and `r pkg("approxmatch")` (near-optimal matching for multi-category treatments). Other packages include `r pkg("cem")` (coarsened exact matching), `r pkg("stratamatch")` (matching and stratification in large datasets), `r pkg("FLAME")` (almost-matching-exactly via learned weighted Hamming distance), `r pkg("PanelMatch")` (matching with time-series cross-sectional data), and `r pkg("CausalGPS")` (generalized propensity score matching for continuous treatments).
+-   *Matching* methods are implemented in `r pkg("MatchIt", priority = "core")`, which provides wrappers for a number of popular methods including propensity score matching and subclassification, (coarsened) exact matching, full matching, and cardinality matching; more specialized matching methods are implemented in some of the packages below, some of which MatchIt depends on. `r pkg("MatchThem")` provides a wrapper for MatchIt with multiply-imputed data. `r pkg("Matching", priority = "core")` performs nearest neighbor and genetic matching and implements Abadie and Imbens-style matching imputation estimators. `r pkg("optmatch")` performs optimal matching using network flows; several other packages rely on the same infrastructure, including `r pkg("DiPs")` (near-fine matching with directional penalties), `r pkg("matchMulti")` (optimal matching for clustered data), `r pkg("rcbalance")` and `r pkg("rcbsubset")` (optimal matching for refined balance), and `r pkg("approxmatch")` (near-optimal matching for multi-category treatments). Other packages include `r pkg("cem")` (coarsened exact matching), `r pkg("stratamatch")` (matching and stratification in large datasets), `r pkg("FLAME")` (almost-matching-exactly via learned weighted Hamming distance), `r pkg("PanelMatch")` (matching with time-series cross-sectional data), `r pkg("kbal")` (kernel balancing), and `r pkg("CausalGPS")` (generalized propensity score matching for continuous treatments).
 -   *Inverse propensity weighting* (IPW, also known as inverse probability of treatment weighting, IPTW) methods are implemented in `r pkg("WeightIt", priority = "core")`, which provides implementations and wrappers for several popular weighting methods for binary, multi-category, continuous, and longitudinal treatments. `r pkg("MatchThem")` provides a wrapper for WeightIt with multiply-imputed data. `r pkg("PSweight", priority = "core")` offers propensity score weighting and uncertainty estimation using M-estimation. `r pkg("inferference")` offers weighting methods in the context of interference. Several packages offer specialized methods of estimating balancing weights for various treatment types, which may or may not involve a propensity score: `r pkg("CBPS")` (generalized method of moments-based propensity score estimation for binary, multi-category, continuous, and longitudinal treatments), `r pkg("twang")` and `r pkg("twangContinuous")` (propensity score weighting using gradient boosting machines for binary, multi-category, continuous, and longitudinal treatments), `r pkg("sbw")` and `r pkg("optweight")` (optimization-based weights using quadratic programming), and `r pkg("ebal")` (entropy balancing). `r pkg("mvGPS")` estimates weights for multivariate treatments using WeightIt's infrastructure. *Matching-adjusted indirect comparison*, a relative of propensity score weighting when unit-level data is only available for some groups, is available in `r pkg("maicChecks")` and `r pkg("optweight")` (using the `optweight.svy()` function).
 -   *Doubly robust methods* involve both a treatment and outcome model. Augmented IPW (AIPW) is implemented in `r pkg("AIPW")`, `r pkg("PSweight")`, `r pkg("DoubleML")`, `r pkg("grf")` (functions `causal_forest` followed by `average_causal_effect`), and `r pkg("causalweight")`. Targeted maximum likelihood estimation (TMLE, also known as targeted minimum loss-based estimation) is available in `r pkg("drtmle")`, `r pkg("tmle", priority = "core")`, `r pkg("ctmle")` (for TMLE with variable selection), `r pkg("ltmle")` (for longitudinal data), and `r pkg("AIPW")`.
 -   *Difference in differences* methods are implemented in
@@ -144,11 +144,11 @@ contact the maintainers.
     (likelihood-based tests), `r pkg("MultisiteMediation")`
     (multisite trials), `r pkg("DirectEffects")` (controlled
     direct effect when fixing a potential mediator to a specific value),
-    `r pkg("medflex")` (natural effect models). `r pkg("causalweight")` and `r pkg("twangMediation")`
+    `r pkg("medflex")` (natural effect models). `r pkg("causalweight")`, `r pkg("rmpw")`, and `r pkg("twangMediation")`
     implement weighted estimators for mediation.
     `r pkg("mediation", priority = "core")` and `r pkg("cfdecomp")`
-    implement identification, inference and
-    `r pkg("mediation")` additionally also provides
+    implement identification, inference and both
+    `r pkg("mediation")` nad `r pkg("mediationsense")` provide
     sensitivity analysis for causal mediation effects.
     `r pkg("paths")` uses an imputation approach to estimate
     path-specific causal effects along with a set of bias formulas for
@@ -180,7 +180,7 @@ In addition, `r pkg("causalsens")`, `r pkg("OVtool")`,
 and `r pkg("ui")` implements functions to derive uncertainty
 intervals and conduct sensitivity analysis for missing data and
 unobserved confounding. `r pkg("cobalt", priority = "core")` and `r pkg("tableone")`
-generate balance tables and plots before and after covariate balancing. `r pkg("WhatIf")` offers methods to assess overlap and extrapolation.
+generate balance tables and plots before and after covariate balancing, while `r pkg("BalanceCheck")` offers tests for balance between groups. `r pkg("WhatIf")` offers methods to assess overlap and extrapolation.
 
 ### [Heterogeneous treatment effect estimation]{#hte}
 
@@ -203,9 +203,9 @@ treatment effect (HTE) estimation.
     `r pkg("EffectTreat")` (exploiting correlation-based
     expressions), and for randomized data by
     `r pkg("evalITR")` (it additionally allows for defining
-    budget constraints) and by `r pkg("SortedEffects")`
+    budget constraints) by `r pkg("SortedEffects")`
     (estimation and inference methods for sorted causal effects and
-    classification analysis).
+    classification analysis), and by `r pkg("CRE")` (exploration of heterogeneity patterns using an ensemble-of-trees approach).
 -   `r pkg("stepp")` provides diagnostic plots to explore
     *treatment-covariate interactions* for survival or generalized
     linear models, applicable for continuous, binomial and count data
@@ -224,7 +224,7 @@ treatment effect (HTE) estimation.
     causal effect estimates for modified treatment policies, dynamic treatment regimes (and static interventions). `r pkg("DTRreg")` proposes different
     methods such as G-estimation, dynamic weighted OLS and Q-learning, as well
     as several variance estimation approaches, it can handle survival
-    outcomes and continuous treatment variables. `r pkg("QTOCen")` provides
+    outcomes and continuous treatment variables, while `r pkg("DTRKernSmooth")` uses kernel smoothing to examine optimal linear regimes. `r pkg("QTOCen")` provides
     methods for estimation of mean- and quantile-optimal treatment regimes
     from censored data. `r pkg("simml")` and `r pkg("simsl")` offer
     Single-Index Models with Multiple-Links for, respectively, experimental
@@ -281,7 +281,7 @@ treatment effect (HTE) estimation.
 In addition, `r pkg("dagitty", priority = "core")` provides
 methods to define different types of graphical models (cpdags, pdag,
 ect.) and to identify adjustment sets (a web-based graphical
-environment is also available: [DAGitty](http://dagitty.net)). The package `r pkg("ggdag")` produces plots of these causal diagrams from within R.
+environment is also available: [DAGitty](http://dagitty.net)). The package `r pkg("ggdag")` produces plots of these causal diagrams from within R. The package package `r pkg("causalHyperGraph")` instead provides plots of causal hypergraphs for configurational comparative methods, the .
 
 
 ### [Specific types of data]{#data}
@@ -298,6 +298,7 @@ environment is also available: [DAGitty](http://dagitty.net)). The package `r pk
     `r pkg("causaldata")` package.
 -   Weighted, two-mode, and longitudinal networks analysis is
     implemented in `r pkg("tnet")`
+-   Latent treatment effect estimation in text corpora is implemented in `r pkg("texteffect")`.  
 
 ### [Specific application fields]{#applications}
 
