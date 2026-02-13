@@ -148,7 +148,7 @@ contact the maintainers.
     implement weighted estimators for mediation.
     `r pkg("mediation", priority = "core")` and `r pkg("cfdecomp")`
     implement identification, inference and both
-    `r pkg("mediation")` nad `r pkg("mediationsense")` provide
+    `r pkg("mediation")` nad `r pkg("mediationsens")` provide
     sensitivity analysis for causal mediation effects.
     `r pkg("paths")` uses an imputation approach to estimate
     path-specific causal effects along with a set of bias formulas for
