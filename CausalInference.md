@@ -1,7 +1,7 @@
 ---
 name: CausalInference
 topic: Causal Inference
-maintainer:  Achim Ahrens, Philipp Bach, Julie Josse, Nick Huntington-Klein,  Lucy D'Agostino McGowan,  Pan Zhao
+maintainer: Pan Zhao, Achim Ahrens, Philipp Bach, Julie Josse, Nick Huntington-Klein, Lucy D'Agostino McGowan
 email: pz298@cam.ac.uk
 version: 2026-03-04
 source: https://github.com/cran-task-views/CausalInference/
