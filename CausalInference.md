@@ -150,6 +150,7 @@ contact the maintainers.
     implement identification, inference and both
     `r pkg("mediation")` nad `r pkg("mediationsens")` provide
     sensitivity analysis for causal mediation effects.
+    `r pkg("bama")` performs Bayesian mediation analysis with high-dimensional mediators. 
     `r pkg("paths")` uses an imputation approach to estimate
     path-specific causal effects along with a set of bias formulas for
     conducting sensitivity analysis. `r pkg("regmedint")`
