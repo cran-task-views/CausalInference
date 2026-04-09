@@ -158,7 +158,7 @@ contact the maintainers.
     interaction term. `r pkg("bmem")` provides several different
     methods for mediation analysis in the case of missing data (listwise/pairwise 
     deletion, multiple imputation, two stage maximum likelihood) and power analysis 
-    for mediation analysis. 
+    for mediation analysis. `r pkg("bmemLavaan")` mediation analysis with missing data and non-normal data.
 -   Under *interference,* causal effect estimation can be achieved using
     `r pkg("inferference")` by inverse-probability weighted
     (IPW) estimators.
