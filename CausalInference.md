@@ -214,20 +214,16 @@ treatment effect (HTE) estimation.
 
 ### [Policy learning and dynamic treatment regimes]{#policy}
 
-*Direct methods* perform a direct classification task: outcome-weighted learning `r pkg("DTRlearn2")`; efficient augmentation/relaxation learning (EARL), residual learning, weighted learning, value-search methods based on Augmented Inverse Probability Weighted Estimators and Inverse Probability Weighted Estimators `r pkg("DynTxRegime")`.
-*Indirect methods*, which proceed through nuisance estimation to perform Q-learning `r pkg("DTRlearn2")`, `r pkg("DynTxRegime")`, `r pkg("DTRreg")`, Interactive Q-Learning `r pkg("DynTxRegime")` or double robust Q-Learning.
+- *Direct methods* perform a direct classification task: outcome-weighted learning `r pkg("DTRlearn2")`; efficient augmentation/relaxation learning (EARL), residual learning, weighted learning, value-search methods based on Augmented Inverse Probability Weighted Estimators and Inverse Probability Weighted Estimators `r pkg("DynTxRegime")`.
+- *Indirect methods*, which proceed through nuisance estimation to perform Q-learning `r pkg("DTRlearn2")`, `r pkg("DynTxRegime")`, `r pkg("DTRreg")`, Interactive Q-Learning `r pkg("DynTxRegime")` or double robust Q-Learning.
 r pkg("polle") provides a unified framework for learning and evaluating finite stage policies based on observational data with methods such as doubly robust restricted Q-learning, policy tree learning, and outcome weighted learning. Flexible machine learning methods can be used to estimate the nuisance components and valid inference for the policy value is ensured via cross-fitting. The package wraps and extends some functionalities from other packages  `r pkg("DynTxRegime") `,  `r pkg("policytree") `,  `r pkg("grf") `,  `r pkg("DTRlearn2"))`.
-
-*For sequential, multiple assignment, randomized trials (SMART)*
+- *For sequential, multiple assignment, randomized trials (SMART)*
 Set of tools for determining the necessary sample size in order to identify the optimal DTR `r pkg("smartsizer")`. Estimators for general K-stage DTRs from SMARTs `r pkg("DTRlearn2")`.
-
-*With variable selection*
+- *With variable selection*
 Outcome weighted learning with variable selection via penalization `r pkg("DTRlearn2")`. Estimation of individualized treatment rules from observational and randomized data with options for variable-selection and gradient boosting based estimation, and for outcome model augmentation for continuous, binary, count, and time-to-event outcomes `r pkg("personalized")`. Penalized regression that can simultaneously estimate the optimal treatment strategy and identify important variables for either censored or uncensored continuous response `r pkg("OTRselect")`.
-
-*Other methods using quantiles*:
+- *Other methods using quantiles*:
 Marginal quantile, marginal mean, and mean absolute difference and doubly-robust methods for quantile-optimal treatment regime `r pkg("quantoptr")`, estimation of mean- and quantile-optimal treatment regimes from censored data `r pkg("QTOCen")`.
-
-*Other approaches*
+- *Other approaches*
 Learn optimal policies via doubly robust empirical welfare maximization over trees `r pkg("policytree")`. Doubly-robust causal effect estimated for modified treatment policies, dynamic treatment regimes and static interventions `r pkg("lmtp")`. G-estimation, dynamic weighted OLS, several variance estimation approaches with possibilities to handle survival outcomes and continuous treatment variables `r pkg("DTRreg")`. Methods using kernel smoothing to examine optimal linear regimes `r pkg("DTRKernSmooth")`. Single-Index Models with Multiple-Links for, respectively, experimental and observational data `r pkg("simml")`, `r pkg("simsl")`
 
 
