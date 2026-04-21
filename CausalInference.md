@@ -74,6 +74,7 @@ contact the maintainers.
     model and no unmeasured confounders.
 -   A time series causal inference model for RCT under *spillover
     effect* is implemented in `r pkg("SPORTSCausal")`.
+-   `r pkg("cosa")` offers a means of performing power analysis for multi-level randomized trials that have continuous outcomes.
 
 ### [Average treatment effect estimation and other univariate treatment effect estimates]{#ate}
 
@@ -300,7 +301,7 @@ environment is also available: [DAGitty](http://dagitty.net)). The package `r pk
     trait loci (QTL) genotypes to infer causal relationships among
     phenotypes: functions to simultaneously infer causal graphs and
     genetic architecture (acyclic and cyclic) are implemented in
-    `r pkg("qtlnet")`.
+    `r pkg("qtlnet")`. `r pkg("cophescan")` takes a Bayesian approach to causal inference in genetic systems, addressing gene/trait confounding that arises due to linkage disequilibrium.
 -   `r pkg("tools4uplift")` uplift modeling aims at predicting
     the causal effect of an action such as a marketing campaign on a
     particular individual.
