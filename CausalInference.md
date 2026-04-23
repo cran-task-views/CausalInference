@@ -182,7 +182,7 @@ In addition, `r pkg("causalsens")`, `r pkg("OVtool")`,
 and `r pkg("ui")` implements functions to derive uncertainty
 intervals and conduct sensitivity analysis for missing data and
 unobserved confounding. `r pkg("cobalt", priority = "core")` and `r pkg("tableone")`
-generate balance tables and plots before and after covariate balancing, while `r pkg("BalanceCheck")` offers tests for balance between groups. `r pkg("WhatIf")` offers methods to assess overlap and extrapolation.
+generate balance tables and plots before and after covariate balancing, while `r pkg("BalanceCheck")` offers tests for balance between groups. `r pkg("Counternull")` provides methods for effect testing using randomization inference. `r pkg("WhatIf")` offers methods to assess overlap and extrapolation.
 
 ### [Heterogeneous treatment effect estimation]{#hte}
 
@@ -212,6 +212,7 @@ treatment effect (HTE) estimation.
     *treatment-covariate interactions* for survival or generalized
     linear models, applicable for continuous, binomial and count data
     arising from two or more treatment arms of a clinical trial.
+-   There are several approaches to HTE estimation that come out of machine learning. Causal forests, as covered in `r pkg("grf")` are one. Another, using an ensemble-of-trees approach to discover heterogeneity, is in `r pkg("CRE")`.
 
 ### [Policy learning and dynamic treatment regimes]{#policy}
 
