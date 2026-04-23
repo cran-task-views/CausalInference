@@ -110,9 +110,9 @@ contact the maintainers.
     choices for nuisance function estimation),
     `r pkg("bacondecomp")` (using the Goodman-Bacon
     decomposition to allow for variation in treatment timing),
-    `r pkg("did")` (for cases with more than two periods and
+    `r pkg("did")` and `r pkg("etwfe")` (for cases with more than two periods and
     with variation in treatment timing), `r pkg("fixest")` (Sun & Abraham
-    estimator), and in `r pkg("qte")`.
+    estimator), in `r pkg("qte")`, and using a two-stage approach in `r pkg("did2s")`.
 -   *Quantile treatment effects* can be estimated using the
     `r pkg("qte")`, `r pkg("Counterfactual")` and
     `r pkg("grf")` packages.
@@ -177,7 +177,7 @@ contact the maintainers.
     in the `r view("Econometrics")` task view.
 
 In addition, `r pkg("causalsens")`, `r pkg("OVtool")`,
-`r pkg("dstat")`, `r pkg("sensemakr")` and `r pkg("EValue")` provide functions for *sensitivity analyses*
+`r pkg("dstat")`, `r pkg("sensemakr")`, `r pkg("episensr")`, and `r pkg("EValue")` provide functions for *sensitivity analyses*
 (for unmeasured confounding, selection bias, measurement error),
 and `r pkg("ui")` implements functions to derive uncertainty
 intervals and conduct sensitivity analysis for missing data and
@@ -205,9 +205,7 @@ treatment effect (HTE) estimation.
     `r pkg("EffectTreat")` (exploiting correlation-based
     expressions), and for randomized data by
     `r pkg("evalITR")` (it additionally allows for defining
-    budget constraints) by `r pkg("SortedEffects")`
-    (estimation and inference methods for sorted causal effects and
-    classification analysis), and by `r pkg("CRE")` (exploration of heterogeneity patterns using an ensemble-of-trees approach).
+    budget constraints), and by `r pkg("CRE")` (exploration of heterogeneity patterns using an ensemble-of-trees approach).
 -   `r pkg("stepp")` provides diagnostic plots to explore
     *treatment-covariate interactions* for survival or generalized
     linear models, applicable for continuous, binomial and count data
