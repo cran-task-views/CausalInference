@@ -71,7 +71,7 @@ contact the maintainers.
     g-estimation to estimate the causal effect of a treatment in a
     two-armed randomised control trial where non-compliance exists and
     is measured, under an assumption of an accelerated failure time
-    model and no unmeasured confounders.
+    model and no unmeasured confounders. `r pkg("factiv")` implements instrumental variables estimation for factorial experiments; similarly see other instrumental variables methods below for the handling of non-compliance.
 -   A time series causal inference model for RCT under *spillover
     effect* is implemented in `r pkg("SPORTSCausal")`.
 -   `r pkg("cosa")` offers a means of performing power analysis for multi-level randomized trials that have continuous outcomes.
@@ -115,7 +115,7 @@ contact the maintainers.
     estimator), in `r pkg("qte")`, and using a two-stage approach in `r pkg("did2s")`.
 -   *Quantile treatment effects* can be estimated using the
     `r pkg("qte")`, `r pkg("Counterfactual")` and
-    `r pkg("grf")` packages.
+    `r pkg("grf")` packages. The related method of *panel event study*, as common in finance, can be performed using `r pkg("eventstudyr")`.
 -   *Odds ratio* estimation and power calculation for the *Trend in
     Trend* model is implemented in `r pkg("TrendInTrend")`.
 -   *Synthetic control* methods are implemented in
@@ -280,7 +280,8 @@ environment is also available: [DAGitty](http://dagitty.net)). The package `r pk
     `r pkg("causaldata")` package.
 -   Weighted, two-mode, and longitudinal networks analysis is
     implemented in `r pkg("tnet")`
--   Latent treatment effect estimation in text corpora is implemented in `r pkg("texteffect")`.  
+-   Latent treatment effect estimation in text corpora is implemented in `r pkg("texteffect")`.
+-   Simulated data that respects causal diagrams and causal relationships can be built using `r pkg("graphsim")`, which has a focus on genetic applications.
 
 ### [Specific application fields]{#applications}
 
