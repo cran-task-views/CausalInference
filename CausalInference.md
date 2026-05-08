@@ -194,23 +194,19 @@ treatment effect (HTE) estimation.
     Regression Trees) and `r pkg("stochtree")` (which implements the Bayesian
     Causal Forest method, based on Bayesian Additive Regression Trees).
 -   *Fisherian approaches* for an omnibus test of heterogeneity and decomposition of overall treatment effect heterogeneity into a systematic component explained by covariates and an idiosyncratic component is implemented in `r pkg("hettx")`.
--   *Efficacious treatment or population subset selection* exploiting
-    treatment effect heterogeneity is implemented in
-    `r pkg("FindIt")` and `r pkg("grf")`. This
-    latter package supports missing covariate values using the Missing
+-   *Efficacious treatment or population subset selection* which either estimates treatment effects by carefully choosing subgroups or exploits that heterogeneity is implemented in
+    `r pkg("FindIt")` and `r pkg("grf")`. `r pkg("grf")` also supports missing covariate values using the Missing
     Incorporated in Attributes approach. Additionally the package
     `r pkg("subdetect")` provides a test for the existence of
     a subgroup with enhanced treatment effect.
 -   Other approaches for personalized causal predictions are provided by
     `r pkg("EffectTreat")` (exploiting correlation-based
     expressions), and for randomized data by
-    `r pkg("evalITR")` (it additionally allows for defining
-    budget constraints), and by `r pkg("CRE")` (exploration of heterogeneity patterns using an ensemble-of-trees approach).
+    `r pkg("evalITR")`, and by `r pkg("CRE")` (exploration of heterogeneity patterns using an ensemble-of-trees approach).
 -   `r pkg("stepp")` provides diagnostic plots to explore
     *treatment-covariate interactions* for survival or generalized
     linear models, applicable for continuous, binomial and count data
     arising from two or more treatment arms of a clinical trial.
--   There are several approaches to HTE estimation that come out of machine learning. Causal forests, as covered in `r pkg("grf")` are one. Another, using an ensemble-of-trees approach to discover heterogeneity, is in `r pkg("CRE")`.
 
 ### [Policy learning and dynamic treatment regimes]{#policy}
 
