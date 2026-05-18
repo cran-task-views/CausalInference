@@ -267,7 +267,7 @@ environment is also available: [DAGitty](http://dagitty.net)). The package `r pk
 -   *Longitudinal data / time series and censored data*: Causal effect
     estimation for time series is implemented in
     `r pkg("CausalImpact")` (using a Bayesian approach) and
-    `r pkg("CausalMBSTS")` (for multivariate responses).
+    `r pkg("CausalMBSTS")` (for multivariate responses). `r pkg("dynamite") implements methods for causal inference for longitudinal data based on Bayesian dynamic multivariate panel models.
 -   *GWAS and SNPs*: `r pkg("CKAT")` implements kernel based
     methods to jointly test genetic main effect and gene-treatment
     interaction effects for a set of SNPs.
