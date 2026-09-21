@@ -276,7 +276,6 @@ environment is also available: [DAGitty](http://dagitty.net)). The package `r pk
     `r pkg("causaldata")` package.
 -   Weighted, two-mode, and longitudinal networks analysis is
     implemented in `r pkg("tnet")`
--   Latent treatment effect estimation in text corpora is implemented in `r pkg("texteffect")`.
 -   Simulated data that respects causal diagrams and causal relationships can be built using `r pkg("graphsim")`, which has a focus on genetic applications.
 
 ### [Specific application fields]{#applications}
