@@ -80,8 +80,7 @@ contact the maintainers.
 
 -   *Regression models* where the causal estimand is a regression
     parameter are implemented in `lm()` and `glm()` from stats, as well as in a number of more specialized packages such as `r pkg("fixest", priority = "core")`,
-    `r pkg("estimatr")`, `r pkg("CausalGAM")` (using generalized additive
-    models), `r pkg("sampleSelection")` (two-step and maximum
+    `r pkg("estimatr")`, `r pkg("sampleSelection")` (two-step and maximum
     likelihood estimation of Heckman-type sample selection models),
     `r pkg("BCEE")` (Bayesian causal effect estimation for
     binary or continuous treatment and outcomes),
