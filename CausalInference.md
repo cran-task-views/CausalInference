@@ -166,9 +166,7 @@ contact the maintainers.
     Models* are implemented in `r pkg("interflex")`.
 -   `r pkg("InvariantCausalPrediction")` provides confidence
     intervals for causal effects, using data collected in different
-    experimental or environmental conditions (with hidden variables),
-    extensions to nonlinear models are implemented in
-    `r pkg("nonlinearICP")`.
+    experimental or environmental conditions (with hidden variables).
 -   *Regression discontinuity design* (RDD) methods are implemented in
     `r pkg("rdrobust")` (offering robust confidence interval construction and
     bandwidth selection). A more detailed curated list of packages for
