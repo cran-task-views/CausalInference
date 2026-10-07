@@ -246,8 +246,6 @@ Learn optimal policies via doubly robust empirical welfare maximization over tre
     DAG and in `r pkg("InvariantCausalPrediction")` using
     adjustment sets derived from conditional independence tests that
     leverage causal invariances across environments.
--   *Causal networks estimation* is implemented in
-    `r pkg("CompareCausalNetworks")`.
 -   `r pkg("generalCorr")` computes generalized correlations,
     partial correlations and *plausible causal paths*.
 
