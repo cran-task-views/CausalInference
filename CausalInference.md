@@ -132,9 +132,7 @@ contact the maintainers.
     `r pkg("ivmte")` provides a choice-theoretic
     interpretation to IV models using *Marginal Treatment Effects* to
     extrapolate from the compliers to estimate treatment effects for
-    other subpopulations. `r pkg("LARF")` uses
-    Local Average Response Functions for IV estimation of treatment
-    effects with binary endogenous treatment and instrument.
+    other subpopulations. 
     `r pkg("ivdesc")` gives descriptive statistics for the 
     complier, never-taker and always-taker subpopulations. 
     More details and a longer list of packages for
