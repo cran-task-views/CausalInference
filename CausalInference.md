@@ -259,6 +259,10 @@ environment is also available: [DAGitty](http://dagitty.net)). The package `r pk
     estimation for time series is implemented in
     `r pkg("CausalImpact")` (using a Bayesian approach) and
     `r pkg("CausalMBSTS")` (for multivariate responses).
+    For panel data, `r pkg("rmoriebricklayer")` implements staggered
+    adoption, synthetic difference in differences, difference in differences
+    after matching on pre-treatment trajectories and double machine learning
+    with fixed effects.
 -   *GWAS and SNPs*: `r pkg("CKAT")` implements kernel based
     methods to jointly test genetic main effect and gene-treatment
     interaction effects for a set of SNPs.
