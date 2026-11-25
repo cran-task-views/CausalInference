@@ -176,7 +176,11 @@ In addition, `r pkg("causalsens")`, `r pkg("OVtool")`,
 (for unmeasured confounding, selection bias, measurement error),
 and `r pkg("ui")` implements functions to derive uncertainty
 intervals and conduct sensitivity analysis for missing data and
-unobserved confounding. `r pkg("cobalt", priority = "core")` and `r pkg("tableone")`
+unobserved confounding. `r pkg("regsensitivity")` computes identified sets and breakdown points for
+linear regression coefficients under omitted variable bias, allowing the
+observed controls themselves to be endogenous (Diegert, Masten and Poirier)
+and covering Oster's (2019) coefficient-stability approach.
+`r pkg("cobalt", priority = "core")` and `r pkg("tableone")`
 generate balance tables and plots before and after covariate balancing, while `r pkg("BalanceCheck")` offers tests for balance between groups. `r pkg("Counternull")` provides methods for effect testing using randomization inference. `r pkg("WhatIf")` offers methods to assess overlap and extrapolation.
 
 ### [Heterogeneous treatment effect estimation]{#hte}
